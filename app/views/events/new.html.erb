@@ -1,0 +1,11 @@
+  <%= simple_form_for @event do |f| %>
+    <%= f.input :name %>
+    <%= f.input :about %>
+    <%= f.input :venue_name %>
+    <%= f.input :address %>
+    <%= f.input :start_date %>
+    <%= f.input :start_time %>
+    <%= f.input :end_date %>
+    <%= f.input :end_time %>
+    <%= f.submit "Create event", class: "btn btn-secondary", style: "color: white" %>
+  <% end %>
