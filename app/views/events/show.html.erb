@@ -17,10 +17,12 @@
     <p>Lestat just created this to check that the photo upload is working</p>
     <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
   </div>
+  <div> <%= link_to "Create spots",  new_event_spot_path(@event) %></div>
   <div>
     <p> YOUR EVENT SPOTS: <% @event.spots.each do |spot|%>
       <%= spot.role %>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
+      <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
     <% end %>
     </p>
   </div>
