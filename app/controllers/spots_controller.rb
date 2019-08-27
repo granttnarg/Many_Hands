@@ -33,6 +33,13 @@ class SpotsController < ApplicationController
     end
   end
 
+  def destroy
+    @spot = Spot.find(params[:id])
+    authorize @spot
+    @event = @spot.event
+    @spot.destroy
+    redirect_to event_path(@event)
+  end
 
   private
 
