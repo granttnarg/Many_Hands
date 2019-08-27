@@ -3,8 +3,8 @@ class EventPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-    def create
-      true
+  end
+  def create
+    return true
   end
 end
