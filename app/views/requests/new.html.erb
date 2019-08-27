@@ -1,2 +1,6 @@
-<h1>Requests#new</h1>
-<p>Find me in app/views/requests/new.html.erb</p>
+<%= simple_form_for [@spot, @request] do |f| %>
+  <%= f.input :status, collection: Request.statuses.keys %>
+  <%= f.input :note %>
+  <%= f.submit "Create Request", class: "btn btn-primary" %>
+
+<% end %>

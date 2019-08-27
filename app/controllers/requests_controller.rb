@@ -1,5 +1,4 @@
 class RequestsController < ApplicationController
-  skip_before_action :authenticate_user!
 
   def new
     @request = Request.new
@@ -13,8 +12,12 @@ class RequestsController < ApplicationController
     @spot = Spot.find(params[:spot_id])
     @request.spot = @spot
     @user = current_user
-    @request.user = @user
-    @request.save
+    @request.user_id = current_user.id
+    if @request.save
+      redirect_to event_path(@spot.event)
+    else
+      render :new
+    end
   end
 
   private
