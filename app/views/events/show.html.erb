@@ -3,15 +3,13 @@
       <h1 style="padding-bottom: 25px;">
         <strong><%= @event.name %></strong>
       </h1>
-   <div><%#= cl_image_tag @superpower.photo, height: 300, crop: :fill, class: "show-image" %>
-  </div>
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.address %>
   </div>
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
   </div>
-    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
-  </div>
-      <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">from <%= @event.start_date %> to
+
+      <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><p>from <%= @event.start_date %> to
         <%= @event.start_date %> at <%= @event.start_time %> until  <%= @event.end_time %>
+        </p>
   </div>
 </div>

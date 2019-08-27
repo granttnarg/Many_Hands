@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def new
     @event = Event.new
     authorize @event
@@ -7,19 +6,18 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    authorize @event
     @event.user = current_user
+    authorize @event
     if @event.save
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       render :new
     end
   end
 
   def show
-    @user = User.find(params[:id])
-    @events = Event.where(user_id: params[:id])
-    @event = Event.find(event_params[:id])
+    @event = Event.find(params[:id])
+    authorize @event
   end
 
   private
