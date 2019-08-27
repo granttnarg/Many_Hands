@@ -2,10 +2,12 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
     @event = Event.new(event_params)
+    authorize @event
     @event.user = current_user
     if @event.save
       redirect_to events_path
