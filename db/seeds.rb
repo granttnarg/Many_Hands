@@ -11,7 +11,7 @@ Spot.destroy_all if Rails.env.development?
 Event.destroy_all
 User.destroy_all if Rails.env.development?
 
-user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456")
+user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456", is_creative?: false)
 event_one = Event.new(name: "The Big Party")
 event_one.user = user_one
 user_one.save!
@@ -20,7 +20,7 @@ spot_one = Spot.new(role: "saxophone", description: "Looking for someone who can
 spot_one.event = event_one
 spot_one.save!
 
-user_two = User.new(first_name: "Jim", last_name: "Jimmy", email: "jim@example.com", password: "123456")
+user_two = User.new(first_name: "Jim", last_name: "Jimmy", email: "jim@example.com", password: "123456", is_creative?: false )
 event_two = Event.new(name: "Best Event Ever")
 event_two.user = user_two
 user_two.save!
@@ -31,6 +31,15 @@ spot_two.save!
 spot_three = Spot.new(role: "singer", description: "Looking for a powerful rnb singer", category: 1 )
 spot_three.event = event_two
 spot_three.save!
+
+user_three = User.new(first_name: "Bill", last_name: "Billy", email: "bill@example.com", password: "123456", is_creative?: true )
+
+request_one = Request.new(status: 0, note: "Loved your painting, check out our event you would be perfect for it!")
+request_one.save!
+request_one.spot = spot_two
+request_one.user = user_three
+request_one.save!
+
 
 
 
