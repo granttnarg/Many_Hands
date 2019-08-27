@@ -12,10 +12,7 @@ class SpotsController < ApplicationController
     @event = Event.find(params[:event_id])
     @spot.event = @event
     @spot.save
-    #@event.user_id = current_user
-
   end
-
 
   private
 
