@@ -1,0 +1,17 @@
+<div class="show-conatiner" style="text-align: center;padding-top: 95px;">
+    <br>
+      <h1 style="padding-bottom: 25px;">
+        <strong><%= @event.name %></strong>
+      </h1>
+  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.address %>
+  </div>
+  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
+  </div>
+
+      <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><p>from <%= @event.start_date %> to
+        <%= @event.start_date %> at <%= @event.start_time %> until  <%= @event.end_time %>
+        </p>
+  </div>
+
+  <%= link_to "Edit",  edit_event_path(@event)%>
+</div>
