@@ -11,11 +11,27 @@ class SpotsController < ApplicationController
     authorize @spot
     @event = Event.find(params[:event_id])
     @spot.event = @event
-    @spot.save
-    #@event.user_id = current_user
-
+    if @spot.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
+  def edit
+    @spot = Spot.find(params[:id])
+    authorize @spot
+  end
+
+  def update
+    @spot = Spot.find(params[:id])
+    authorize @spot
+    if @spot.update(spot_params)
+      redirect_to event_path(@spot.event)
+    else
+      render :edit
+    end
+  end
 
   private
 

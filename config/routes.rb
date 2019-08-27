@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :events, only: [:new, :create, :show, :edit, :update] do
     resources :spots, only: [:new, :create]
   end
+  resources :spots, only: [:edit, :update]
 end
