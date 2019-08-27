@@ -14,6 +14,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @events = Event.where(user_id: params[:id])
+    @event = Event.find(event_params[:id])
+  end
+
   private
 
   def event_params
