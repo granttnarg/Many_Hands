@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :requests
   has_many :socials
   has_many :spots, through: :events
+  mount_uploader :profile_photo, PhotoUploader
+  mount_uploader :coverphoto, PhotoUploader
 
 end
