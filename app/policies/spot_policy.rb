@@ -1,4 +1,4 @@
-class EventPolicy < ApplicationPolicy
+class SpotPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -13,7 +13,5 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true
-  end
+
 end
