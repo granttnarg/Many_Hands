@@ -21,6 +21,13 @@
   <div>
     <p> YOUR EVENT SPOTS: <% @event.spots.each do |spot|%>
       <%= spot.role %>
+      <br>
+      <% spot.requests.each do |request| %>
+        <ul>
+          <li style="list-style: none">Request info: <%= request.note %></li>
+        </ul>
+      <% end %>
+      <br>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
       <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
