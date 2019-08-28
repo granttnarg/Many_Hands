@@ -33,34 +33,40 @@
  <!--Edit/delete this event button -->
   <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
   <br>
-  <p><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <p><%= link_to "Delete this Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
   </div>
   <div class="admin-spot-control">
     <!-- create spot button -->
     <div class="create-spot">
-    <div> <%= link_to "Create New spots",  new_event_spot_path(@event) %>
+    <br>
+    <div> <%= link_to "Create New spots",  new_event_spot_path(@event), class: 'btn-spot' %>
     </div>
     </div>
+    <br>
     <div class="open-spots-control">
-      <p> You can edit/delete these spot </p>
+      <h5> Control your spots </h5>
 <!--       with edit button on it -->
+    <div class="each-spot">
       <% @event.spots.each do |spot|%>
-        <%= spot.role %>
+        <p><strong><%= spot.role %></strong></p>
         <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
-          <p>No confirmed request</p>
+          <p>status:No confirmed request</p>
         <% else %>
-          <p>Spot already filled</p>
+          <p>status: spot already filled</p>
         <% end %>
+        <div class="inbox">
         <% spot.requests.each do |request| %>
-        <ul>
-          <li style="list-style: none">Here are the request <%= request.note %></li>
-        </ul>
+          <ul>
+            <li style="list-style: none"> Message from the <%= request.user.first_name %>: <%= request.note %></li>
+          </ul>
         <% end %>
+        </div>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
       <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
       <% end %>
     </div>
+  </div>
 
     <div class="see-the-requests-to-spot">
 
