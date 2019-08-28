@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/users", to: 'pages#users'
 
-  resources :events, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :events, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
     resources :spots, only: [:new, :create]
   end
 

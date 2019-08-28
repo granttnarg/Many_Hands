@@ -1,5 +1,5 @@
 <%= simple_form_for [@event, @spot] do |f| %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Spot.categories.keys%>
   <%= f.input :role %>
   <%= f.input :description %>
   <%= f.submit "Update Spot", class: "btn btn-primary" %>

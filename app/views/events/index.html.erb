@@ -1,0 +1,23 @@
+
+ <div class="container">
+  <div class="cards">
+    <% @events.each do |event| %>
+        <%= cl_image_tag event.photo, height: 300, width: 400, crop: :fill %>
+        <div class="description">
+        <%= link_to event.name, event_path(event) %>
+        <%= event.name %>
+        <%= event.venue_name %>
+      </div>
+  <% end %>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
