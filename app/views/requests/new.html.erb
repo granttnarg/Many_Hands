@@ -1,6 +1,6 @@
 <%= simple_form_for [@spot, @request] do |f| %>
-  <%= f.input :status, collection: Request.statuses.keys %>
-  <%= f.input :note %>
+  <%= f.input :note, placeholder: "Say something about yourself. What make you the best for the spot?" %>
+  </br>
   <%= f.submit "Create Request", class: "btn btn-primary" %>
 
 <% end %>
