@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   end
 
   def users
-     @users = policy_scope(User)
+    @users = policy_scope(User)
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 end
