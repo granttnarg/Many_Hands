@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for [@event, @spot] do |f| %>
   <%= f.input :category, collection: Spot.categories.keys %>
   <%= f.input :role, input_html: { value: params[:role] } %>
@@ -10,3 +11,4 @@
 
 
 <% end %>
+</div>
