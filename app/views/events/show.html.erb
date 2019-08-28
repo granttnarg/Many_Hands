@@ -30,11 +30,19 @@
       <br>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
+    
+      <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
+        <p>No confirmed request</p>
+      <% else %>
+        <p>Spot filled</p>
+      <% end %>
+    
       <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
       <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
     <% end %>
     </p>
   </div>
+
 
   <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
   <p><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
