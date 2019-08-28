@@ -1,6 +1,9 @@
-<%= simple_form_for [@spot, @request] do |f| %>
-  <%= f.input :status, collection: Request.statuses.keys %>
-  <%= f.input :note %>
-  <%= f.submit "Create Request", class: "btn btn-primary" %>
-
+<% if @spot_confirmed.empty? %>
+  <%= simple_form_for [@spot, @request] do |f| %>
+    <%= f.input :note, placeholder: "Say something about yourself. What make you the best for the spot?" %>
+    </br>
+    <%= f.submit "Create Request", class: "btn btn-primary" %>
+   <% end %>
+<% else %>
+  <p>This spot has already been taken by someone else</p>
 <% end %>

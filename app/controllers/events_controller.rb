@@ -21,6 +21,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @spots = Spot.where(event_id: params[:id])
+    # if @spots.count.positive?
+    #   @users_requests = Request.where(user_id: @spots.first.id)
+    # else
+    #   @users_requests = false
+    # end
     authorize @event
   end
 

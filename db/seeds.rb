@@ -8,6 +8,7 @@
 
 puts "deleting db"
 Spot.destroy_all if Rails.env.development?
+
 Event.destroy_all
 User.destroy_all if Rails.env.development?
 Request.destroy_all if Rails.env.development?
@@ -16,7 +17,7 @@ event_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566918865
 cover_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296013/xa811ufguq5mebljwl8p.jpg"
 profile_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566303086/kfudn3dzyobcebdkauqs.jpg"
 
-user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456", is_creative?: false)
+user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456", is_creative: false)
 user_one.remote_coverphoto_url = cover_photo_one
 user_one.remote_profile_photo_url = profile_photo_one
 
@@ -37,7 +38,7 @@ cover_photo_two = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1565967626
 profile_photo_two = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566303089/xrlmafij2gkxr6sfuqkc.jpg"
 
 
-user_two = User.new(first_name: "Jim", last_name: "Jimmy", email: "jim@example.com", password: "123456", is_creative?: false, coverphoto: "https://res.cloudinary.com/dqnhjr33l/image/upload/v1565967626/photo-1512813195386-6cf811ad3542_n7awjf.jpg", profile_photo: "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566303089/xrlmafij2gkxr6sfuqkc.jpg" )
+user_two = User.new(first_name: "Jim", last_name: "Jimmy", email: "jim@example.com", password: "123456", is_creative: false, coverphoto: "https://res.cloudinary.com/dqnhjr33l/image/upload/v1565967626/photo-1512813195386-6cf811ad3542_n7awjf.jpg", profile_photo: "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566303089/xrlmafij2gkxr6sfuqkc.jpg" )
 user_two.remote_coverphoto_url = cover_photo_two
 user_two.remote_profile_photo_url = profile_photo_two
 
@@ -62,7 +63,7 @@ spot_three.save!
 
 
 
-user_three = User.new(first_name: "Bill", last_name: "Billy", email: "bill@example.com", password: "123456", is_creative?: true)
+user_three = User.new(first_name: "Bill", last_name: "Billy", email: "bill@example.com", password: "123456", is_creative: true)
 
 
 cover_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296014/q8jcbww960exrmyktpdq.jpg"
