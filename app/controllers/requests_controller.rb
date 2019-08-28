@@ -1,9 +1,17 @@
 class RequestsController < ApplicationController
 
   def new
-    @request = Request.new
-    authorize @request
-    @spot = Spot.find(params[:spot_id])
+    @users_requests = Request.where(spot_id: params[:spot_id])
+    @spot_confirmed = @users_requests.where(status: "confirmed")
+    if @spot_confirmed.empty?
+      @request = Request.new
+      authorize @request
+      @spot = Spot.find(params[:spot_id])
+    else
+      authorize Request
+    end
+    # There is a more elegant way to do ^
+    # We should move the logic into the pundit (ask Leon)
   end
 
   def create

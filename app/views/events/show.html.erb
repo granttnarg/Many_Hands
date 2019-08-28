@@ -23,9 +23,15 @@
       <%= spot.role %>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
+      <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
+        <p>No confirmed request</p>
+      <% else %>
+        <p>Spot filled</p>
+      <% end %>
     <% end %>
     </p>
   </div>
+
 
   <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
   <p><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
