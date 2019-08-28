@@ -1,0 +1,5 @@
+<h1>Creatives in your area</h1>
+
+<% policy_scope(@users).each do |user| %>
+  <p><%= "#{user.first_name} #{user.last_name}"%></p>
+<% end %>
