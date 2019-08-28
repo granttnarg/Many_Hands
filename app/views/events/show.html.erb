@@ -63,7 +63,10 @@
     </div>
 
     <div class="see-the-requests-to-spot">
-
+      <h3>Requests:</h3>
+      <% @event.spots.each do |spot| %>
+      <% spot.requests.where(status: "Pending") %>
+      <% end %>
     </div>
     </div>
   <% end %>
