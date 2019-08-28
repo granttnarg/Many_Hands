@@ -9,5 +9,14 @@ class User < ApplicationRecord
   has_many :spots, through: :events
   mount_uploader :profile_photo, PhotoUploader
   mount_uploader :coverphoto, PhotoUploader
+  enum category: [:sound, :visual, :performance, :helping_hand]
 
+  include PgSearch::Model
+  pg_search_scope :search_by_category_and_style_and_skill,
+    against: [ :category, :style, :skill ],
+    using: {
+      tsearch: { prefix: true }
+  } # <-- now `superman batm` will return something!
+
+  scope :creatives, -> { where(is_creative: true )}
 end
