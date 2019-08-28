@@ -1,49 +1,71 @@
-<div class="show-conatiner" style="text-align: center;padding-top: 95px;">
-  <br>
-  <h1 style="padding-bottom: 25px;">
-    <strong><%= @event.name %></strong>
-  </h1>
-  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.address %>
-  </div>
-  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
-  </div>
+<div class="show-conatiner" style="text-align: center;padding-top: 45px;">
 
-  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><p>from <%= @event.start_date %> to
-    <%= @event.start_date %> at <%= @event.start_time %> until  <%= @event.end_time %>
-    </p>
-  </div>
-
-  <div>
-    <p>Lestat just created this to check that the photo upload is working</p>
+  <div class="event-container">
     <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
-  </div>
-  <div> <%= link_to "Create spots",  new_event_spot_path(@event) %></div>
-  <div>
-    <p> YOUR EVENT SPOTS: <% @event.spots.each do |spot|%>
-      <%= spot.role %>
-      <br>
-      <% spot.requests.each do |request| %>
-        <ul>
-          <li style="list-style: none">Request info: <%= request.note %></li>
-        </ul>
-      <% end %>
-      <br>
-      <%= link_to "Edit this spot",  edit_spot_path(spot) %>
-      <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
-    
-      <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
-        <p>No confirmed request</p>
-      <% else %>
-        <p>Spot filled</p>
-      <% end %>
-    
-      <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
-      <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
-    <% end %>
+    <h1 style="padding-bottom: 25px;">
+    <strong><%= @event.name %></strong>
+    </h1>
+    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.address %>
+    </div>
+    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
+    </div>
+    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><p> from <%= @event.start_date %> to
+        <%= @event.start_date %> at <%= @event.start_time %> until  <%= @event.end_time %>
     </p>
+    </div>
   </div>
 
+<% if current_user.is_creative? %>
+  <!-- available spots display here for creatives to see -->
+  <!-- creatives can apply for the spot here -->
+  <div class="show-spots">
+    <h4>Open Spots</h4>
+    <br>
+      <% @event.spots.each do |spot|%>
+      <%= spot.role %>
+      <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
+      <% end %>
+  </div>
 
+<% else %>
+  <div class="organizer-container">
+  <div class="admin-event-control">
+ <!--Edit/delete this event button -->
   <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
+  <br>
   <p><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
+  </div>
+  <div class="admin-spot-control">
+    <!-- create spot button -->
+    <div class="create-spot">
+    <div> <%= link_to "Create New spots",  new_event_spot_path(@event) %>
+    </div>
+    </div>
+    <div class="open-spots-control">
+      <p> You can edit/delete these spot </p>
+<!--       with edit button on it -->
+      <% @event.spots.each do |spot|%>
+        <%= spot.role %>
+        <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
+          <p>No confirmed request</p>
+        <% else %>
+          <p>Spot already filled</p>
+        <% end %>
+        <% spot.requests.each do |request| %>
+        <ul>
+          <li style="list-style: none">Here are the request <%= request.note %></li>
+        </ul>
+        <% end %>
+      <%= link_to "Edit this spot",  edit_spot_path(spot) %>
+      <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
+      <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+
+    <div class="see-the-requests-to-spot">
+
+    </div>
+    </div>
+  <% end %>
+  </div>
 </div>
