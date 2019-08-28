@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for [@event, @spot] do |f| %>
   <%= f.input :category, collection: Spot.categories.keys %>
   <%= f.input :role %>
@@ -5,3 +6,4 @@
   <%= f.submit "Create Spot", class: "btn btn-primary" %>
 
 <% end %>
+</div>
