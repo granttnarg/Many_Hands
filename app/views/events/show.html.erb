@@ -23,6 +23,7 @@
       <%= spot.role %>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
+      <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
     <% end %>
     </p>
   </div>
