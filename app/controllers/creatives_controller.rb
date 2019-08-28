@@ -5,7 +5,7 @@ class CreativesController < ApplicationController
     if @spot.role == ""
       @users
     else
-      @users = @users.policy_scope(User).creatives.search_by_category_and_style_and_skill(@spot.role)
+      @users = policy_scope(User).creatives.search_by_category_and_style_and_skill(set_categories(@spot.category)).search_by_category_and_style_and_skill(@spot.role)
     end
 
   end
