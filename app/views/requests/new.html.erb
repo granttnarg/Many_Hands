@@ -1,9 +1,16 @@
-<% if @spot_confirmed.empty? %>
-  <%= simple_form_for [@spot, @request] do |f| %>
-    <%= f.input :note, placeholder: "Say something about yourself. What make you the best for the spot?" %>
-    </br>
-    <%= f.submit "Create Request", class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-8">
+      <% if @spot_confirmed.empty? %>
+      <%= simple_form_for [@spot, @request] do |f| %>
+        <%= f.input :note, placeholder: "Say something about yourself. What make you the best for the spot?" %>
+    </div>
+  </div>
+  <div class="row">
+    <%= f.submit "Create Request", class: "btn btn-secondary ml-3", style: "color: white;" %>
    <% end %>
 <% else %>
   <p>This spot has already been taken by someone else</p>
 <% end %>
+</div>
+</div>
