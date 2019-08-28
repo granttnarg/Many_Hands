@@ -1,0 +1,15 @@
+<div class="show-conatiner" style="text-align: center;padding-top: 95px;">
+  <br>
+  <h1 style="padding-bottom: 25px;">
+    <strong><%= @user.first_name %> <%= @user.last_name %></strong>
+  </h1>
+  <div>
+    <%= cl_image_tag @user.coverphoto, height: 150, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <%= cl_image_tag @user.profile_photo, height: 300, width: 400, crop: :fill %>
+  </div>
+
+  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
+  </div>
+

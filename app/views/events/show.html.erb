@@ -21,13 +21,24 @@
   <div>
     <p> YOUR EVENT SPOTS: <% @event.spots.each do |spot|%>
       <%= spot.role %>
+      <br>
+      <% spot.requests.each do |request| %>
+        <ul>
+          <li style="list-style: none">Request info: <%= request.note %></li>
+        </ul>
+      <% end %>
+      <br>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
+    
       <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
         <p>No confirmed request</p>
       <% else %>
         <p>Spot filled</p>
       <% end %>
+    
+      <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
+      <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
     <% end %>
     </p>
   </div>
