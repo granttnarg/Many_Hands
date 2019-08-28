@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def users
+     @users = policy_scope(User)
+  end
 end
