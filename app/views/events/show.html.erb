@@ -62,9 +62,17 @@
         <% end %>
         </div>
       <%= link_to "Edit this spot",  edit_spot_path(spot) %>
-      <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
-      <p><%= link_to "Search for Creatives",  users_path, class: "btn btn-primary" %></p>
+      <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
+
+      <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
+        <p>No confirmed request</p>
+      <% else %>
+        <p>Spot filled</p>
       <% end %>
+      <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
+      <p><%= link_to "Search for Creatives",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
+    <% end %>
+      </p>
     </div>
   </div>
 
