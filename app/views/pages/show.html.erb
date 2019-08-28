@@ -1,4 +1,5 @@
-<div class="show-conatiner" style="text-align: center;padding-top: 95px;">
+<%# if current_user.is_creative? %>
+<div>
   <br>
   <h1 style="padding-bottom: 25px;">
     <strong><%= @user.first_name %> <%= @user.last_name %></strong>
@@ -13,3 +14,7 @@
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
   </div>
 
+  <% if current_user.is_creative? %>
+    <%= link_to "Edit profile", edit_user_registration_path  %>
+  <% end %>
+</div>

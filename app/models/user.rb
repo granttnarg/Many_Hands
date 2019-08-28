@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :spots, through: :events
   mount_uploader :profile_photo, PhotoUploader
   mount_uploader :coverphoto, PhotoUploader
-
+  enum category: [:sound, :visual, :performance, :helping_hand]
 end
