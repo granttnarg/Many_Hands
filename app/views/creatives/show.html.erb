@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-top: 100px">
 
   <h1 style="padding-bottom: 25px;">
     <strong><%= @user.first_name %> <%= @user.last_name %></strong>
@@ -11,6 +11,11 @@
   </div>
 
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
+
+  <%= link_to "Invite", new_spot_invitation_path(creative_id: @user.id) %>
+
+ </div>zz
+
   </div>
 
   <div>
@@ -31,5 +36,4 @@
     <%#= f.submit 'Invite', class: "btn btn-primary" %>
   <%# end %>
 
-  <button class="btn btn-primary">Invite</button>
 </div>
