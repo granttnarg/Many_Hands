@@ -11,11 +11,6 @@
   </div>
 
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
-  </div>
+    <%= link_to "Invite", new_spot_invitation_path %>
 
-<%#= simple_form_for([@spot, @invite]) do |f| %>
-  <%#= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
-  <%#= f.submit 'Invite', class: "btn btn-primary" %>
-<%# end %>
-
-<button class="btn btn-primary">Invite</button>
+ </div>zz
