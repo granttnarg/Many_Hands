@@ -95,8 +95,8 @@ puts "created Tommy"
 user_five = User.new(username: "billy123", first_name: "Bill", last_name: "Billy-Bob", bio: "Digital and CGI artist who specialising in projections and installations at events", location: "East Berlin", looking_for: "Musicians and musical events to collaborate with", email: "bill@example.com", password: "123456", is_creative: true, skill: "digital artist", style: "installation/projection", category: 1)
 
 
-cover_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567069636/pqpaeze6hjel2nhtgh9f.jpg"
-profile_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567057906/680w_x395h_c-reduced_JLS_jsegvb.jpg"
+profile_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567069636/pqpaeze6hjel2nhtgh9f.jpg"
+cover_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567057906/680w_x395h_c-reduced_JLS_jsegvb.jpg"
 
 
 user_five.remote_coverphoto_url = cover_photo_five
