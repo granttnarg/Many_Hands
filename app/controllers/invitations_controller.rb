@@ -4,9 +4,23 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
     @spot = Spot.find(params[:spot_id])
     authorize @invitation
-   end
+  end
+
+  def create
+    @invitation = Invitation.new(invitation_params)
+    @spot = Spot.find(params[:spot_id])
+    @invitation.spot = @spot
+    @user = User.find(params[:invitation][:creative_id])
+    @invitation.user = @user
+    authorize @invitation
+    if @invitation.save
+      redirect_to event_path(@spot.event)
+    else
+      render :new
+    end
+  end
 
   def invitation_params
-    params.require(:invitation).permit(:spot_id, :user_id)
+    params.require(:invitation).permit(:message)
   end
 end
