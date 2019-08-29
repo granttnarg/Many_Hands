@@ -97,7 +97,7 @@ user_five.remote_coverphoto_url = cover_photo_three
 user_five.remote_profile_photo_url = profile_photo_three
 user_five.save!
 
-request_one = Request.new(status: 0, note: "Would love to paint at your event")
+request_one = Request.new(status: 1, note: "Would love to paint at your event")
 request_one.spot = spot_two
 request_one.user_id = user_three.id
 request_one.save!
