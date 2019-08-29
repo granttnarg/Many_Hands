@@ -1,10 +1,14 @@
 <%= render 'shared/navbar' %>
-<h1 style="padding-top: 100px">Creatives in your area</h1>
 
-<div class="container">
+
+<div class="container" style="padding-top: 100px;">
+  <br>
+  <h1 class="text-center">Creatives in your area</h1>
+  <br>
+  <div class="text-center">
+    <%= link_to "< Back to your event", event_path(@spot.event), class: "btn btn-primary" %>
+    </div>
   <div class="row">
-    <%= link_to "Back to your event", event_path(@spot.event), class: "btn btn-primary" %>
-
     <% @users.each do |user| %>
       <div class="card m-3" style="border:1px dotted #D7D7D7;" align="center">
          <%= cl_image_tag user.coverphoto, height: 150, width: 200, crop: :fill %>
