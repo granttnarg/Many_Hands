@@ -50,13 +50,22 @@
 
 
 
-<div class="notification-box event-box">
+<div class="notification-box event-box d-flex">
+
   <% @events.each do |event|  %>
-<div>
-  <div>
-    <ul>
+
+    <div class= "row">
+      <ul>
+
+      <div class="card">
+      <%= link_to event_path(event) do %>
+        <img id="dash-card" src="<%=event.photo%>" height="150" width="200"/>
+      <% end %>
+
+      </div>
+
+      <div class="card">
       <h1 style="list-style: none;"><%= event.name %></h1>
-      <%= cl_image_tag event.photo, height: 150, width: 150, crop: :fill %>
       <li style="list-style: none;">Venue: <%= event.venue_name  %></li>
       <li style="list-style: none;">address: <%= event.address  %></li>
       <li style="list-style: none;">Start Date: <%= event.start_date.strftime("%b %d, %Y") %></li>
@@ -67,7 +76,15 @@
       <li style="list-style: none;"> Confirmed Spots: <%= event.confirmed_spots_count %></li>
       <li style="list-style: none;"> Unfilled Spots: <%= event.unfilled_spots_count %></li>
       <li style="list-style: none;"> Total Spots: <%= event.spots.count %></li>
-  </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
       <div>
         <h3>Requests</h3>
           <div class="d-flex justify-content-between">
@@ -91,7 +108,7 @@
             <% end %>
           </div>
       </div>
-    </div>
-  <% end %>
 
+  <% end %>
+ </div>
 </div>
