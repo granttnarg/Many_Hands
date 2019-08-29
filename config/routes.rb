@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get "/users/:id", to: 'pages#show', as: :user
 
   resources :events, only: [:new, :index, :create, :show, :edit, :update, :destroy] do
-    resources :spots, only: [:new, :create]
+    resources :spots, only: [:new, :create, :edit, :update]
   end
 
   resources :spots, only: [:edit, :update, :destroy] do
     resources :requests, only: [:new, :create]
+    resources :creatives, only: [:show, :index, :edit, :update ]
   end
+
 
 end

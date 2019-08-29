@@ -17,7 +17,7 @@ event_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566918865
 cover_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296013/xa811ufguq5mebljwl8p.jpg"
 profile_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566303086/kfudn3dzyobcebdkauqs.jpg"
 
-user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456", is_creative: false)
+user_one = User.new(first_name: "Pete", last_name: "Petey", email: "pete@example.com", password: "123456", is_creative: false, skill: "painter")
 user_one.remote_coverphoto_url = cover_photo_one
 user_one.remote_profile_photo_url = profile_photo_one
 
@@ -63,7 +63,7 @@ spot_three.save!
 
 
 
-user_three = User.new(first_name: "Bill", last_name: "Billy", email: "bill@example.com", password: "123456", is_creative: true)
+user_three = User.new(first_name: "Bill", last_name: "Billy", email: "bill@example.com", password: "123456", is_creative: true, skill: "painter", category: 1)
 
 
 cover_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296014/q8jcbww960exrmyktpdq.jpg"
@@ -74,7 +74,30 @@ user_three.remote_coverphoto_url = cover_photo_three
 user_three.remote_profile_photo_url = profile_photo_three
 user_three.save!
 
-request_one = Request.new(status: 0, note: "Loved your painting, check out our event you would be perfect for it!")
+user_four = User.new(first_name: "Tom", last_name: "Thomas", email: "tom@example.com", password: "123456", is_creative: true, skill: "guitar player", category: 0)
+
+
+cover_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296014/q8jcbww960exrmyktpdq.jpg"
+profile_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566555775/yerzqaags4tb59ltirsb.jpg"
+
+
+user_four.remote_coverphoto_url = cover_photo_three
+user_four.remote_profile_photo_url = profile_photo_three
+user_four.save!
+
+
+user_five = User.new(first_name: "Man", last_name: "Boy", email: "man@example.com", password: "123456", is_creative: true, skill: "stage hand", category: 3)
+
+
+cover_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566296014/q8jcbww960exrmyktpdq.jpg"
+profile_photo_three = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1566555775/yerzqaags4tb59ltirsb.jpg"
+
+
+user_five.remote_coverphoto_url = cover_photo_three
+user_five.remote_profile_photo_url = profile_photo_three
+user_five.save!
+
+request_one = Request.new(status: 1, note: "Would love to paint at your event")
 request_one.spot = spot_two
 request_one.user_id = user_three.id
 request_one.save!

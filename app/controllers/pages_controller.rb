@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def users
-    @users = policy_scope(User.where(is_creative: true))
+    @users = policy_scope(User).where(is_creative: true)
   end
 
   def show

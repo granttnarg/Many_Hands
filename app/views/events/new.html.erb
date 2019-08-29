@@ -1,12 +1,21 @@
+<div class="container">
   <%= simple_form_for @event do |f| %>
-    <%= f.input :name %>
-    <%= f.input :about %>
-    <%= f.input :venue_name %>
-    <%= f.input :start_date %>
-    <%= f.input :start_time %>
-    <%= f.input :end_date %>
-    <%= f.input :end_time %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit "Create event", class: "btn btn-secondary", style: "color: white" %>
+  <div class="row">
+      <div class="col-xs-12 col-lg-8" style="padding: 30px 30px 30px 15px;">
+        <%= f.input :name %>
+        <%= f.input :venue_name %>
+        <%= f.input :address %>
+        <%= f.input :about %>
+      </div>
+      <div class="col-xs-12 col-lg-4" style="padding: 30px 30px 30px 0;">
+        <%= f.input :start_date %>
+        <%= f.input :start_time %>
+        <%= f.input :end_date %>
+        <%= f.input :end_time %>
+      </div>
+      </div>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Create event", class: "btn btn-secondary", style: "color: white" %>
   <% end %>
+</div>
