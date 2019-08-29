@@ -1,5 +1,5 @@
-<div class="show-conatiner" style="text-align: center;padding-top: 95px;">
-  <br>
+<div class="container">
+
   <h1 style="padding-bottom: 25px;">
     <strong><%= @user.first_name %> <%= @user.last_name %></strong>
   </h1>
@@ -13,9 +13,23 @@
   <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
   </div>
 
-<%#= simple_form_for([@spot, @invite]) do |f| %>
-  <%#= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
-  <%#= f.submit 'Invite', class: "btn btn-primary" %>
-<%# end %>
+  <div>
+    <ul>
+    <li style="list-style: none;">Bio: <%= @user.bio  %></li>
+    <li style="list-style: none;">Location: <%= @user.location  %></li>
+    <li style="list-style: none;">Looking for: <%= @user.looking_for  %></li>
+    <li style="list-style: none;">Skill: <%= @user.skill  %></li>
+    <li style="list-style: none;">Category: <%= @user.category  %></li>
+    <li style="list-style: none;">Style: <%= @user.style  %></li>
+    </ul>
+  </div>
 
-<button class="btn btn-primary">Invite</button>
+
+
+  <%#= simple_form_for([@spot, @invite]) do |f| %>
+    <%#= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
+    <%#= f.submit 'Invite', class: "btn btn-primary" %>
+  <%# end %>
+
+  <button class="btn btn-primary">Invite</button>
+</div>

@@ -14,6 +14,7 @@ class CreativesController < ApplicationController
     @user = User.find(params[:id])
     @spot = Spot.find(params[:spot_id])
     authorize @user
+
   end
 
   private
