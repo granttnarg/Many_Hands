@@ -44,30 +44,43 @@
     </div>
     <br>
     <div class="open-spots-control">
-      <h5> Control your spots </h5>
+      <h5> Spots</h5>
 <!--       with edit button on it -->
-    <div class="each-spot">
+    <div class="each-spot" style="border:1px dotted #D7D7D7;">
       <% @event.spots.each do |spot|%>
-        <p><strong><%= spot.category %> || <%= spot.role %></strong></p>
-        <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
-          <p>Status: Empty 🤷🏼‍♂️</p>
-        <% else %>
-          <p>Status: Spot filled 🙏</p>
-        <% end %>
-        <p>Description: <%= spot.description %></p>
-        <% if spot.requests.where(status: "confirmed").present? %>
-          <p><b>Spot has been filled by:</b></p>
-          <div class="rounded-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo, height: 300, width: 400, crop: :fill %>')">
-          <p>🌟<%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> 🌟</p>
-          <p><%= spot.requests.first.user.skill %></p>
-          </div>
-        <% else %>
-          <p><b>Blank</b></p>
-        <% end %>
+        <p><strong><%= spot.category.upcase %> || <%= spot.role %></strong></p>
 
-      <%= link_to "Edit this spot",  edit_spot_path(spot) %>
-      <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
-      <p><%= link_to "Search for Creatives",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
+          <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
+            <p>Available 🤷🏼‍♂️</p>
+          <% else %>
+            <p> Confirmed 🙏</p>
+          <% end %>
+
+            <i>"<%= spot.description %>"</i>
+
+            <br></br>
+
+              <% if spot.requests.where(status: "confirmed").present? %>
+
+                <div class="rounded-circle" id="spot-filled" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo %>')">
+
+
+
+
+                  <p>🌟<%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> 🌟
+                  </p>
+                  <p><%= spot.requests.first.user.skill %></p>
+                </div>
+
+              <% else %>
+
+              <p><b>Blank</b></p>
+
+              <% end %>
+
+      <%= link_to "Edit",  edit_spot_path(spot), class: "btn" %>
+      <%= link_to "Delete", spot, class: "btn", method: :delete, data: { confirm: "you sure?" } %>
+      <p><%= link_to "Spot Search",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
       <br>
       <br>
     <% end %>
