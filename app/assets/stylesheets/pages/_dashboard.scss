@@ -1,0 +1,139 @@
+.box {
+  background-color:#c0c0be;
+  width:960px;
+  height:auto;
+  margin: 0 auto;
+ }
+.cover-avatar {
+    height:150px;
+    background-color: lightblue;
+    margin:20px auto;
+    position:relative;
+    display:flex;
+  }
+.circle-avatar {
+  width: 99px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: blue;
+  position: absolute;
+  top: 26px;
+  left: 51px;
+}
+.cover-photo {
+  width: 720px;
+  height: 120px;
+  background-color: blue;
+  position: absolute;
+  left: 206px;
+  top: 15px;
+}
+.event-status {
+  width:900px;
+  height:100px;
+  background-color:lightgrey;
+  margin: 20px auto 0 20px;
+}
+.your-profile {
+    list-style: none;
+    margin: 10px auto;
+    padding: 0;
+    position: relative;
+    background-color: lightblue;
+    overflow-y: auto;
+    height: 200px;
+}
+
+.cta {
+  height: 64px;
+  margin: 0 20px 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.cta-add {
+  border: 2px solid #c0c0be;
+  background: white;
+  color: #c0c0be;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 10px;
+  border-radius:5px;
+}
+.round {
+  position: relative;
+}
+.round label {
+  width: 18px;
+  background-color: #fff;
+  border: 1px solid #c0c0be;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  left: -46px;
+  position: absolute;
+  top: 4px;
+  width: 18px;
+}
+.round label:after {
+  border: 2px solid #c0c0be;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 3px;
+  opacity: 0;
+  position: absolute;
+  top: 6px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+.round input[type="checkbox"]:checked + label {
+  background-color: white;
+  border-color: #c0c0be;
+}
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+.close {
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  top: 123px;
+  left: 727px;
+  content: ' ';
+  height: 19px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+body {
+  background-color: white;
+}
+.notification-box {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    background-color: blue;
+    overflow-y: auto;
+    height: 300px;
+    width:940px;
+}

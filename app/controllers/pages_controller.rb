@@ -13,13 +13,23 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @spots = Spot.where(user: current_user)
-    @events = Event.where(user:  current_user)
+    @events = current_user.events
     @new_event = Event.new
+    @user = current_user
     @requests = Request.where(user: current_user)
     @user = current_user
 
   end
+
+private
+
+# def confirmed_requests(event)
+#       event.spots.each do |spot|
+#         return spot.requests.where(status: "confirmed").count
+#       end
+#     end
+# end
+
 
 
 end
