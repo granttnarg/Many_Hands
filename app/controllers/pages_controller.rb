@@ -12,5 +12,14 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def dashboard
+    @spots = Spot.where(user: current_user)
+    @events = Event.where(user:  current_user)
+    @new_event = Event.new
+    @requests = Request.where(user: current_user)
+    @user = current_user
+
+  end
+
 
 end

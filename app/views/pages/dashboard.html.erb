@@ -1,0 +1,17 @@
+    <div class ="cover-avatar">
+
+      <div class="circle-avatar">
+        <%= cl_image_tag @user.profile_photo, height: 150, width: 150, crop: :fill %>
+      </div>
+
+      <div class="cover-photo">
+        <%= cl_image_tag @user.coverphoto, height: 50, width: 500, crop: :fill %>
+
+      </div>
+
+    </div>
+    <div class="your-profile">
+
+      <p>Bio goes here</p>
+
+    </div>
