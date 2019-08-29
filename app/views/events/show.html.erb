@@ -48,29 +48,28 @@
 <!--       with edit button on it -->
     <div class="each-spot">
       <% @event.spots.each do |spot|%>
-        <p><strong><%= spot.role %></strong></p>
-        <% if spot.requests.empty? && spot.requests.where(status: :confirmed) %>
-          <p>status:No confirmed request</p>
+        <p><strong><%= spot.category %> || <%= spot.role %></strong></p>
+        <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
+          <p>Status: Empty 🤷🏼‍♂️</p>
         <% else %>
-          <p>status: spot already filled</p>
+          <p>Status: Spot filled 🙏</p>
         <% end %>
-        <div class="inbox">
-        <% spot.requests.each do |request| %>
-          <ul>
-            <li style="list-style: none"> Message from the <%= request.user.first_name %>: <%= request.note %></li>
-          </ul>
+        <p>Description: <%= spot.description %></p>
+        <% if spot.requests.where(status: "confirmed").present? %>
+          <p><b>Spot has been filled by:</b></p>
+          <div class="rounded-circle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo, height: 300, width: 400, crop: :fill %>')">
+          <p>🌟<%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> 🌟</p>
+          <p><%= spot.requests.first.user.skill %></p>
+          </div>
+        <% else %>
+          <p><b>Blank</b></p>
         <% end %>
-        </div>
-      <%= link_to "Edit this spot",  edit_spot_path(spot) %>
-      <%= link_to "Delete", spot, method: :delete, data: { confirm: "you sure?" } %>
 
-      <% if spot.requests.empty? && spot.requests.where(status: "confirmed") %>
-        <p>No confirmed request</p>
-      <% else %>
-        <p>Spot filled</p>
-      <% end %>
+      <%= link_to "Edit this spot",  edit_spot_path(spot) %>
       <%= link_to "Delete this spot", spot, method: :delete, data: { confirm: "you sure?" } %>
       <p><%= link_to "Search for Creatives",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
+      <br>
+      <br>
     <% end %>
       </p>
     </div>
@@ -81,7 +80,8 @@
       <% @event.spots.each do |spot| %>
         <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
         <% notifications.each_with_index do |notification, index| %>
-          <p><%= index + 1 %>. "Link to creative show here" <%= notification.status %>
+          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %>
+          <p>Message: <%= notification.note %></p>
           <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification)  do |f| %>
               <%= f.input :status, collection: Request.statuses %>
               <%= f.submit :submit %>
