@@ -1,4 +1,5 @@
-<div class="show-conatiner" style="text-align: center;padding-top: 45px;">
+<%= render 'shared/navbar' %>
+<div class="show-conatiner" style="text-align: center;padding-top: 100px;">
 
   <div class="event-container">
     <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
@@ -22,8 +23,14 @@
     <h4>Open Spots</h4>
     <br>
       <% @event.spots.each do |spot|%>
-      <%= spot.role %>
-      <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
+        <p><strong><%= spot.role %></strong></p>
+        <i>"<%= spot.description %>"</i>
+        <% if spot.requests.where(status: "confirmed").present? %>
+          <p>This spot has already been filled</p>
+        <% else %>
+          <p><%= link_to "Request for the spot",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
+        <% end %>
+        <br>
       <% end %>
   </div>
 
