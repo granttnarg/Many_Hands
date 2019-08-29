@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "deleting db"
-Spot.destroy_all if Rails.env.development?
+Spot.delete_all if Rails.env.development?
 
-Event.destroy_all
-User.destroy_all if Rails.env.development?
-Request.destroy_all if Rails.env.development?
+Event.delete_all
+User.delete_all if Rails.env.development?
+Request.delete_all if Rails.env.development?
 
 event_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567070502/x0lim2ac56mlhccef7iw.jpg" #hands love heart
 cover_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567070501/n5lckh9hiwdqaqgqagak.jpg" #flags

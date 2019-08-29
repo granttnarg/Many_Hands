@@ -1,0 +1,98 @@
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="box">
+    <div class ="cover-avatar d-flex">
+
+      <div class="circle-avatar d-inline-flex">
+        <%= cl_image_tag @user.profile_photo, height: 150, width: 150, crop: :fill %>
+      </div>
+
+      <div class="cover-photo">
+        <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill %>
+
+      </div>
+
+    </div>
+    <br>
+    <div class="your-profile">
+      <ul>
+        <h1 style="list-style: none;">Welcome <%= @user.username  %></h1>
+        <br>
+        <li style="list-style: none;">Name: <%= @user.first_name  %> <%= @user.last_name  %> </li>
+        <li style="list-style: none;">Looking for: <%= @user.looking_for  %></li>
+        <li style="list-style: none;">Location: <%= @user.location  %></li>
+        <li style="list-style: none;">Bio: <%= @user.bio  %></li>
+        <li style="list-style: none;">Contact: <%= @user.email  %></li>
+       </ul>
+     </div>
+
+     <div class="notification-box">
+    </br>
+      <div class="cta">
+         <p>CreativeA made a request to this event 1. </p>
+          <button class="cta-add">Ok </button>
+      </div>
+      <div class="cta">
+        <p>CreativeA made a request to this event 1. </p>
+          <div class = "close-mark"><a href="#" class="close"></a></div>
+          <div class="round">
+            <input type="checkbox" id="checkbox" />
+              <label for="checkbox"></label>
+          </div>
+      </div>
+      <div class="cta">
+         <p>CreativeA made a request to this event 1. </p>
+          <button class="cta-add">Ok </button>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="notification-box event-box">
+  <% @events.each do |event|  %>
+<div>
+  <div>
+    <ul>
+      <h1 style="list-style: none;"><%= event.name %></h1>
+      <%= cl_image_tag event.photo, height: 150, width: 150, crop: :fill %>
+      <li style="list-style: none;">Venue: <%= event.venue_name  %></li>
+      <li style="list-style: none;">address: <%= event.address  %></li>
+      <li style="list-style: none;">Start Date: <%= event.start_date.strftime("%b %d, %Y") %></li>
+      <li style="list-style: none;">End Date: <%= event.end_date.strftime("%b %d, %Y") %></li>
+      <li style="list-style: none;">Start Time: <%= event.start_time.strftime("%l:%M %p") %></li>
+      <li style="list-style: none;">End Time: <%= event.end_time.strftime("%l:%M %p") %></li>
+      <li style="list-style: none;">About: <%= event.about %></li>
+      <li style="list-style: none;"> Confirmed Spots: <%= event.confirmed_spots_count %></li>
+      <li style="list-style: none;"> Unfilled Spots: <%= event.unfilled_spots_count %></li>
+      <li style="list-style: none;"> Total Spots: <%= event.spots.count %></li>
+  </div>
+      <div>
+        <h3>Requests</h3>
+          <div class="d-flex justify-content-between">
+            <% event.spots.each do |spot| %>
+              <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+              <% notifications.each_with_index do |notification, index| %>
+                <div>
+                  <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
+                  <p>Message: <%= notification.note %></p>
+                </div>
+
+                <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
+
+                  <a href="#" class="button" data-value="confirmed">✅</a>
+                  <a href="#" class="button" data-value="rejected">❌</a>
+                  <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
+
+                  <%= f.submit :submit, class: "submit d-none" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
