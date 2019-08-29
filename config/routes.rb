@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :spots, only: [:edit, :update, :destroy] do
-    resources :requests, only: [:new, :create]
-    resources :creatives, only: [:show, :index, :edit, :update ]
+    resources :requests, only: [:new, :create, :update]
+    resources :creatives, only: [:show, :index]
   end
 
 
