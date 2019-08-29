@@ -73,18 +73,36 @@ margin-bottom:100px
 
 
 
+.navbar-brand {
+  font-color: #ff4900;
+  font-family: 'Libre Barcode 128';
+  font-size: 35px;
+}
 
-
+.main-cta {
+    border: 2px solid #ff4900;
+    background: transparent;
+    color: #ff4900;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 35px;
+  }
 
 
 .heading {
   color: #000;
-  font-family: 'Playfair Display SC', serif;
+  font-size :35;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
+.heading-line {
+  color: #ff4900;
+  font-size: 130px;
+}
 .sub-heading{
-  color: white;
+  color:#ff4900;
 }
 
 .site-hero {
@@ -140,7 +158,6 @@ margin-bottom:100px
 
 .site-hero-inner .heading {
   font-size: 80px;
-  font-family: "Abril Fatface", times, serif;
   color: #fff;
   line-height: 1;
   font-weight: bold;
