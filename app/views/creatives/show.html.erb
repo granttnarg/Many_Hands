@@ -1,40 +1,55 @@
 
 <%= render 'shared/navbar' %>
-<div class="container" style="padding-top: 100px">
+<div class="user-container">
+  <div class="go-back-buttons">
+    <%= link_to "BACK TO EVENT", event_path(@spot.event), class: 'go-back-event-button' %>
+    <%= link_to "BACK TO SEARCH", spot_creatives_path(@spot.id), class: 'search-again-button' %>
 
-  <h1 style="padding-bottom: 25px;">
-    <strong><%= @user.first_name %> <%= @user.last_name %></strong>
-  </h1>
-  <div>
-    <%= cl_image_tag @user.coverphoto, height: 150, width: 400, crop: :fill %>
-  </div>
-  <div>
-    <%= cl_image_tag @user.profile_photo, height: 300, width: 400, crop: :fill %>
   </div>
 
-  <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; ">Contact: <%= @user.email %>
+  <div class="user-bio">
 
-  <%= link_to "Invite", new_spot_invitation_path(creative_id: @user.id) %>
+    <div class="bio-photo">
 
- </div>
-  </div>
+      <%= cl_image_tag @user.coverphoto, height: 240, width: 650, crop: :fill, class: "user-cover-photo" %>
 
-  <div>
-    <ul>
-    <li style="list-style: none;">Bio: <%= @user.bio  %></li>
-    <li style="list-style: none;">Location: <%= @user.location  %></li>
-    <li style="list-style: none;">Looking for: <%= @user.looking_for  %></li>
-    <li style="list-style: none;">Skill: <%= @user.skill  %></li>
-    <li style="list-style: none;">Category: <%= @user.category  %></li>
-    <li style="list-style: none;">Style: <%= @user.style  %></li>
+      <%= cl_image_tag @user.profile_photo,crop: :fill, class: "user-profile-photo" %>
+    </div>
+
+
+    <div class="description">
+       <h5><br>
+        <%= @user.email %></h5>
+    <ul class = "bio-text">
+      <li style="list-style: none;"><p class= "title"> Bio</p>  <%= @user.bio  %></li>
+      <li style="list-style: none;"><p class= "title">Location</p> <%= @user.location  %></li>
+      <li style="list-style: none;"><p class= "title">Looking for</p> <%= @user.looking_for  %></li>
+      <li style="list-style: none;"><p class= "title">Skill</p> <%= @user.skill  %></li>
+      <li style="list-style: none;"><p class= "title">Category</p> <%= @user.category  %></li>
+      <li style="list-style: none;"><p class= "title">Style</p> <%= @user.style  %></li>
     </ul>
+      <div class="invite-button">
+         <%= link_to "INVITE", new_spot_invitation_path(creative_id: @user.id), class: 'spot-invite-button' %>
+      </div>
+    </div>
   </div>
 
 
 
-  <%#= simple_form_for([@spot, @invite]) do |f| %>
-    <%#= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
-    <%#= f.submit 'Invite', class: "btn btn-primary" %>
-  <%# end %>
+  <div class="social-stuffs">
+    <div class="sound-cloud">
 
+    </div>
+    <div class="instagram">
+
+    </div>
+    <div class="review">
+
+
+    </div>
+
+
+  </div>
 </div>
+
+
