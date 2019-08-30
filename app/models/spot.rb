@@ -2,7 +2,7 @@ class Spot < ApplicationRecord
   belongs_to :event
   has_many :requests
   has_many :users, through: :invitations, source: :spots
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
   enum category: [:sound, :visual, :performance, :helping_hand]
   validates :category, presence: true
 
