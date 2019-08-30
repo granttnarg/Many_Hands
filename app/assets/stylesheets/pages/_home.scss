@@ -25,19 +25,27 @@ ol, ul, dl {
 }
 
 .each-spot {
-  border: 2px solid lightgrey;
-  border-radius: 5px;
+  border: 50px solid #ff4900;
+  border-radius: 100%;
   padding: 5px;
-  width: 280px;
-  background-color: white;
+  width: 400px;
+  height: 400px;
+  background-color: #fff9f9;
   margin: 0 auto;
+  background-size: cover;
+  background-position: center;
 }
+
+.open-spots-control {
+  width: 1000px;
+}
+
 
 .admin-spot-control {
 border: 2px solid lightgrey;
 border-radius: 5px;
 padding: 5px;
-width: 300px;
+width: 1500px;
 background-color: white;
 margin: 0 auto;
 margin-top: 15px;
