@@ -1,20 +1,26 @@
 <%= render 'shared/navbar' %>
-<div class="show-conatiner" style="text-align: center;padding-top: 100px;">
-
-  <div class="event-container">
-    <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
-    <h1 style="padding-bottom: 25px;">
-    <strong><%= @event.name %></strong>
-    </h1>
-    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.address %>
+<br>
+<br>
+<br>
+<div class="show-conatiner" style="text-align: center;padding-top: 80px;">
+  <div class="event-container d-flex justify-content-center">
+    <div class="p-3 mr-5">
+      <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
     </div>
-    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><%= @event.about %>
-    </div>
-    <div class="font-italic pt-5" style="font-size: 25px; padding: 5px; "><p> from <%= @event.start_date %> to
-        <%= @event.start_date %> at <%= @event.start_time %> until  <%= @event.end_time %>
-    </p>
+    <div class="align-self-center ml-5">
+      <h1 style="padding-bottom: 0px;">
+        <strong><%= @event.name %></strong>
+      </h1>
+      <div class="font pt-2" style="font-size: 15px; padding: 0px; "><%= @event.address %>
+      </div>
+      <div class="font-italic pt-2" style="font-size: 15px; padding: 0px; "><%= @event.about %>
+      </div>
+      <div class="pt-2" style="font-size: 12px;">
+        <p>Start: <%= @event.start_date.strftime("%b %d, %Y")%> - <%= @event.start_time.strftime("%l:%M %p")%>
+        <br>End: <%= @event.end_date.strftime("%b %d, %Y")%> - <%= @event.end_time.strftime("%l:%M %p") %> </p>
     </div>
   </div>
+</div>
 
 <% if current_user.is_creative? %>
   <!-- available spots display here for creatives to see -->
@@ -159,20 +165,27 @@
     </div>
   </div>
   <div class = "notification-box">
-    <h3>Applications for Spots</h3>
-      <% @event.spots.each do |spot| %>
-        <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
-        <% notifications.each_with_index do |notification, index| %>
-          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %>
-          <p>Message: <%= notification.note %></p>
-          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification)  do |f| %>
-              <%= f.input :status, collection: Request.statuses %>
-              <%= f.submit :submit %>
-          <% end %>
+    <h3>Requests</h3>
+          <div class="d-flex justify-content-between">
+            <% @event.spots.each do |spot| %>
+              <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+              <% notifications.each_with_index do |notification, index| %>
+                <div>
+                  <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
+                  <p>Message: <%= notification.note %></p>
+                </div>
 
-          </p>
-        <% end %>
-      <% end %>
+                <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
+
+                  <a href="#" class="button" data-value="confirmed">✅</a>
+                  <a href="#" class="button" data-value="rejected">❌</a>
+                  <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
+
+                  <%= f.submit :submit, class: "submit d-none" %>
+                <% end %>
+              <% end %>
+            <% end %>
+
   </div>
 </div>
 
@@ -218,20 +231,26 @@
 </div>
 
   <div class = "notification-box">
-    <h3>Applications for Spots</h3>
-      <% @event.spots.each do |spot| %>
-        <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
-        <% notifications.each_with_index do |notification, index| %>
-          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %>
-          <p>Message: <%= notification.note %></p>
-          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification)  do |f| %>
-              <%= f.input :status, collection: Request.statuses %>
-              <%= f.submit :submit %>
-          <% end %>
+    <h3>Requests</h3>
+          <div class="d-flex justify-content-between">
+            <% @event.spots.each do |spot| %>
+              <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+              <% notifications.each_with_index do |notification, index| %>
+                <div>
+                  <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
+                  <p>Message: <%= notification.note %></p>
+                </div>
 
-          </p>
-        <% end %>
-      <% end %>
+                <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
+
+                  <a href="#" class="button" data-value="confirmed">✅</a>
+                  <a href="#" class="button" data-value="rejected">❌</a>
+                  <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
+
+                  <%= f.submit :submit, class: "submit d-none" %>
+                <% end %>
+              <% end %>
+            <% end %>
   </div>
 </div>
 

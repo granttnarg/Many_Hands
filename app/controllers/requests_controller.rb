@@ -48,8 +48,7 @@ class RequestsController < ApplicationController
   end
 
   def update_params
-    pp = params.require(:request).permit(:note)
-    pp[:status] = params[:request][:status].to_i
-    return pp
+    params.require(:request).permit(:note, :status)
+
   end
 end
