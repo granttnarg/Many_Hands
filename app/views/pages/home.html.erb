@@ -23,8 +23,12 @@
 
       <li class="nav-item dropdown ml-4">
         <%= link_to dashboard_path do  %>
+        <% if user_signed_in? %>
+        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar" %>
+        <%else  %>
         <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
+        <% end  %>
 
       </li>
 
@@ -44,7 +48,7 @@
             </p>
 
             <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
-              <%= link_to 'EXPLORE', new_event_path, class: "main-cta" %>
+              <%= link_to 'EXPLORE', events_path, class: "main-cta" %>
             </p>
           </div>
         </div>

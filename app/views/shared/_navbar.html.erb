@@ -29,8 +29,12 @@
 
       <li class="nav-item dropdown ml-4">
       <%= link_to dashboard_path do %>
-        <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar" %>
-      <% end %>
+        <% if user_signed_in? %>
+        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar"%>
+        <%else  %>
+        <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <% end  %>
 
       </li>
 

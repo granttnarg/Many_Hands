@@ -115,3 +115,132 @@
   <% end %>
   </div>
 </div>
+
+<% @event.spots.each do |spot|%>
+
+
+<div class="spot-box-all">
+  <% if spot.requests.where(status: "confirmed").present? %>
+
+
+  <div class="spot-box-single">
+    <div class="each-spot" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo %>')">
+    <div style="text-align:center">
+      <br>
+      <p><strong><%= spot.category.upcase %> || <%= spot.role %></strong></p>
+
+      <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
+        <p>Available </p>
+      <% else %>
+        <p> <b>Confirmed</b></p>
+      <% end %>
+
+      <% if spot.requests.where(status: "confirmed").present? %>
+
+        <p><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%>
+        </p>
+        <p><%= spot.requests.first.user.skill %></p>
+      <% else %>
+        <p><b>Blank</b></p>
+      <% end %>
+
+        <i><%= spot.description %></i>
+        <br>
+        <%= link_to "Edit",  edit_spot_path(spot), class: "btn" %>
+        <%= link_to "Delete", spot, class: "btn", method: :delete, data: { confirm: "you sure?" } %>
+       <br>
+        <p><%= link_to "Spot Search",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
+
+      <% if spot.requests.where(status: "confirmed").present? %>
+        <p></p>
+      <% else %>
+        <p><%= link_to "Click to APPLY",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class = "notification-box">
+    <h3>Applications for Spots</h3>
+      <% @event.spots.each do |spot| %>
+        <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+        <% notifications.each_with_index do |notification, index| %>
+          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %>
+          <p>Message: <%= notification.note %></p>
+          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification)  do |f| %>
+              <%= f.input :status, collection: Request.statuses %>
+              <%= f.submit :submit %>
+          <% end %>
+
+          </p>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+
+<% else %>
+  <div class="spot-box-single">
+    <div class="each-spot" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
+      <div style="text-align:center">
+      <br>
+      <p><strong><%= spot.category.upcase %> || <%= spot.role %></strong></p>
+
+      <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
+        <p>Available</p>
+      <% else %>
+        <p> <b>Confirmed</b></p>
+      <% end %>
+
+
+
+      <% if spot.requests.where(status: "confirmed").present? %>
+
+        <p><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%>
+        </p>
+        <p><%= spot.requests.first.user.skill %></p>
+      <% else %>
+        <p><b>Spot still Available!</b></p>
+        <p><b>APPLY NOW</b></p>
+      <% end %>
+
+      <i><%= spot.description %></i>
+      <br>
+      <%= link_to "Edit",  edit_spot_path(spot), class: "btn" %>
+      <%= link_to "Delete", spot, class: "btn", method: :delete, data: { confirm: "you sure?" } %>
+      <br>
+      <p><%= link_to "Spot Search",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
+
+      <% if spot.requests.where(status: "confirmed").present? %>
+          <p></p>
+      <% else %>
+          <p><%= link_to "Click to APPLY",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
+      <% end %>
+  </div>
+</div>
+
+  <div class = "notification-box">
+    <h3>Applications for Spots</h3>
+      <% @event.spots.each do |spot| %>
+        <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+        <% notifications.each_with_index do |notification, index| %>
+          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %>
+          <p>Message: <%= notification.note %></p>
+          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification)  do |f| %>
+              <%= f.input :status, collection: Request.statuses %>
+              <%= f.submit :submit %>
+          <% end %>
+
+          </p>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+  <% end  %>
+</div>
+<% end %>
+
+
+
+
+
+
