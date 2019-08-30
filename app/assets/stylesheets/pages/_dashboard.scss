@@ -1,12 +1,11 @@
 .box {
-  background-color:#c0c0be;
+  background-color:white;
   width:960px;
   height:auto;
   margin: 0 auto;
  }
 .cover-avatar {
     height:150px;
-    background-color: lightblue;
     margin:20px auto;
     position:relative;
     display:flex;
@@ -23,10 +22,14 @@
 .cover-photo {
   width: 720px;
   height: 120px;
-  background-color: blue;
   position: absolute;
-  left: 206px;
-  top: 15px;
+  left: 100px;
+  top: 8px;
+}
+
+.profile-content {
+  margin :0 auto;
+  text-align:center;
 }
 .event-status {
   width:900px;
@@ -39,7 +42,6 @@
     margin: 10px auto;
     padding: 0;
     position: relative;
-    background-color: lightblue;
     overflow-y: auto;
     height: 200px;
 }
@@ -124,15 +126,12 @@
 .close:after {
   transform: rotate(-45deg);
 }
-body {
-  background-color: white;
-}
+
 .notification-box {
     list-style: none;
     margin: 0 auto;
     padding: 0;
     position: relative;
-    background-color: blue;
     overflow-y: auto;
     height: 300px;
     width:940px;

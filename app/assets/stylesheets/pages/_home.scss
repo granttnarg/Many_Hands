@@ -1,3 +1,40 @@
+h1, h2, h3, h4, h5 {
+  font-family: 'Pano', sans-serif;
+  color: #1C00FF;
+}
+
+@font-face {
+   font-family: 'Pano';
+   src: url('/assets/PanoTrialBold.otf');
+}
+
+p {
+
+}
+
+// body {
+//   background: #000000;
+// }
+
+.sub-heading {
+  color: white;
+}
+
+
+
+.logo {
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand-pages{
+  font-family: 'Libre Barcode 128';
+  color: #000000;
+  font-size: 45px;
+}
 .show-spots{
 border: 2px solid lightgrey;
 border-radius: 5px;
@@ -16,7 +53,11 @@ width: 300px;
 background-color: white;
 margin: 0 auto;
 }
-
+.user-container {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 150px;
+}
 ol, ul, dl {
 
   margin-top: 0;

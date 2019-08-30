@@ -9,15 +9,15 @@
         <%= cl_image_tag @user.profile_photo, crop: :fill, class: "circle-avatar" %>
 
       <div class="cover-photo">
-        <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill %>
+        <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill, class: "cover-photo" %>
 
       </div>
 
     </div>
     <br>
     <div class="your-profile">
-      <ul>
-        <h1 style="list-style: none;">Welcome <%= @user.username  %></h1>
+      <ul class ="profile-content">
+        <h2 style="list-style: none;">Welcome <%= @user.username  %></h2>
         <br>
         <li style="list-style: none;">Name: <%= @user.first_name  %> <%= @user.last_name  %> </li>
         <li style="list-style: none;">Looking for: <%= @user.looking_for  %></li>
