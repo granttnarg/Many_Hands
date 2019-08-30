@@ -2,7 +2,7 @@
 <br>
 <br>
 <br>
-<div class="show-conatiner" style="text-align: center;padding-top: 80px;">
+<div class="show-container" style="text-align: center;padding-top: 80px;">
   <div class="event-container d-flex justify-content-center">
     <div class="p-3 mr-5">
       <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
@@ -30,10 +30,13 @@
   </div>
 <% else  %>
 <div class="organizer-container">
+      <br>
+      <br>
+
       <div class="admin-event-control">
        <!--Edit/delete this event button -->
        <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
-       <br>
+
        <p><%= link_to "Delete this Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
         <div class="text-center mb-4">
         <%= link_to " Back to events", events_path, class: "btn" %>
@@ -47,6 +50,9 @@
         <div> <%= link_to "Create New spots",  new_event_spot_path(@event), class: 'btn-spot' %>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
 
 
 <% end %>
@@ -184,7 +190,7 @@
       <% end  %>
     </div>
     <% end %>
-
+</div>
 
 
 
