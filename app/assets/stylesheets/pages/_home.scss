@@ -9,11 +9,6 @@ h1, h2, h3, h4, h5 {
   color: #1C00FF;
 }
 
-@font-face {
-   font-family: 'Pano';
-   src: url('/assets/PanoTrialBold.otf');
-}
-
 p {
 
 }
@@ -24,6 +19,7 @@ p {
 
 .sub-heading {
   color: white;
+  font-size: 21px;
 }
 
 
@@ -53,11 +49,11 @@ margin-bottom: 100px;
 }
 
 .admin-event-control, .each-spot {
-border: 2px solid lightgrey;
+//border: 2px solid lightgrey;
 border-radius: 5px;
 padding: 5px;
 width: 300px;
-background-color: white;
+//background-color: white;
 margin: 0 auto;
 }
 .user-container {
@@ -91,11 +87,11 @@ ol, ul, dl {
 
 
 .admin-spot-control {
-border: 2px solid lightgrey;
+//border: 2px solid lightgrey;
 border-radius: 5px;
 padding: 5px;
 width: 1500px;
-background-color: white;
+//background-color: white;
 margin: 0 auto;
 margin-top: 15px;
 margin-bottom:100px
@@ -145,7 +141,12 @@ margin-bottom:100px
     cursor: pointer;
     font-size: 16px;
     padding: 15px 35px;
+
   }
+
+.main-cta a :hover {
+   text-decoration: none;
+}
 
 
 .heading {

@@ -5,22 +5,22 @@
       <div class="card">
         <%= cl_image_tag event.photo, height: 300, crop: :fill %>
         <p class="card-text">
-        <%= link_to event.name, event_path(event) %>
+        <b>Name</b> <%= link_to event.name, event_path(event) %>
         </p>
         <p class="card-text">
-        <%= event.venue_name%>
+        <b>Venue</b> <%= event.venue_name%>
         </p>
         <p class="card-text">
-        <%= event.address%>
+        <b>Address</b> <%= event.address%>
         </p>
         <p class="card-text">
-        <%= event.start_date%>
+        <b>From</b> <%= event.start_date%>
         </p>
         <p class="card-text">
-        <%= event.end_date%>
+        <b>Til</b> <%= event.end_date%>
         </p>
         <p class="card-text">
-        <%= event.about%>
+        <b>Description</b> <%= event.about%>
         </p>
       </div>
     <% end %>
