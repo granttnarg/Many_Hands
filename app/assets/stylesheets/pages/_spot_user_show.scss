@@ -1,0 +1,67 @@
+.user-profile-photo {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+  border-radius: 50%;
+  height:200px;
+  width: 200px;
+  position:absolute;
+  left: 684px;
+  top: 300px;
+}
+
+
+.user-cover-photo {
+  position: relative;
+}
+
+.description{
+  border: solid 2px lightgray;
+  padding: 10px 25px;
+  width: 655px;
+  margin: 0 auto;
+  background-color:lightgrey;
+  position:relative;
+}
+
+.bio-text {
+color: #363636;
+text-align: left;
+}
+
+.title {
+  color: #2402F5;
+}
+
+.invite-button {
+  padding-top:15px;
+}
+.spot-invite-button {
+  background-color: black;
+    color: #ff4900;
+    border-radius: 50%;
+    width: 106px;
+    height: 104px;
+    padding: 39px 32px;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+
+}
+
+
+.go-back-buttons{
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+.go-back-event-button, .search-again-button{
+    color: #ff4900;
+    border-radius: 50%;
+    width: 106px;
+    height: 104px;
+    padding: 39px 32px;
+    bottom: 50px;
+    right: 50px;
+    text-align: center;
+}
