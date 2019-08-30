@@ -28,6 +28,10 @@
   <div class="show-spots">
     <h4>Open Spots</h4>
     <br>
+    <div class="text-center mb-4">
+    <%= link_to "< Back to events", events_path, class: "btn btn-primary" %>
+    </div>
+    <br>
       <% @event.spots.each do |spot|%>
         <p><strong><%= spot.role %></strong></p>
         <i>"<%= spot.description %>"</i>
@@ -47,6 +51,9 @@
   <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
   <br>
   <p><%= link_to "Delete this Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <div class="text-center mb-4">
+    <%= link_to "< Back to your events", events_path, class: "btn btn-primary" %>
+    </div>
   </div>
   <div class="admin-spot-control">
     <!-- create spot button -->
