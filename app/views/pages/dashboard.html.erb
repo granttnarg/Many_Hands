@@ -2,113 +2,89 @@
     <br>
     <br>
     <br>
-  <div class="box">
-    <div class ="cover-avatar">
-
-
-        <%= cl_image_tag @user.profile_photo, crop: :fill, class: "circle-avatar" %>
-
-      <div class="cover-photo">
-        <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill, class: "cover-photo" %>
-
-      </div>
-
-    </div>
     <br>
-    <div class="your-profile">
-      <ul class ="profile-content">
-        <h2 style="list-style: none;">Welcome <%= @user.username  %></h2>
-        <br>
-        <li style="list-style: none;">Name: <%= @user.first_name  %> <%= @user.last_name  %> </li>
-        <li style="list-style: none;">Looking for: <%= @user.looking_for  %></li>
-        <li style="list-style: none;">Location: <%= @user.location  %></li>
-        <li style="list-style: none;">Bio: <%= @user.bio  %></li>
-        <li style="list-style: none;">Contact: <%= @user.email  %></li>
-       </ul>
-     </div>
+  <div class="box">
+    <div class="wrapping-box">
 
-     <div class="notification-box">
-    </br>
-      <div class="cta">
-         <p>CreativeA made a request to this event 1. </p>
-          <button class="cta-add">Ok </button>
+    <div class="first-row-box">
+      <div class="upper-left-box">
+        <div class ="cover-avatar">
+          <%= cl_image_tag @user.profile_photo, crop: :fill, class: "circle-avatar" %>
+        <div class="cover-photo">
+          <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill, class: "cover-photo" %>
+        </div>
       </div>
-      <div class="cta">
-        <p>CreativeA made a request to this event 1. </p>
-          <div class = "close-mark"><a href="#" class="close"></a></div>
-          <div class="round">
-            <input type="checkbox" id="checkbox" />
-              <label for="checkbox"></label>
+        <div class="notification-box">
+          <div class="each-notification">
+            <p class ="notification-text">CreativeA made a request to this event 1. </p>
           </div>
+          <div class="each-notification">
+            <p class ="notification-text">CreativeA made a request to this event 1. </p>
+          </div>
+          <div class="each-notification">
+            <p class ="notification-text">CreativeA made a request to this event 1. </p>
+          </div>
+        </div>
       </div>
-      <div class="cta">
-         <p>CreativeA made a request to this event 1. </p>
-          <button class="cta-add">Ok </button>
+      <div class="upper-right-box">
+       <div class ="profile-title"><h6>Your profile</h6></div>
+         <div class="social-media">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+         </div>
+            <ul class ="profile-content">
+            <li style="list-style: none;"><p class ="profile-text">Name: <%= @user.first_name  %> <%= @user.last_name  %></li></p>
+            <li style="list-style: none;"><p class ="profile-text">Location: <%= @user.location  %></li></p>
+            <li style="list-style: none;"><p class ="profile-text">Looking for: <%= @user.looking_for  %></li></p>
+            <li style="list-style: none;"><p class ="profile-text">Contact: <%= @user.email  %></li></p>
+           </ul>
       </div>
     </div>
-  </div>
+  <div class="row-box">
+     <% @events.each do |event|  %>
+       <div id = "each-event" class="col md-6 places-holder">
+        <div class="event-info">
+        <%= link_to event_path(event) do %>
+        <div class="event-photo">
+          <img id="dash-card" src="<%=event.photo%>" height="150" width="200"/>
+         <% end %>
+        </div>
+        <div class="event-description">
+          <h6 style="list-style: none;">NAME: <%= event.name %></h6>
+          <h6 style="list-style: none;">VENUE: <%= event.venue_name  %></h6>
+          <h6 style="list-style: none;">DATE: <%= event.address  %></h6>
+          <h6 style="list-style: none;">START: <%#= event.start_date.strftime("%b %d, %Y") %></h6>
+          <h6 style="list-style: none;">End <%#= event.end_date.strftime("%b %d, %Y") %></h6>
+            </div>
+        <div class="spot-status">
+          3 spots /
+          2 filled<!--
+        hard-coded please change with ruby code! -->
+        </div>
+        </div>
+        <% event.spots.each do |spot| %>
+          <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
+          <% notifications.each_with_index do |notification, index| %>
+        <div id="request-box">
+          <p class ="request-text">Message # <%= index + 1 %> <br>
+              From <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <br> Status: <%= notification.status %></p>
+              <p class ="request-text">Message: <%= notification.note %></p>
 
-
-
-<div class="notification-box event-box d-flex">
-
-  <% @events.each do |event|  %>
-
-    <div class= "row">
-      <ul>
-
-      <div class="card">
-      <%= link_to event_path(event) do %>
-        <img id="dash-card" src="<%=event.photo%>" height="150" width="200"/>
-      <% end %>
-
-      </div>
-
-      <div class="card">
-      <h1 style="list-style: none;"><%= event.name %></h1>
-      <li style="list-style: none;">Venue: <%= event.venue_name  %></li>
-      <li style="list-style: none;">address: <%= event.address  %></li>
-      <li style="list-style: none;">Start Date: <%= event.start_date.strftime("%b %d, %Y") %></li>
-      <li style="list-style: none;">End Date: <%= event.end_date.strftime("%b %d, %Y") %></li>
-      <li style="list-style: none;">Start Time: <%= event.start_time.strftime("%l:%M %p") %></li>
-      <li style="list-style: none;">End Time: <%= event.end_time.strftime("%l:%M %p") %></li>
-      <li style="list-style: none;">About: <%= event.about %></li>
-      <li style="list-style: none;"> Confirmed Spots: <%= event.confirmed_spots_count %></li>
-      <li style="list-style: none;"> Unfilled Spots: <%= event.unfilled_spots_count %></li>
-      <li style="list-style: none;"> Total Spots: <%= event.spots.count %></li>
-      </div>
-
-    </div>
-
-
-
-
-
-
-      <div>
-        <h3>Requests</h3>
-          <div class="d-flex justify-content-between">
-            <% event.spots.each do |spot| %>
-              <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
-              <% notifications.each_with_index do |notification, index| %>
-                <div>
-                  <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
-                  <p>Message: <%= notification.note %></p>
-                </div>
-
-                <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
-
+                  <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
+                   <div class="request-status-box">
                   <a href="#" class="button" data-value="confirmed">✅</a>
                   <a href="#" class="button" data-value="rejected">❌</a>
                   <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
-
                   <%= f.submit :submit, class: "submit d-none" %>
+                  </div>
                 <% end %>
-              <% end %>
-            <% end %>
-          </div>
-      </div>
-
-  <% end %>
- </div>
+        </div>
+        <% end %>
+       <% end %>
+    </div>
+    <% end %>
+    </div>
+  </div>
 </div>
+

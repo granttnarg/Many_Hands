@@ -1,29 +1,34 @@
 <%= render 'shared/navbar' %>
-<div class="container" style="padding-top: 100px">
-  <div class="row">
-    <% @events.each do |event| %>
-      <div class="card">
+<div class="container">
+<div class="row">
+  <% @events.each do |event| %>
+    <div class="card">
+      <div class="event-image">
         <%= cl_image_tag event.photo, height: 300, crop: :fill %>
-        <p class="card-text">
-        <b>Name</b> <%= link_to event.name, event_path(event) %>
-        </p>
-        <p class="card-text">
-        <b>Venue</b> <%= event.venue_name%>
-        </p>
-        <p class="card-text">
-        <b>Address</b> <%= event.address%>
-        </p>
-        <p class="card-text">
-        <b>From</b> <%= event.start_date%>
-        </p>
-        <p class="card-text">
-        <b>Til</b> <%= event.end_date%>
-        </p>
-        <p class="card-text">
-        <b>Description</b> <%= event.about%>
-        </p>
       </div>
-    <% end %>
-  </div>
-  <%= link_to "Create new event", new_event_path, class: "btn btn-primary" %>
+      <div class="card-description">
+      <p class="card-text">
+      <b>Name</b> <%= link_to event.name, event_path(event) %>
+      </p>
+      <p class="card-text">
+      <b>Venue</b> <%= event.venue_name%>
+      </p>
+      <p class="card-text">
+      <b>From</b> <%= event.start_date%>
+      </p>
+      <p class="card-text">
+      <b>Til</b> <%= event.end_date%>
+      </p>
+      <p class="card-text">
+      <b>Description</b> <%= event.about%>
+      </p>
+    </div>
+    </div>
+  <% end %>
 </div>
+<%= link_to "Create new event", new_event_path, class: "btn btn-primary" %>
+</div>
+
+</div>
+
+
