@@ -39,17 +39,21 @@
 
 
 
-<section class="site-hero overlay mb-4" style="background-image: url(https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)">
-      <div class="container">
+<section class="site-hero overlay mb-4" style="background-color: black;">
+      <div class="landing-container">
         <div class="row">
-          <div class="col">
-            <h1 class="heading-line" data-aos="fade-up">MANY HANDS</h1>
-            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
-            Make your events uniques hiring creatives from your local community
-            </p>
-
+          <div class="headings">
+            <h1 class="heading-line" data-aos="fade-up">Many<br> hands<%#= link_to 'EXPLORE', events_path" %></h1>
             <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
-              <%= link_to 'EXPLORE', events_path, class: "main-cta" %>
+            <div class = "landing-cta">
+              <p>Are you a&nbsp; Event Organizer? Do&nbsp;you have a&nbsp;new event coming up? Find&nbsp;up and coming creatives in&nbsp; your local community. Follow the link below to&nbsp;follow&nbsp;&nbsp;us &nbsp;to discover cool creatives!
+              </p>
+              <span style="display: flex;"> <%= link_to 'Discover', events_path, class: "discover" %>
+                <svg id="arrow" href="/events" viewBox="0 0 24 24">
+                    <polygon points="1,0 1,6 13.757,6 0.615,19.142 4.858,23.385 18,10.243 18,23 24,23 24,0 "></polygon>
+                </svg>
+                </span>
+            </div>
             </p>
           </div>
         </div>
