@@ -3,32 +3,39 @@
 
 <div class="container" style="padding-top: 120px; width:1600px;">
   <br>
-  <h1 class="text-center">Creatives in your area</h1>
+  <h1 class="text-center"><%= @spot.category.capitalize %> creatives in your area</h1>
   <br>
   <div class="text-center mb-4">
     <%= link_to "< Back to your event", event_path(@spot.event), class: "btn btn-primary" %>
     </div>
-  <div class="row">
+    <div><p>Showing <%= @users.count %> results</p></div>
+  <div class="row" style="padding-top: 0px;">
     <% @users.each do |user| %>
-      <div class="notification position-relative" style="margin: 15px; padding-bottom: 8px;">
+      <div class="notification position-relative" style=" background: #f9f9f9; margin: 15px; padding-bottom: 8px;">
         <div  class="mb-3">
+          <%= link_to spot_creative_path(@spot, user) do %>
           <div><%= cl_image_tag user.coverphoto, height: 100, width:180, crop: :fill%></div>
-          <div class="position-absolute profile-avatar"><%= cl_image_tag user.profile_photo, height: 100, width:100, radius: 50, crop: :fill %></div>
+          <div class="position-absolute profile-avatar" style="border-radius: 50%; border: 8px solid #ff4900;"><%= cl_image_tag user.profile_photo, height: 100, width:100, radius: 50, crop: :fill %></div>
         </div>
+        <% end %>
         <div class="notification-content">
-          <p><%= link_to user.first_name, spot_creative_path(@spot, user) %></p>
-          <p><%= user.category %></p>
-          <p><%= user.skill %></p>
+          <p><strong>Name: </strong><%= link_to user.first_name, spot_creative_path(@spot, user) %></p>
+          <p><strong>Category: </strong><%= user.category.capitalize %></p>
+          <p><strong>Skill: </strong><%= user.skill.capitalize %></p>
         </div>
 
         <div class="notification-actions">
-          <div><a href="#">Confirm <i class="fas fa-check"></i></a></div>
-          <div><a href="#">Reject <i class="far fa-times-circle"></i></a></div>
-          <div><a href="#">Invite <i class="far fa-comments"></i></a></div>
+          <%= link_to new_spot_invitation_path(@spot, user) do %>
+          <div class="button text-center">
+          <i class="far fa-comments text-center"></i>
+          <p class= text-center>Invite</p>
+          </div>
+          <% end %>
         </div>
       </div>
 
     <% end %>
   </div>
+
 </div>
 
