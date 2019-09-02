@@ -10,10 +10,11 @@
             </div>
             <h1 class="p-5">What's its all about?</h1>
             <p> <%= @event.about %></p>
-            <p><% if !current_user.is_creative %>
-              <br>
-              <br>
-              <%=link_to "Edit",  edit_event_path(@event)%></p>
+            <p>
+              <% if !current_user.is_creative %>
+                <%= link_to edit_event_path(@event), class: "btn edit-event" do  %>
+                  <i class="fa fa-edit"></i>
+                <% end %>
               <% end  %>
           </div>
           <div class="banner-text">
@@ -27,10 +28,12 @@
     </div>
 
 
-    <div class="container">
+  <div class="container">
 
 
      <!-- MAIN ROW WHERE ONE LINE OF 2 SPOTS GOES  -->
+    <% if !current_user.is_creative %>
+
      <div class="wrapper">
           <% @event.spots.each do |spot|%>
 
@@ -129,8 +132,87 @@
 
     </div>
 
+  <% elsif current_user.is_creative %>
 
 
+    <div class="wrapper">
+
+          <% @event.spots.each do |spot|%>
+
+            <div class="show-card border-right">
+
+              <div class=" text-center make-circle">
+                <% if spot.requests.where(status: "confirmed").present? %>
+
+
+                <div class="each-spot-position">
+
+
+
+                    <div class="spot-btn-hovering">
+                      <div class="each-spot-full text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo %>')">
+
+                      </div>
+
+                    </div>
+
+                  <!--   <button class="btn edit-spot"><i class="fa fa-edit"></i>
+                    </button> -->
+
+                    <h5 class="spot-name"><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> </h5>
+
+
+                  </div>
+
+
+
+                <% else  %>
+
+                <div class="each-spot-position">
+
+                  <%= link_to new_spot_request_path(spot) do %>
+
+                    <div class="spot-btn-hovering">
+                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
+
+                      </div>
+                        <h5 class="search-spot-button">Apply Now</h5>
+                    </div>
+
+                    <% end %>
+
+
+                  </div>
+
+                <% end %>
+
+              </div>
+
+              <div class="py-5">
+                <div class="spot-info">
+                  <% if spot.requests.where(status: "confirmed").present? %>
+                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p><strong><%= spot.requests.first.user.skill %></strong></p>
+                    <i><%= spot.description %></i>
+
+                  <% else  %>
+                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p><strong><%= spot.role %></strong></p>
+                    <i><%= spot.description %></i>
+
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+
+
+          <% end %>
+        </div>
+
+    </div>
+
+  <% end %>
 
 </div>
 
@@ -139,177 +221,6 @@
 
 
 
-
-
-
-
-<div class="show-container" style="text-align: center;padding-top: 80px;">
-
-    <!-- available spots display here for creatives to see -->
-    <!-- creatives can apply for the spot here -->
-<% if current_user.is_creative %>
-  <div class="text-center mb-4">
-    <%= link_to "< Back to events", events_path, class: "btn btn-primary" %>
-  </div>
-<% else  %>
-<div class="organizer-container">
-      <br>
-      <br>
-
-      <div class="admin-event-control">
-       <!--Edit/delete this event button -->
-        <%= link_to " Back to events", events_path, class: "btn" %>
-        </div>
-        </div>
-
-     <div class="admin-spot-control">
-      <!-- create spot button -->
-      <div class="create-spot">
-        <br>
-        <div> <%= link_to "Create New spots",  new_event_spot_path(@event), class: 'btn-spot' %>
-        </div>
-      </div>
-      <br>
-      <br>
-      <br>
-
-
-<% end %>
-
-
-<% @event.spots.each do |spot|%>
-
-
-<div class="spot-box-all">
-  <% if spot.requests.where(status: "confirmed").present? %>
-
-
-  <div class="spot-box-single">
-    <div class="each-spot" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo %>')">
-      <div style="text-align:center">
-        <br>
-        <p><strong><%= spot.category.upcase %> || <%= spot.role %></strong></p>
-
-        <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
-          <p>Available </p>
-        <% else %>
-          <p> <b>Confirmed</b></p>
-        <% end %>
-
-        <% if spot.requests.where(status: "confirmed").present? %>
-
-          <p><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%>
-          </p>
-          <p><%= spot.requests.first.user.skill %></p>
-        <% else %>
-        <p><b>Blank</b></p>
-        <% end %>
-
-        <i><%= spot.description %></i>
-        <br>
-        <%= link_to "Edit",  edit_spot_path(spot), class: "btn" %>
-        <%= link_to "Delete", spot, class: "btn", method: :delete, data: { confirm: "you sure?" } %>
-        <br>
-        <p><%= link_to "Spot Search",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
-
-        <% if spot.requests.where(status: "confirmed").present? %>
-        <p></p>
-        <% else %>
-        <p><%= link_to "Click to APPLY",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
-        <% end %>
-      </div>
-    </div>
-    <div class = "notification-box">
-      <h3>Requests</h3>
-      <div class="d-flex justify-content-between">
-        <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
-
-        <% notifications.each_with_index do |notification, index| %>
-        <div>
-          <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
-          <p>Message: <%= notification.note %></p>
-        </div>
-
-        <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
-
-        <a href="#" class="button" data-value="confirmed">✅</a>
-        <a href="#" class="button" data-value="rejected">❌</a>
-        <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
-
-        <%= f.submit :submit, class: "submit d-none" %>
-        <% end %>
-        <% end %>
-
-      </div>
-    </div>
-
-
-    <% else %>
-    <div class="spot-box-single">
-      <div class="each-spot" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
-        <div style="text-align:center">
-          <br>
-          <p><strong><%= spot.category.upcase %> || <%= spot.role %></strong></p>
-
-          <% if spot.requests.empty? || spot.requests.where.not(status: "confirmed").present? %>
-          <p>Available</p>
-          <% else %>
-          <p> <b>Confirmed</b></p>
-          <% end %>
-
-
-
-          <% if spot.requests.where(status: "confirmed").present? %>
-
-          <p><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%>
-          </p>
-          <p><%= spot.requests.first.user.skill %></p>
-          <% else %>
-          <p><b>Spot still Available!</b></p>
-          <p><b>APPLY NOW</b></p>
-          <% end %>
-
-          <i><%= spot.description %></i>
-          <br>
-          <%= link_to "Edit",  edit_spot_path(spot), class: "btn" %>
-          <%= link_to "Delete", spot, class: "btn", method: :delete, data: { confirm: "you sure?" } %>
-          <br>
-          <p><%= link_to "Spot Search",  spot_creatives_path(spot), class: "btn btn-primary" %></p>
-
-          <% if spot.requests.where(status: "confirmed").present? %>
-          <p></p>
-          <% else %>
-          <p><%= link_to "Click to APPLY",  new_spot_request_path(spot), class: "btn btn-primary" %></p>
-          <% end %>
-        </div>
-      </div>
-
-      <div class = "notification-box">
-        <h3>Requests</h3>
-        <div class="d-flex justify-content-between">
-          <% notifications = spot.requests.where(status: :pending) %> <%# Need to change to "pending" %>
-          <% notifications.each_with_index do |notification, index| %>
-          <div>
-            <p><%= index + 1 %>. <%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> <%= notification.status %></p>
-            <p>Message: <%= notification.note %></p>
-          </div>
-
-          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
-
-          <a href="#" class="button" data-value="confirmed">✅</a>
-          <a href="#" class="button" data-value="rejected">❌</a>
-          <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
-
-          <%= f.submit :submit, class: "submit d-none" %>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <% end  %>
-    </div>
-    <% end %>
-</div>
 
 
 
