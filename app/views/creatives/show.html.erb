@@ -1,11 +1,12 @@
 
 <%= render 'shared/navbar' %>
-<div class="user-container">
+<div class="user-show-container">
   <div class="go-back-buttons">
     <%= link_to "BACK TO EVENT", event_path(@spot.event), class: 'go-back-event-button' %>
     <%= link_to "BACK TO SEARCH", spot_creatives_path(@spot.id), class: 'search-again-button' %>
 
   </div>
+  <div class="page-container">
 
   <div class="user-bio">
 
@@ -18,8 +19,8 @@
 
 
     <div class="description">
-       <h5><br>
-        <%= @user.email %></h5>
+       <h4><br>
+        <%= @user.email %></h4>
     <ul class = "bio-text">
       <li style="list-style: none;"><p class= "title"> Bio</p>  <%= @user.bio  %></li>
       <li style="list-style: none;"><p class= "title">Location</p> <%= @user.location  %></li>
@@ -35,12 +36,21 @@
   </div>
 
 
-
   <div class="social-stuffs">
     <div class="sound-cloud">
 
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/72199688&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+
     </div>
-    <div class="instagram">
+    <div class="instagram-feed">
+
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+
 
     </div>
     <div class="review">
@@ -50,6 +60,7 @@
 
 
   </div>
+</div>
 </div>
 
 

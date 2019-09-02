@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: white" >
+<div class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: transparent" >
   <%= link_to root_path, class: "navbar-brand-pages", style: "margin-bottom: -30px;" do %>
-   <p class ="logo-text"> ManyHands</p>
+   <h5 class ="logo-text"> ManyHands</h5>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,11 @@
      </div>
      <% if user_signed_in? %>
       <li>
-        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link", style: "color: black", method: :delete %>
+        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link", style: "color: white", method: :delete %>
       </li>
       <% else %>
       <li>
-        <%= link_to "Log In", new_user_session_path, class: "nav-link", style: "color: black" %>
+        <%= link_to "Log In", new_user_session_path, class: "nav-link", style: "color: white" %>
       </li>
 
       <% end %>

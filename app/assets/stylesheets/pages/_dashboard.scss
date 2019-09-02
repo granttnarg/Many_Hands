@@ -1,14 +1,23 @@
 .box {
   background-color:white;
-  width:960px;
+  width: 95%;
   height:auto;
   margin: 0 auto;
+  overflow-y: auto;
+
  }
+
+ .wrapping-box {
+  margin: 0 auto;
+ }
+
 .cover-avatar {
     height:150px;
     margin:20px auto;
     position:relative;
     display:flex;
+    background-color: white;
+    border-radius: 5px;
   }
 .circle-avatar {
   width: 99px;
@@ -26,10 +35,15 @@
   left: 100px;
   top: 8px;
 }
+.notification-text {
+  color: grey;
+  font-family: 'Montserrat';
+  font-size: 14px;
 
+}
 .profile-content {
   margin :0 auto;
-  text-align:center;
+  text-align:left;
 }
 .event-status {
   width:900px;
@@ -39,20 +53,19 @@
 }
 .your-profile {
     list-style: none;
-    margin: 10px auto;
     padding: 0;
     position: relative;
     overflow-y: auto;
     height: 200px;
 }
 
-.cta {
+.each-notification {
+  padding-left: 50px;
+  padding-top: 20px;
   height: 64px;
-  margin: 0 20px 10px;
   background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  border: 2px solid grey;
   border-radius: 5px;
 }
 .cta-add {
@@ -129,10 +142,212 @@
 
 .notification-box {
     list-style: none;
-    margin: 0 auto;
-    padding: 0;
     position: relative;
     overflow-y: auto;
     height: 300px;
-    width:940px;
+    width: 960px;
+    padding: 10px 30px;
+}
+.first-row-box {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 25px;
+}
+
+.profile-text{
+  color: grey;
+  font-family: 'Montserrat';
+}
+.profile-title {
+  color: grey;
+  font-size: 25px;
+  margin: 0 auto;
+  position:absolute;
+  top: 30px;
+}
+.upper-right-box {
+    padding: 50px 50px;
+    border: 2px solid gray;
+    height: 395px;
+    border-radius: 5px;
+    overflow-y: auto;
+    position:relative;
+    background-color: white;
+    height: 441px;
+
+}
+
+.profile-text {
+  color: grey;
+  text-align:center;
+}
+.upper-left-box {
+  background-color: white;
+  height: 441px;
+  border: solid 2px grey;
+  border-radius: 5px;
+}
+.social-media {
+  display: flex;
+  color: blue;
+  justify-content: space-around;
+  font-size: 35px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+
+}
+
+.event-info {
+  display: flex;
+}
+
+.spot-status {
+  background-color: #ff4900;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+  padding: 45px;
+  position: absolute;
+  right: 20px;
+}
+
+.event-description {
+    color: grey;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+#each-event {
+  position:relative;
+  width: 50%;
+  border: solid 2px grey;
+  border-radius: 5px;
+  background-color: white;
+  padding-left: 30px;
+  overflow-y: auto;
+  height: 500px;
+}
+#request-box {
+  border: solid 2px grey;
+  display: flex;
+}
+.request-text {
+  color: grey;
+}
+
+.index-text {
+  color: grey;
+}
+
+.card-text {
+  font-size: 22px;
+}
+
+#each-event-index {
+  border: 1px solid white;
+  display: flex;
+height: 330px;
+}
+
+.row {
+  padding-top: 120px;
+}
+
+.heading-title {
+  text-align: center;
+  padding-top: 110px;
+}
+.users {
+  padding-right: 58px;
+}
+#arrow-rotate {
+  transform: rotate(180deg);
+  fill: $orange;
+  height: 120px;
+}
+.category {
+  color: grey;
+}
+.spot-pending, .spot-confirmed {
+  display: flex;
+  justify-content: space-around;
+}
+
+.spot-circle {
+    width:150px;
+    height:150px;
+    background-color: $orange;
+    border-radius: 50%;
+
+}
+
+#arrow-dash {
+  fill: $orange;
+  width: 90px;
+  padding-left: 25px;
+  cursor: pointer;
+  transform: translateY(0.03em);
+}
+
+.spot-circle-filled {
+  width:150px;
+  height:150px;
+  background-color: grey;
+  border-radius: 50%;
+
+
+}
+.event-cta {
+display: flex;
+
+text-align: center;
+
+color: black;
+
+padding-top: 19px;
+
+justify-content: space-around;
+}
+.event-dash-cta {
+  width:150px;
+  height:150px;
+  background-color: grey;
+  border-radius: 50%;
+  padding-top: 61px;
+
+}
+.status-text {
+  color: gray;
+  width: 50px;
+  font-size: 25px;
+}
+.spot-text {
+  padding-top: 59px;
+padding-left: 54px;
+}
+.create-new-event {
+  display: flex;
+  align-items: center;
+}
+.create-event {
+    color: $blue;
+    font-family: pano;
+}
+.search-creative {
+  color: $blue;
+  font-family: pano;
+ font-size: 15px;
+align-items: center;
+padding: 65px 25px;
+}
+
+.status-text-filled {
+  color: grey;
+}
+
+.status-title {
+  color: grey;
+text-align: center;
 }
