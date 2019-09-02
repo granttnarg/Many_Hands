@@ -9,7 +9,7 @@
     </div>
     <div class="align-self-center ml-5">
       <h1 style="padding-bottom: 0px;">
-        <strong><%= @event.name %></strong>
+        <strong><%#= @event.name %></strong>
       </h1>
       <div class="font pt-2" style="font-size: 15px; padding: 0px; "><%= @event.address %>
       </div>
@@ -17,7 +17,7 @@
       </div>
       <div class="pt-2" style="font-size: 12px;">
         <p>Start: <%#= @event.start_date.strftime("%b %d, %Y")%> - <%#= @event.start_time.strftime("%l:%M %p")%>
-          <br>End: <%= @event.end_date.strftime("%b %d, %Y")%> - <%#= @event.end_time.strftime("%l:%M %p") %> </p>
+          <br>End: <%#= @event.end_date.strftime("%b %d, %Y")%> - <%#= @event.end_time.strftime("%l:%M %p") %> </p>
         </div>
       </div>
     </div>

@@ -39,55 +39,50 @@
 
 
 
-<section class="site-hero overlay mb-4" style="background-color: black;">
+<section class="site-hero overlay mb-4" style="background-image: url(https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)">
       <div class="landing-container">
         <div class="main-landing-row">
           <div class="headings">
-            <h1 class="heading-line" data-aos="fade-up">Many<br> hands<%#= link_to 'EXPLORE', events_path" %></h1>
+            <h1 class="heading-line" data-aos="fade-up">MANY<br> HANDS<%#= link_to 'EXPLORE', events_path" %></h1>
             <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class = "landing-cta">
-              <p>Are you an &nbsp; Event Organizer? Do&nbsp;you have a&nbsp;new event coming up? Find&nbsp;up and coming creatives in&nbsp; your local community. Follow the link below to&nbsp;follow&nbsp;&nbsp;us &nbsp;to discover cool creatives!
-              </p>
-              <span style="display: flex;"> <%= link_to 'Discover', events_path, class: "discover" %>
-                <svg id="arrow" href="/events" viewBox="0 0 24 24">
-                    <polygon points="1,0 1,6 13.757,6 0.615,19.142 4.858,23.385 18,10.243 18,23 24,23 24,0"></polygon>
-                </svg>
-                </span>
-            </div>
+            <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
+              <%= link_to 'EXPLORE', events_path, class: "main-cta" %>
             </p>
           </div>
+          </div>
         </div>
-      </div>
+    </section>
+
     <div class="project-info">
 
-    <h1>How <br>we collaborate</h1>
+    <h2>How <br>we collaborate</h2>
 
     <div class="process">
       <div class="each-process">
-         <p class ="process-text">TIme to organize your event</p>
+         <p class ="process-text">step 1 - Time to organize your event</p>
         <picture class="cover"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo" ></picture>
       </div>
        <div class="each-2">
-      <p class ="process-text">Create your event page.</p>
+      <p class ="process-text">step 2 - Create your event page</p>
 
       <picture class="cover"><img src="https://images.unsplash.com/photo-1519111887837-a48ccf9edc00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
       </div>
       <div class="each-3">
-        <p class ="process-text">You will advertise the spots you want to fill</p>
+        <p class ="process-text">step 3 - You will advertise the spots you want to fill</p>
       <picture class="cover"><img src="https://images.unsplash.com/photo-1561834029-b95a90eeb4dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
        </div>
       <div class="each-4">
-        <p class ="process-text">You wait for request or search actively</p>
+        <p class ="process-text">step 4 - You wait for request or search actively</p>
       <picture class="cover"><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
       </div>
 
        <div class="each-5">
         <div class="each-p">
-        <p class ="process-text">Have a spectacular event</p>
+        <p class ="process-text">step 5 - Have a spectacular event</p>
         <picture class="cover"><img src="https://images.unsplash.com/photo-1552819471-ab8763db1aad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=605&q=80" class ="process-photo"></picture>
         </div>
           <div class = "creative-cta">
-              <p>Are you &nbsp; musician or visual artist or performance artist? Or&nbsp;you just want to be part of &nbsp;cool events by helping out? Join&nbsp;and find out events &nbsp; in your local community. Follow the link below to&nbsp; discover &nbsp;&nbsp; opportunities! &nbsp;
+              <p>Are you &nbsp; musician or visual artist or performance artist? Or&nbsp;you just want to be part of &nbsp;cool events by helping out? Join&nbsp;and find out events &nbsp; in your local community. Follow the link below to&nbsp;discover &nbsp;&nbsp;opportunities! &nbsp;
               </p>
               <span style="display: flex;"> <%= link_to 'Apply', events_path, class: "apply" %>
                 <svg id="arrow" href="/events" viewBox="0 0 24 24">
@@ -103,4 +98,3 @@
 
 
   </div>
-    </section>
