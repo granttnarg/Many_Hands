@@ -1,9 +1,9 @@
 .box {
-  background-color:white;
-  width: 95%;
+  background-color: $off-white;
   height:auto;
   margin: 0 auto;
-  overflow-y: auto;
+  width: 80%;
+
 
  }
 
@@ -13,7 +13,6 @@
 
 .cover-avatar {
     height:150px;
-    margin:20px auto;
     position:relative;
     display:flex;
     background-color: white;
@@ -28,8 +27,11 @@
   top: 26px;
   left: 51px;
 }
+
+
+
 .cover-photo {
-  width: 720px;
+  width: 550px;
   height: 120px;
   position: absolute;
   left: 100px;
@@ -139,107 +141,94 @@
 .close:after {
   transform: rotate(-45deg);
 }
+.upper-left-box {
+  background-color: $off-white;
+  height: auto;
+  border-radius: 5px;
+  width: 71%;
+}
 
-.notification-box {
+.your-self {
     list-style: none;
-    position: relative;
     overflow-y: auto;
     height: 300px;
-    width: 960px;
-    padding: 10px 30px;
+    background-color: white;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
 }
 .first-row-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 25px;
 }
 
 .profile-text{
   color: grey;
   font-family: 'Montserrat';
-}
-.profile-title {
-  color: grey;
-  font-size: 25px;
-  margin: 0 auto;
-  position:absolute;
-  top: 30px;
-}
-.upper-right-box {
-    padding: 50px 50px;
-    border: 2px solid gray;
-    height: 395px;
-    border-radius: 5px;
-    overflow-y: auto;
-    position:relative;
-    background-color: white;
-    height: 441px;
-
+padding-left: 25px;
+font-size: 15px;
 }
 
-.profile-text {
-  color: grey;
-  text-align:center;
-}
-.upper-left-box {
-  background-color: white;
-  height: 441px;
-  border: solid 2px grey;
-  border-radius: 5px;
-}
+
+
+
 .social-media {
-  display: flex;
-  color: blue;
-  justify-content: space-around;
-  font-size: 35px;
+  color: #39393b;
+  font-size: 25px;
   padding-bottom: 25px;
   padding-top: 25px;
-
+  display: flex;
+  flex-direction: column;
+  padding-right: 25px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .event-info {
   display: flex;
+
 }
 
 .spot-status {
-  background-color: #ff4900;
-  color: white;
+  background-color: black;
+  color: #ff4900;
   font-family: 'Montserrat';
   font-size: 15px;
-  width:150px;
-  height:150px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   padding: 45px;
   position: absolute;
   right: 20px;
+  border: solid 3px #ff4900;
 }
 
 .event-description {
-    color: grey;
-    padding-left: 20px;
-    padding-top: 15px;
+  padding-left: 0;
+  position: absolute;
+  bottom: 111px;
+  left: 40px;
+  margin-left: 30px;
+}
+
+#dash-card {
+  positino: relative;
 }
 #each-event {
   position:relative;
-  width: 50%;
-  border: solid 2px grey;
   border-radius: 5px;
   background-color: white;
   padding-left: 30px;
-  overflow-y: auto;
-  height: 500px;
+  height: 547px;
+  padding-top: 62px;
 }
 #request-box {
-  border: solid 2px grey;
-  display: flex;
-}
-.request-text {
-  color: grey;
+  background-color: white;
+  padding-top: 25px;
 }
 
-.index-text {
-  color: grey;
-}
 
 .card-text {
   font-size: 22px;
@@ -249,10 +238,15 @@
   border: 1px solid white;
   display: flex;
 height: 330px;
+
 }
 
 .row {
-  padding-top: 120px;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding-top: 85px;
 }
 
 .heading-title {
@@ -268,7 +262,11 @@ height: 330px;
   height: 120px;
 }
 .category {
-  color: grey;
+  color: $orange;
+  width: 15%;
+  position: absolute;
+left: 200px;
+
 }
 .spot-pending, .spot-confirmed {
   display: flex;
@@ -278,8 +276,21 @@ height: 330px;
 .spot-circle {
     width:150px;
     height:150px;
-    background-color: $orange;
+    color: $orange;
+    background-color: white;
     border-radius: 50%;
+
+}
+
+.request-content {
+  display: flex;
+  align-items: center;
+  background-color: #F0F0F0;
+  width: 820px;
+  padding-left: 15px;
+  border-radius: 5px;
+  padding-right: 34px;
+  position:relative;
 
 }
 
@@ -328,12 +339,25 @@ justify-content: space-around;
 padding-left: 54px;
 }
 .create-new-event {
-  display: flex;
-  align-items: center;
+  padding-top: 140px;
 }
 .create-event {
-    color: $blue;
-    font-family: pano;
+  background-color: black;
+  font-family: 'pano';
+  width: 150px;
+  height: 150px;
+  color: white;
+  border-radius: 50%;
+  padding: 106px 41px;
+  border: 3px solid #ff4900;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+
 }
 .search-creative {
   color: $blue;
@@ -350,4 +374,90 @@ padding: 65px 25px;
 .status-title {
   color: grey;
 text-align: center;
+}
+
+.avatar-message {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  }
+.inner-circle {
+  border-radius: 50%;
+  border: solid 2px $orange;
+  width: 225px;
+  height:225px;
+}
+
+.from-info {
+  padding: 0 10px;
+text-align: center;
+position: absolute;
+left: 100px;
+}
+
+.title-request {
+  color: $orange;
+}
+
+.request-status-box {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 3px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.confirm {
+  display: flex;
+flex-direction: column;
+text-align: center;
+justify-content: space-around;
+position: absolute;
+right: 26px;
+}
+
+.contents {
+  position: absolute;
+left: 288px;
+width: 509px;
+
+}
+
+.event-text {
+  color: white;
+  font-size:26px;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: black; -webkit-box-shadow: 0 0 3px black; }
+  50% { background-color: black; -webkit-box-shadow: 0 0 40px black; }
+  100% { background-color: black; -webkit-box-shadow: 0 0 3px black; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: black; -moz-box-shadow: 0 0 3px black; }
+  50% { background-color: black; -moz-box-shadow: 0 0 40px black; }
+  100% { background-color: black; -moz-box-shadow: 0 0 3px black; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: black; box-shadow: 0 0 3px black; }
+  50% { background-color: black; box-shadow: 0 0 40px black; }
+  100% { background-color: black; box-shadow: 0 0 3px black; }
+}
+
+@keyframes glowing {
+  0% { background-color: black; box-shadow: 0 0 3px black; }
+  50% { background-color: black; box-shadow: 0 0 40px black; }
+  100% { background-color: black; box-shadow: 0 0 3px black; }
+}
+
+.title-inbox {
+  text-align:center;
 }

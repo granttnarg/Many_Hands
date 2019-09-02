@@ -56,19 +56,23 @@ body {
 
 
 .main-cta {
-  border: 2px solid #ff4900;
-  background: transparent;
-  color: #ff4900;
-  width: 150px;
-  height: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 15px 35px;
-  position: absolute;
-  left: 200px;
-  bottom: 220px;
-  }
 
+    color: #ff4900;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 15px 35px;
+    position: absolute;
+   left: 186px;
+bottom: 122px;
+    border-radius: 50%;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+    padding: 61px 36px;
+}
 .main-cta a :hover {
    text-decoration: none;
    color: #ffffff;
