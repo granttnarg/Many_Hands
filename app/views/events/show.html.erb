@@ -1,26 +1,149 @@
 <%= render 'shared/navbar' %>
-<br>
-<br>
-<br>
-<div class="show-container" style="text-align: center;padding-top: 80px;">
-  <div class="event-container d-flex justify-content-center">
-    <div class="p-3 mr-5">
-      <%= cl_image_tag @event.photo, height: 300, width: 400, crop: :fill %>
+   <!-- your main content here -->
+<div class="main-container">
+
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@event.photo%>);">
+          <div class="pull-out-banner p-5">
+            <div class="button-pull-out">
+              <br>
+              <h5><</h1>
+            </div>
+            <h1 class="p-5">What's its all about?</h1>
+            <p> <%= @event.about %></p>
+            <p><% if !current_user.is_creative %>
+              <br>
+              <br>
+              <%=link_to "Edit",  edit_event_path(@event)%></p>
+              <% end  %>
+          </div>
+          <div class="banner-text">
+
+          <h1 class="main-event-name"><%= @event.name %></h1>
+          <br>
+          <h3><%= @event.start_date.strftime("%b %d, %Y")%> // <%= @event.start_time.strftime("%l %p")%>  - <%= @event.end_time.strftime("%l %p") %></h3>
+          <h3 class="pt-1"><%= @event.venue_name%></h3>
+          <p><%= @event.address%></p>
+          </div>
     </div>
-    <div class="align-self-center ml-5">
-      <h1 style="padding-bottom: 0px;">
-        <strong><%= @event.name %></strong>
-      </h1>
-      <div class="font pt-2" style="font-size: 15px; padding: 0px; "><%= @event.address %>
-      </div>
-      <div class="font-italic pt-2" style="font-size: 15px; padding: 0px; "><%= @event.about %>
-      </div>
-      <div class="pt-2" style="font-size: 12px;">
-        <p>Start: <%= @event.start_date.strftime("%b %d, %Y")%> - <%= @event.start_time.strftime("%l:%M %p")%>
-          <br>End: <%= @event.end_date.strftime("%b %d, %Y")%> - <%= @event.end_time.strftime("%l:%M %p") %> </p>
+
+
+    <div class="container">
+
+
+     <!-- MAIN ROW WHERE ONE LINE OF 2 SPOTS GOES  -->
+     <div class="wrapper">
+          <% @event.spots.each do |spot|%>
+
+            <div class="show-card border-right">
+
+              <div class=" text-center make-circle">
+                <% if spot.requests.where(status: "confirmed").present? %>
+
+
+                <div class="each-spot-position">
+
+
+
+                    <div class="spot-btn-hovering">
+                      <div class="each-spot-full text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spot.requests.first.user.profile_photo %>')">
+
+                      </div>
+
+                    </div>
+
+
+
+                    <%= link_to edit_spot_path(spot), class: "btn edit-spot" do  %>
+                      <i class="fa fa-edit"></i>
+                    <% end %>
+
+                   <%= link_to "x", spot, class: "btn delete-spot", method: :delete, data: { confirm: "you sure?" } %>
+
+                  <!--   <button class="btn edit-spot"><i class="fa fa-edit"></i>
+                    </button> -->
+
+                    <h5 class="spot-name"><%= link_to "#{spot.requests.first.user.first_name}", spot_creative_path(spot, spot.requests.first.user)%> </h5>
+
+
+                  </div>
+
+
+
+                <% else  %>
+
+                <div class="each-spot-position">
+
+                  <%= link_to spot_creatives_path(spot) do %>
+
+                    <div class="spot-btn-hovering">
+                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
+
+                      </div>
+                        <h5 class="search-spot-button">search</h5>
+                    </div>
+
+                    <% end %>
+
+                    <%= link_to edit_spot_path(spot), class: "btn edit-spot" do  %>
+                      <i class="fa fa-edit"></i>
+                    <% end %>
+
+                   <%= link_to "x", spot, class: "btn delete-spot", method: :delete, data: { confirm: "you sure?" } %>
+
+                  <!--   <button class="btn edit-spot"><i class="fa fa-edit"></i>
+                    </button> -->
+
+
+
+
+                  </div>
+
+                <% end %>
+
+              </div>
+
+              <div class="py-5">
+                <div class="spot-info">
+                  <% if spot.requests.where(status: "confirmed").present? %>
+                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p><strong><%= spot.requests.first.user.skill %></strong></p>
+                    <i><%= spot.description %></i>
+
+                  <% else  %>
+                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p><strong><%= spot.role %></strong></p>
+                    <i><%= spot.description %></i>
+
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+          <% end %>
         </div>
-      </div>
+
     </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="show-container" style="text-align: center;padding-top: 80px;">
 
     <!-- available spots display here for creatives to see -->
     <!-- creatives can apply for the spot here -->
@@ -35,10 +158,6 @@
 
       <div class="admin-event-control">
        <!--Edit/delete this event button -->
-       <p><%= link_to "Edit this Event",  edit_event_path(@event)%></p>
-
-       <p><%= link_to "Delete this Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"} %></p>
-        <div class="text-center mb-4">
         <%= link_to " Back to events", events_path, class: "btn" %>
         </div>
         </div>
@@ -191,6 +310,11 @@
     </div>
     <% end %>
 </div>
+
+
+
+
+
 
 
 
