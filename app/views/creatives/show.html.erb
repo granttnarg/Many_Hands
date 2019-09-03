@@ -1,66 +1,153 @@
-
 <%= render 'shared/navbar' %>
+<p></p>
+<br>
+<br>
+
+
 <div class="user-show-container">
-  <div class="go-back-buttons">
-    <%= link_to "BACK TO EVENT", event_path(@spot.event), class: 'go-back-event-button' %>
-    <%= link_to "BACK TO SEARCH", spot_creatives_path(@spot.id), class: 'search-again-button' %>
-
-  </div>
   <div class="page-container">
-
-  <div class="user-bio">
-
-    <div class="bio-photo">
-
-      <%= cl_image_tag @user.coverphoto, height: 240, width: 650, crop: :fill, class: "user-cover-photo" %>
-
-      <%= cl_image_tag @user.profile_photo,crop: :fill, class: "user-profile-photo" %>
+    <div class="left-side mr-3">
+      <div class="go-back-buttons">
+        <%= link_to spot_creatives_path(@spot.id), class: 'search-again-button' do %>
+        <i class="fas fa-arrow-alt-circle-left fa-4x"></i>
+        <% end %>
+      </div>
+      <div class="user-bio">
+        <div class="bio-photo">
+          <div id="invite-position">
+          <%= cl_image_tag @user.coverphoto, height: 240, width: 650, crop: :fill, class: "user-cover-photo" %>
+          </div>
+          <div>
+            <div style="background-image: url(<%= cl_image_path @user.profile_photo %>)" class="user-profile-photo"></div>
+          </div>
+        </div>
+          <div class="invite-button">
+            <%= link_to "INVITE", new_spot_invitation_path(creative_id: @user.id), class: 'spot-invite-button' %>
+          </div>
+        <div class="description mt-3">
+          <br>
+          <br>
+          <br>
+          <br>
+          <ul class = "bio-text">
+            <div id="info-padding">
+              <div id="info-alignment" class="d-flex justify-content-between">
+                <div id="info-titles" style="font-weight: bold;">
+                  <li style="list-style: none;" class= "title">Name: </li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title">Location </li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title">Looking for </li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title">Skill </li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title">Category </li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title">Style </li>
+                </div>
+                <div class="info-inputs pr-5">
+                 <li style="list-style: none;" class= "title"><%= @user.first_name %> <%= @user.last_name%></li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.location %></li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.looking_for  %></li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.skill %></li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.category  %></li>
+                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.style %></li>
+                </div>
+              </div>
+              <p></p>
+              <li style="list-style: none; padding-top: 10px; font-weight: bold;"> Bio: </li>
+              <div id="bio-info-scroll">
+                <li style="list-style: none;" class="text-justify"> <%= @user.bio %></li>
+              </div>
+            </div>
+          </ul>
+          <div class="d-flex justify-content-around pt-3">
+            <div></div>
+            <div></div>
+            <div>
+            <i class="fab fa-facebook-f fa-2x"></i>
+            </div>
+            <div>
+            <i class="fab fa-instagram fa-2x"></i>
+            </div>
+            <div>
+            <i class="fab fa-soundcloud fa-2x"></i>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
-    <div class="description">
-       <h4><br>
-        <%= @user.email %></h4>
-    <ul class = "bio-text">
-      <li style="list-style: none;"><p class= "title"> Bio</p>  <%= @user.bio  %></li>
-      <li style="list-style: none;"><p class= "title">Location</p> <%= @user.location  %></li>
-      <li style="list-style: none;"><p class= "title">Looking for</p> <%= @user.looking_for  %></li>
-      <li style="list-style: none;"><p class= "title">Skill</p> <%= @user.skill  %></li>
-      <li style="list-style: none;"><p class= "title">Category</p> <%= @user.category  %></li>
-      <li style="list-style: none;"><p class= "title">Style</p> <%= @user.style  %></li>
-    </ul>
-      <div class="invite-button">
-         <%= link_to "INVITE", new_spot_invitation_path(creative_id: @user.id), class: 'spot-invite-button' %>
+    <div class="selected-images">
+      <div class="sound-cloud">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/72199688&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+      </div>
+
+      <div class="image-feed">
+        <div id="image-padding">
+          <!-- <a href=""><img src="" class="fas fa-plus" id="plus-icon" alt=""></a> -->
+          <a href=""><div class="d-flex justify-content-center align-items-center h-100"><span class="fas fa-plus" id="plus-icon"></span></div></a>
+
+          <a href="#"><img src="https://images.unsplash.com/photo-1529405456913-530d6c6d2966?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt=""></a>
+          <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
+          <a href="#"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt=""></a>
+          <a href="#"><img src="https://images.unsplash.com/photo-1543081659-4dc546465076?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt=""></a>
+          <a href="#"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt=""></a>
+        </div>
+      </div>
+<br>
+      <div id="review-box">
+        <h4>Reviews</h4>
+        <div id="review-scroll">
+
+          <div class="flash" role="alert">
+            <div class="d-flex">
+              <span><strong>THE BEST</strong> 🎉</span>
+              <span class="text-justify mr-3 ml-3">Never seen a visual artiist like it!</span>
+            </div>
+
+            <div class="d-flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="flash" role="alert">
+            <div class="d-flex">
+              <span><strong>AVERAGE</strong> 🤔</span>
+              <span class="text-justify mr-3 ml-3">Don't get the hype..</span>
+            </div>
+
+              <div class="d-flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+          </div>
+
+          <div class="flash" role="alert">
+            <!-- <div class="d-flex"> -->
+              <span><strong>WOW</strong> 😱</span>
+              <span class="text-justify mr-3 ml-3">There's good, then there's Bill..</span>
+          <!--   </div> -->
+              <div class="d-flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-
-  <div class="social-stuffs">
-    <div class="sound-cloud">
-
-    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/72199688&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-
-    </div>
-    <div class="instagram-feed">
-
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-                    <a href="#"><img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt=""></a>
-
-
-    </div>
-    <div class="review">
-
-
-    </div>
-
-
-  </div>
 </div>
 </div>
+
 
 

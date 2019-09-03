@@ -1,8 +1,33 @@
 <%= render 'shared/navbar' %>
-<div class="container" style="padding-top: 100px; ">
+<div class="container" style="padding-top: 100px; max-width: 600px;">
+	<h1 style="margin-bottom: 20px;">Create a new spot</h1>
 <%= simple_form_for [@event, @spot] do |f| %>
-  <%= f.input :category, collection: Spot.categories.keys %>
+	
+  <fieldset class="form-group radio_buttons required spot_category">
+  	<legend class="col-form-label pt-0">Category <abbr title="required">*</abbr></legend>
+  	<div class="category-choices">
+	  	<input type="hidden" name="spot[category]" value="">
+	  	<div class="form-check form-check-inline">
+	  		<input class="form-check-input radio_buttons required" type="radio" value="sound" name="spot[category]" id="spot_category_sound" style="display:none;">
+	  		<label class="collection_radio_buttons category-choice" for="spot_category_sound">Sound</label>
+	  	</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input radio_buttons required" type="radio" value="visual" name="spot[category]" id="spot_category_visual" style="display:none;">
+			<label class="collection_radio_buttons category-choice" for="spot_category_visual">Visual</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input radio_buttons required" type="radio" value="performance" name="spot[category]" id="spot_category_performance" style="display:none;">
+			<label class="collection_radio_buttons category-choice" for="spot_category_performance">Performance</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input radio_buttons required" type="radio" value="helping_hand" name="spot[category]" id="spot_category_helping_hand" style="display:none;">
+			<label class="collection_radio_buttons category-choice" for="spot_category_helping_hand">Helping_hand</label>
+		</div>	
+	</div>
+  	</fieldset>
+
   <%= f.input :role, input_html: { value: params[:role] } %>
+
   <%= f.input :description %>
 
 
