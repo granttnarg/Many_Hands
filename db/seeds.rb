@@ -13,7 +13,7 @@ Event.delete_all
 User.delete_all if Rails.env.development?
 Request.delete_all if Rails.env.development?
 
-event_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567070502/x0lim2ac56mlhccef7iw.jpg" #hands love heart
+event_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567070502/mq6ghjowyicxudztjdmk.jpg" #hands love heart
 cover_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567070501/n5lckh9hiwdqaqgqagak.jpg" #flags
 profile_photo_one = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567057736/images_1_lcy59j.jpg" #guy with glasses
 
