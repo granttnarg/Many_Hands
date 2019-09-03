@@ -68,16 +68,16 @@ body {
 
 .spot-landing-one {
   position: absolute !important;
-  top: 2091px;
-  left: 543px;
+  top: 2311px;
+  left: 683px;
 
 }
 
 
 .spot-landing-two {
   position: absolute !important;
-  top: 2360px;
-  left: 770px;
+  top: 2600px;
+  left: 890px;
 
 }
 
@@ -209,6 +209,11 @@ a:-webkit-any-link {
   background: #1B1B1B;
 }
 
+.landing-box-2 {
+  height:1010px;
+  background: #1B1B1B;
+}
+
 .under-landing {
   background-color: #1B1B1B;
   height: 2000px;
@@ -220,6 +225,7 @@ a:-webkit-any-link {
   padding-top: 0px;
   text-decoration: underline;
   padding-left: 0px;
+  color: white;
 
 }
 
@@ -241,7 +247,7 @@ a:-webkit-any-link {
 }
 
 .listing {
-  padding-left: 300px;
+  padding-left: 250px;
   padding-top: 20px;
 
 }
@@ -270,19 +276,67 @@ a:-webkit-any-link {
 }
 
 .YOURR {
-  padding-left: 430px;
+  padding-left: 300px;
   padding-top: 10px;
 }
 
 .EVENT {
-  padding-left: 600px;
+  padding-left: 300px;
   padding-top: 10px;
 
 }
 
+.search {
+  padding-left: 0px;
+  padding-top: 30px;
+
+}
+
+.by {
+
+}
+
+.four {
+  color: #FF4900;
 
 
+}
 
+.cat {
+
+}
+
+.and {
+  padding-top: 50px;
+
+}
+
+.specific {
+  padding-top: 20px;
+
+
+}
+
+.role {
+
+}
+
+.cat-btn {
+  background-color: orange;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  font-weight: bold;
+
+}
+
+.cat-btn-div {
+    position: absolute;
+    padding-left: 500px;
+    top: 3080px;
+    left: 440px;
+
+}
 
 .event-image-one {
     width: 500px;
@@ -309,6 +363,14 @@ a:-webkit-any-link {
     left: 670px;
     padding: 20px;
     border: 1px white solid;
+}
+
+.create-new-landing {
+
+  font-family: 'Pano', sans-serif;
+  color: #ff4900;
+  padding-left: 830px;
+
 }
 
 
