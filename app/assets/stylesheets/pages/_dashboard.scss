@@ -199,7 +199,8 @@ font-size: 15px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  padding: 45px;
+  padding-top: 60px;
+  padding-left: 18px;
   position: absolute;
   right: 20px;
   border: solid 3px #ff4900;
@@ -207,21 +208,35 @@ font-size: 15px;
 
 .event-description {
   padding-left: 0;
+
   position: absolute;
-  bottom: 111px;
-  left: 40px;
-  margin-left: 30px;
+
+  bottom: 26px;
+
+  left: 29px;
+
+  margin-left: 0px;
+
+  background-color: #F0F0F0;
+
+  width: 338px;
+
+  height: 150px;
+
+  border-radius: 5px;
+
 }
 
 #dash-card {
-  positino: relative;
+  position: relative;
+  background-size: cover;
 }
 #each-event {
   position:relative;
   border-radius: 5px;
   background-color: white;
   padding-left: 30px;
-  height: 547px;
+  height: 625px;
   padding-top: 62px;
 }
 #request-box {
@@ -246,7 +261,7 @@ height: 330px;
   width: 100%;
   margin: 0 auto;
   justify-content: space-between;
-  padding-top: 85px;
+  padding-top: 35px;
 }
 
 .heading-title {
@@ -286,12 +301,20 @@ left: 200px;
   display: flex;
   align-items: center;
   background-color: #F0F0F0;
-  width: 820px;
+  width: 694px;
   padding-left: 15px;
   border-radius: 5px;
   padding-right: 34px;
   position:relative;
+  margin-bottom: 15px;
 
+}
+
+.inbox-request {
+  overflow-y: scroll;
+  height: 270px;
+  padding-top: 32px;
+  overflow-x: hidden;
 }
 
 #arrow-dash {
@@ -311,15 +334,15 @@ left: 200px;
 
 }
 .event-cta {
-display: flex;
+  display: flex;
 
-text-align: center;
+  text-align: center;
 
-color: black;
+  color: black;
 
-padding-top: 19px;
+  padding-top: 19px;
 
-justify-content: space-around;
+  justify-content: space-around;
 }
 .event-dash-cta {
   width:150px;
@@ -342,11 +365,11 @@ padding-left: 54px;
   padding-top: 140px;
 }
 .create-event {
-  background-color: black;
+  background-color: white;
   font-family: 'pano';
   width: 150px;
   height: 150px;
-  color: white;
+  color: black;
   border-radius: 50%;
   padding: 106px 41px;
   border: 3px solid #ff4900;
@@ -378,9 +401,10 @@ text-align: center;
 
 .avatar-message {
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  }
+  width: 55px;
+  height: 55px;
+}
+
 .inner-circle {
   border-radius: 50%;
   border: solid 2px $orange;
@@ -399,6 +423,10 @@ left: 100px;
   color: $orange;
 }
 
+.request-text-note {
+  width: 360px;
+  text-align: center;
+}
 .request-status-box {
   display: flex;
   flex-direction: column;
@@ -415,11 +443,11 @@ hr {
 
 .confirm {
   display: flex;
-flex-direction: column;
-text-align: center;
-justify-content: space-around;
-position: absolute;
-right: 26px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  position: absolute;
+  right: 26px;
 }
 
 .contents {
@@ -430,34 +458,104 @@ width: 509px;
 }
 
 .event-text {
-  color: white;
-  font-size:26px;
+  color: $charcoal;
+  font-size:18px;
 }
 
 @-webkit-keyframes glowing {
-  0% { background-color: black; -webkit-box-shadow: 0 0 3px black; }
-  50% { background-color: black; -webkit-box-shadow: 0 0 40px black; }
-  100% { background-color: black; -webkit-box-shadow: 0 0 3px black; }
+  0% { background-color: white; -webkit-box-shadow: 0 0 3px white; }
+  50% { background-color: white; -webkit-box-shadow: 0 0 40px white; }
+  100% { background-color: white; -webkit-box-shadow: 0 0 3px white; }
 }
 
 @-moz-keyframes glowing {
-  0% { background-color: black; -moz-box-shadow: 0 0 3px black; }
-  50% { background-color: black; -moz-box-shadow: 0 0 40px black; }
-  100% { background-color: black; -moz-box-shadow: 0 0 3px black; }
+  0% { background-color: white; -moz-box-shadow: 0 0 3px white; }
+  50% { background-color: white; -moz-box-shadow: 0 0 40px white; }
+  100% { background-color: white; -moz-box-shadow: 0 0 3px white; }
 }
 
 @-o-keyframes glowing {
-  0% { background-color: black; box-shadow: 0 0 3px black; }
-  50% { background-color: black; box-shadow: 0 0 40px black; }
-  100% { background-color: black; box-shadow: 0 0 3px black; }
+  0% { background-color: white; box-shadow: 0 0 3px white; }
+  50% { background-color: white; box-shadow: 0 0 40px white; }
+  100% { background-color: white; box-shadow: 0 0 3px white; }
 }
 
 @keyframes glowing {
-  0% { background-color: black; box-shadow: 0 0 3px black; }
-  50% { background-color: black; box-shadow: 0 0 40px black; }
-  100% { background-color: black; box-shadow: 0 0 3px black; }
+  0% { background-color: white; box-shadow: 0 0 3px white; }
+  50% { background-color: white; box-shadow: 0 0 40px white; }
+  100% { background-color: white; box-shadow: 0 0 3px white; }
 }
 
 .title-inbox {
   text-align:center;
+  color: $orange;
 }
+.mb-0 {
+  color: $orange;
+}
+
+.content {
+  width: 380px;
+}
+
+.alert-invitation {
+  background-color: #F0F0F0;
+  padding-top: 15px;
+  padding-left: 20px;
+  border-radius: 5px;
+  padding-bottom: 15px;
+  width: 696px;
+  height: 69px;
+}
+
+.invi-request {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 250px;
+
+}
+
+
+.flash-inv {
+  position: relative;
+}
+a:hover {
+  text-decoration: none;
+  color: $orange;
+}
+a {
+  color: grey;
+text-decoration: none;
+background-color: transparent;
+}
+
+.mb-0 {
+  color: #ff3f00;
+  background-color: black;
+
+}
+
+#card-category {
+  background-size: cover;
+  background-position: center;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $orange;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.avatar-invi-message {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  position:absolute;
+  right: 10px;
+bottom: -14px;
+}
+
