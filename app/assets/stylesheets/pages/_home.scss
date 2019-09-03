@@ -1,7 +1,59 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    padding-right: 0px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+h1 {
+  font-family: 'Pano', sans-serif;
+  color: #1C00FF;
+}
+
+h2, h3, h4, h5 {
+  font-family: 'Montserrat';
+  color: #39393b;
+}
+
+
+p {
+  font-family: 'Montserrat';
+   color: #39393b;
+  }
+
+body {
+  background-color: #F0F0F0;
+}
+.landing-container {
+  width: 960px;
+}
+.project-info .action {
+    grid-column: content-start / half;
+    padding-right: 25px;
+}
+
+.heading-line {
+  color: #ff4900;
+  font-size: 120px;
+  padding-left: 82px;
+  padding-top: 299px;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+}
 
 .notification-box {
   width: 200px;
 }
+
+.index-container {
+  width: 90%;
+}
+
 
 
 h1, h2, h4, h5 {
@@ -26,16 +78,41 @@ h6 {
   color: white;
   font-family: 'Pano', sans-serif;
   opacity: 0.9
-
 }
 
-p {
+.main-cta {
+  border: 2px solid #ff4900;
+  background: transparent;
+  color: #ff4900;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px 35px;
+  position: absolute;
+  left: 200px;
+  bottom: 220px;
+  }
 
+.main-cta a :hover {
+   text-decoration: none;
+   color: #ffffff;
 }
 
-// body {
-//   background: #000000;
-// }
+
+
+#arrow {
+    fill: var(--c-orange);
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    transform: translateY(0.03em);
+}
+
+.headings {
+  display:flex;
+}
+
 
 a {
   color: #212121;
@@ -46,21 +123,84 @@ a {
   font-size: 21px;
 }
 
-
-
-.logo {
-  color: white;
+svg:not(:root) {
+    overflow: hidden;
 }
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+
+
+
+.action a {
+    font-family: 'pano_bold', sans-serif;
+    letter-spacing: -0.06em;
+    font-size: 40px;
+    line-height: 42px;
+}
+.action a {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+//  h2, h2.cite, .event .date, .event a, .project-body .play p, .about h2:last-of-type > span, .about h2:first-of-type > span, .project-info .action a {
+//     transform: translateX(-0.06em);
+// }
+// h2, h2.cite, .event .date, .event a, .project-body .play p, .mail, .project-info .action a {
+//     font-family: 'pano_bold', sans-serif;
+//     letter-spacing: -0.06em;
+//     font-size: 36px;
+//     line-height: 38px;
+// }
+// a {
+//     display: block;
+//     color: inherit;
+// }
+// * {
+//     margin: 0px;
+//     margin-top: 0px;
+//     margin-bottom: 0px;
+//     padding: 0px;
+//     border: none;
+//     outline: none;
+//     text-decoration: none;
+//     list-style: none;
+//     box-sizing: border-box;
+//     -webkit-tap-highlight-color: transparent;
+// }
+
+
+:root {
+    --grid-outer-margin: 50px;
+    --blocks-gap: 160px;
+    --footer-bottom-space: 50px;
+    --project-body-gap: 160px;
+}
+:root {
+    --project-body-gap: 120px;
+}
+:root {
+    --projects-space: 120px;
+}
+:root {
+    --c-blue: #1C00FF;
+    --c-orange: #FF4900;
+    --c-white: white;
+  }
+.landing-cta {
+    padding-top: 551px;
+    padding-left: 295px;
+}
+
 
 .navbar-brand {
   color: white;
 }
 
-.navbar-brand-pages{
-  font-family: 'Libre Barcode 128';
-  color: #000000;
-  font-size: 45px;
-}
+
 
 .show-spots{
 border: 2px solid lightgrey;
@@ -84,7 +224,6 @@ margin: 0 auto;
   margin: 0 auto;
   text-align: center;
   padding-top: 150px;
-  width: 960px;
 }
 ol, ul, dl {
 
@@ -107,12 +246,10 @@ ol, ul, dl {
   background-color: white;
 }
 .card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 0;
+  background-color: #202020;
+  border: 3px solid white;
 }
+
 
 .card > img {
   margin-bottom: .75rem;
@@ -120,48 +257,12 @@ ol, ul, dl {
 
 .card-text {
   font-size: 85%;
+  font-family: 'Montserrat'
 }
 // Specific CSS for your home-page
 
 
 
-
-.navbar-brand {
-  font-color: #ff4900;
-  font-family: 'Libre Barcode 128';
-  font-size: 35px;
-}
-
-.main-cta {
-    border: 2px solid #ff4900;
-    background: transparent;
-    color: #ff4900;
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 15px 35px;
-
-  }
-
-.main-cta a :hover {
-   text-decoration: none;
-}
-
-
-.heading {
-  color: #000;
-  font-size :35;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.heading-line {
-  color: #ff4900;
-  font-size: 130px;
-}
-.sub-heading{
-  color:#ff4900;
-}
 
 .site-hero {
   background-size: cover;
@@ -221,3 +322,59 @@ ol, ul, dl {
   font-weight: bold;
 }
 
+
+
+.project-info {
+ text-align: left;
+padding-top: 180px;
+width: 86%;
+margin: 0 auto;
+}
+.each-2,.each-4,  {
+  text-align:right;
+}
+.process-text {
+ font-family: 'Montserrat';
+ font-size: 18px;
+}
+.process-photo  {
+  width: 550px;
+  height:550px;
+}
+
+.each-5 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.creative-cta {
+  width: 300px;
+  padding-top: 60px;
+
+}
+
+.apply {
+  font-family: 'pano';
+  font-size: 36px;
+}
+
+// @mixin BoxShadowHelper($level: 1){
+//   @if $level == 1 {
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+//   }
+//   @if $level == 2 {
+//     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+//   }
+// }
+// a {transition: .25s all;}
+// .card {
+//   overflow: hidden;
+//   @include BoxShadowHelper(1);
+//   transition: .25s box-shadow;
+//   &:focus,
+//   &:hover {@include BoxShadowHelper(2);}
+// }
+// .card-inverse .card-img-overlay {
+//   background-color: rgba(#333,.85);
+//   border-color: rgba(#333,.85);
+// }
