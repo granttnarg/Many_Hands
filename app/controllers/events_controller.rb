@@ -55,6 +55,8 @@ class EventsController < ApplicationController
   private
 
   def event_params
+    params[:event][:start_time]  = params[:event][:start_date].split(" ")[1]
+    params[:event][:end_time]  = params[:event][:end_date].split(" ")[1]
     params.require(:event).permit(:name, :address, :venue_name, :start_date, :end_date, :start_time, :end_time, :about, :longitude, :latititude, :photo)
   end
 end
