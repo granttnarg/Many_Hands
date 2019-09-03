@@ -224,6 +224,8 @@ font-size: 15px;
   height: 150px;
 
   border-radius: 5px;
+  padding-left: 15px;
+  padding-top: 10px;
 
 }
 
@@ -242,6 +244,7 @@ font-size: 15px;
 #request-box {
   background-color: white;
   padding-top: 25px;
+  border-radius: 5px;
 }
 
 
@@ -460,6 +463,7 @@ width: 509px;
 .event-text {
   color: $charcoal;
   font-size:18px;
+  font-family: 'Montserrat';
 }
 
 @-webkit-keyframes glowing {
@@ -489,6 +493,7 @@ width: 509px;
 .title-inbox {
   text-align:center;
   color: $orange;
+  font-family: 'Montserrat';
 }
 .mb-0 {
   color: $orange;
@@ -515,9 +520,26 @@ width: 509px;
 
 }
 
+// .flash {
+//   padding: 16px 24px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   background: transparent;
+//   border-radius: 4px;
+//   margin: 8px;
 
+// }
 .flash-inv {
   position: relative;
+    padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border-radius: 4px;
+  margin: 8px;
+
 }
 a:hover {
   text-decoration: none;
@@ -556,6 +578,6 @@ background-color: transparent;
   height: 55px;
   position:absolute;
   right: 10px;
-bottom: -14px;
+  top: 1px;
 }
 

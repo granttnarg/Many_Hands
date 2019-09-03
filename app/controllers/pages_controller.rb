@@ -13,6 +13,8 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
+
   def dashboard
     @events = current_user.events
     @new_event = Event.new
