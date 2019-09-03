@@ -1,7 +1,8 @@
   <%= render 'shared/navbar' %>
   <div class="container" style="padding-top: 30px">
+    <h1 class="text-center" style="padding-top: 100px; color: #3f4458;">Edit your event</h1>
   <%= simple_form_for @event do |f| %>
-    <div class="row">
+    <div class="row" style="padding-top: 50px;">
       <div class="col-xs-12 col-lg-8">
       <%= f.input :name %>
       <%= f.input :venue_name %>
