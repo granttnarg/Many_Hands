@@ -17,3 +17,4 @@ flatpickr(".datepicker", {
 	enableTime: true
 });
 
+
