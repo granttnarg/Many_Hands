@@ -29,8 +29,10 @@
 
           <h1 class="main-event-name"><%= @event.name %></h1>
           <br>
-          <h3><%= @event.start_date.strftime("%b %d, %Y")%> // <%= @event.start_time.strftime("%H:%M")%>  - <%= @event.end_time.strftime("%H:%M") %></h3>
-          <h3 class="pt-1"><%= @event.venue_name%></h3>
+
+          <h3 class="sub-heading-event-show"><%= @event.start_date.strftime("%b %d, %Y")%> // <%= @event.start_time.strftime("%l %p")%>  - <%= @event.end_time.strftime("%l %p") %></h3>
+          <h3 class="pt-1 sub-heading-event-show"><%= @event.venue_name%></h3>
+
           <p><%= @event.address%></p>
           </div>
     </div>
@@ -143,7 +145,7 @@
                       <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://image.flaticon.com/icons/svg/16/16909.svg')">
 
                       </div>
-                        <h5 class="search-spot-button">Create Spot</h5>
+                        <h5 class="search-spot-button">Create</h5>
                     </div>
 
                     <% end %>
