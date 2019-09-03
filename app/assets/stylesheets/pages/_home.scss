@@ -9,6 +9,7 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
 h1 {
   font-family: 'Pano', sans-serif;
   color: #1C00FF;
@@ -25,6 +26,7 @@ h6 {
    font-size: 2.5rem;
 
 }
+
 p {
   font-family: 'Montserrat';
    color: #39393b;
@@ -33,9 +35,11 @@ p {
 body {
   background-color: #F0F0F0;
 }
+
 .landing-container {
   width: 960px;
 }
+
 .project-info .action {
     grid-column: content-start / half;
     padding-right: 25px;
@@ -48,6 +52,7 @@ body {
   color: #ff4900;
   padding-left: 0px;
   padding-top: 0px;
+}
 
 .heading-line {
   color: $orange;
@@ -117,9 +122,11 @@ h6 {
   cursor: pointer;
   font-size: 20px;
   position: absolute;
-<<<<<<< HEAD
   left: 25px;
   top: 208px;
+  border: solid 1px orange;
+  padding: 15px;
+  color: #ff4900;
   }
 
 .main-cta:hover {
@@ -372,27 +379,17 @@ a:-webkit-any-link {
 
   font-family: 'Pano', sans-serif;
   color: #ff4900;
-  padding-left: 830px;
+  padding-left:600px;
+  font-size: 20px;
+  border: 1px #FF4900 solid;
+  padding: 10px;
+
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.lets {
+  color: black;
+}
 
 :root {
     --grid-outer-margin: 50px;
@@ -466,6 +463,7 @@ ol, ul, dl {
   color: blue;
   background-color: white;
 }
+
 .card {
   background-color: #202020;
   border: 3px solid white;
