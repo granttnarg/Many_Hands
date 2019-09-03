@@ -1,63 +1,76 @@
 .user-profile-photo {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
   border-radius: 50%;
-  height:200px;
-  width: 200px;
-  position:absolute;
-  left: 297px;
-  bottom: 164px;
+  height: 220px;
+  width: 220px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 300px;
+  bottom: 350px;
+  z-index: 2;
+  border: 29px solid #ff4900;
+  padding: 1px;
 }
-
 .user-show-container {
   width: 90%;
   margin: 0 auto;
   text-align: center;
-}
-.user-cover-photo {
-  position: relative;
+  border: solid 10px #f4f4f4;
 }
 
+.user-cover-photo {
+  position: relative;
+  border: solid 10px #f4f4f4;
+}
 .description{
-  border: solid 2px lightgray;
+  border: solid 10px #f4f4f4;
   padding: 10px 25px;
   width: 655px;
   margin: 0 auto;
-  background-color:lightgrey;
+  background-color: #ffffff;
   position:relative;
+  z-index: 1;
 }
-
 .bio-text {
 color: #363636;
 text-align: left;
 }
-
 .title {
-  color: #2402F5;
+  color: black;
+}
+
+#invite-position {
+  position: relative;
 }
 
 .invite-button {
-  padding-top:15px;
+  position: absolute;
+  left: 454px;
+  top: 173px;
+  z-index: 2;
 }
 .spot-invite-button {
   background-color: black;
-    color: #ff4900;
-    border-radius: 50%;
-    width: 106px;
-    height: 104px;
-    padding: 39px 32px;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-
+  color: #ff4900;
+  border-radius: 50%;
+  width: 106px;
+  height: 104px;
+  padding: 39px 32px;
+  position: absolute;
+  // bottom: 50px;
+  // right: 50px;
 }
-
 
 .go-back-buttons{
   display: flex;
   margin: 0 auto;
   text-align: center;
   justify-content: space-between;
-  padding-top: 25px;
+  top: 35px;
+  position: absolute;
+  left: 50px;
+  z-index: 2;
 }
 .go-back-event-button, .search-again-button{
     color: #ff4900;
@@ -75,22 +88,93 @@ text-align: left;
   justify-content: center;
 }
 
-.social-stuffs {
+.selected-images {
   width: 655px;
-  background-color: lightgrey;
+  background-color: #f4f4f4;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: solid 10px #f4f4f4;
 }
 
-.instagram-feed a
+.image-feed {
+  background-color: #ffffff;
+  position: relative;
+  opacity: 0.9;
+}
+.image-feed a
 {
     display: inline-block;
     overflow-y: auto;
-    width: 200px;
-    height: 200px;
-    margin: 0 .3rem .2rem 0;
+    width: 160px;
+    height: 160px;
+    padding: 15px;
 }
-.instagram-feed a img
-{
+.image-feed a img {
     width: 100%;
     height: 100%;
+}
+
+.sound-cloud {
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+#image-padding {
+  padding: 10px;
+}
+
+#plus-icon {
+  font-size: 80px;
+  color: black;
+}
+
+#bio-info-scroll {
+  height: 120px;
+  width: 97%;
+  overflow-y: scroll;
+  // background-color: #f4f4f4;
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 5px;
+  // border: 0.5px solid grey;
+}
+
+#info-padding {
+  margin-left: 60px;
+}
+
+#less-space-between {
+  width: 150px;
+}
+
+.review-box {
+  background-color: #ffffff;
+  color: black;
+}
+
+#review-box h1, h2, h3, h4, h5 {
+    font-family: 'Pano', sans-serif;
+    color: black;
+}
+
+#review-scroll {
+  overflow-y: scroll;
+  height: 178px;
+}
+
+
+
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
 }
 
