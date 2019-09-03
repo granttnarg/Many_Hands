@@ -14,7 +14,11 @@ initTabs();
 
 
 flatpickr(".datepicker", {
-	enableTime: true
 });
 
-
+flatpickr(".timepicker", {
+	enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true
+});
