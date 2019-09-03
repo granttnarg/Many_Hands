@@ -5,3 +5,27 @@
   vertical-align: middle;
   text-align: center;
 }
+
+.create-spot {
+   padding: 5px;
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  position: relative;
+  border: 10px solid black;
+  border-radius: 100%;
+}
+
+
+
+
+
+.create-spot:hover .search-spot-button {
+  transition: 1s;
+  opacity: 1;
+  color: white !important;
+  position: absolute;
+  top: 65px;
+  left: 25px;
+}
+
