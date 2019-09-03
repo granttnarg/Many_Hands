@@ -3,7 +3,7 @@
     <br>
     <br>
     <br>
-    <div class="box">
+<div class="box">
 
       <div class="first-row-box">
         <div class="upper-left-box">
@@ -108,6 +108,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <div id="card-category" class= "col-12" style="background-color:white">
       Your Current Events
@@ -199,34 +200,31 @@
 
                     </div>
 
-                    <div class ="invi-request">
-                     <h4 class ="title-inbox">Invitation</h4>
-                    <% spot.invitations.each do |invitation| %>
-                     <% if invitation.blank? %>
+        <div class ="invi-request">
+            <h4 class ="title-inbox">Invitation</h4>
+              <% spot.invitations.each do |invitation| %>
+                  <% if invitation.blank? %>
                      <div class="invitations">
                       <p>You have not made any invitation.</p>
                       <% else %>
                       <div class="alert-invitation">
-                        <div class="flash flash-success alert alert-dismissible fade show flash-inv" style="width: 100%;top: -18px;background-color: transparent;box-shadow: none;">
+                        <div class="flash flash-success alert alert-dismissible fade show flash-inv" >
                           <span><strong>Yay!</strong> 🎉 you successfully made an invitation to <b>
                             <%= link_to "#{invitation.user.first_name}", user_path(invitation.user) %> </b>
                             for the <%= invitation.spot.category %>
                           <%= cl_image_tag invitation.user.profile_photo,crop: :fill, class: "avatar-invi-message" %>
                           </span>
+                          </div>
                         </div>
-              <!--   <div class="alert-invitation">
-                <p>You succesfully made an invitation to <%= invitation.user.first_name %> for the <%= invitation.spot.category %> <%= invitation.spot.role %></p> -->
-              </div>
-              <% end %>
+                      <% end %>
+                    </div>
+                <% end %>
             </div>
           <% end %>
-          </div>
-
-
-
-        <% end %>
         <% end %>
       </div>
+    </div>
     <% end %>
+  </div>
 
 
