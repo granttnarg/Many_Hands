@@ -17,7 +17,8 @@
     cursor: pointer;
   }
   &.active {
-  background: #ff4900;
+  background: $orange;
+
   color: white;
   opacity: 1;
   }

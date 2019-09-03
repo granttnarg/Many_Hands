@@ -55,6 +55,31 @@ body {
 }
 
 
+
+h1, h2, h4, h5 {
+  font-family: 'Pano', sans-serif;
+  color: #ffffff;
+}
+
+h3 {
+  color: #eae8e8;
+  opacity: 0.8;
+  font-family: 'Pano', sans-serif;
+
+}
+
+h5 {
+  color: black;
+  font-family: 'Pano', sans-serif;
+
+}
+
+h6 {
+  color: white;
+  font-family: 'Pano', sans-serif;
+  opacity: 0.9
+}
+
 .main-cta {
   border: 2px solid #ff4900;
   background: transparent;
@@ -88,6 +113,15 @@ body {
   display:flex;
 }
 
+
+a {
+  color: #212121;
+}
+
+.sub-heading {
+  color: white;
+  font-size: 21px;
+}
 
 svg:not(:root) {
     overflow: hidden;
@@ -198,34 +232,10 @@ ol, ul, dl {
   padding-left: 0;
 }
 
-.each-spot {
-  border: 50px solid #ff4900;
-  border-radius: 100%;
-  padding: 5px;
-  width: 400px;
-  height: 400px;
-  background-color: #fff9f9;
-  margin: 0 auto;
-  background-size: cover;
-  background-position: center;
-}
-
-.open-spots-control {
-  width: 1000px;
-}
 
 
-.admin-spot-control {
-//border: 2px solid lightgrey;
-border-radius: 5px;
-padding: 5px;
-width: 1500px;
-//background-color: white;
-margin: 0 auto;
-margin-top: 15px;
-margin-bottom:100px
 
-}
+
 .btn-spot {
   width:50px;
   height: 50px;
