@@ -6,6 +6,7 @@
   background-size: cover;
   background-position: center;
   transition: 1s;
+  background-color: white;
 
 
 }
@@ -30,6 +31,8 @@
 
 .search-spot-button {
   opacity: 0;
+  top: 75px;
+  left: 35px;
 }
 
 .spot-btn-hovering:hover .search-spot-button {
@@ -37,8 +40,17 @@
   opacity: 1;
   color: white !important;
   position: absolute;
-  top: 65px;
-  left: 25px;
+  top: 75px;
+  left: 35px;
+}
+
+.apply-spot-btn-hovering:hover .apply-spot-button {
+  transition: 1s;
+  opacity: 1;
+  color: white !important;
+  position: absolute;
+  top: 75px;
+  left: 35px;
 }
 
 .spot-btn-hovering {
@@ -100,8 +112,8 @@
 
 .spot-name {
     position: absolute;
-    top: 196px;
-    left: 195px;
+    top: 164px;
+    left: 133px;
     background-color: white;
     padding: 10px 15px;
     border-radius: 50px;
@@ -146,5 +158,7 @@
   display: flex;
   padding-left: 50px;
   height: 300px;
+  background-color: white;
+
 
 }

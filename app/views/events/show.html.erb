@@ -5,11 +5,19 @@
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@event.photo%>);">
           <div class="pull-out-banner p-5">
             <div class="button-pull-out">
-              <br>
-              <h5><</h1>
+              <i class="fas fa-angle-left"></i>
+              <div class="more-info-banner">
+              <h6>I</h6>
+              <h6>n</h6>
+              <h6>f</h6>
+              <h6>o</h6>
+              </div>
+
+
+
             </div>
             <h1 class="p-5">What's its all about?</h1>
-            <p> <%= @event.about %></p>
+            <p id="event-info"> <%= @event.about %></p>
             <p>
               <% if !current_user.is_creative %>
                 <%= link_to edit_event_path(@event), class: "btn edit-event" do  %>
@@ -37,7 +45,7 @@
      <div class="wrapper">
           <% @event.spots.each do |spot|%>
 
-            <div class="show-card border-right">
+            <div class="show-card border-right border-top">
 
               <div class=" text-center make-circle">
                 <% if spot.requests.where(status: "confirmed").present? %>
@@ -125,14 +133,14 @@
 
           <% end %>
 
-          <div class="show-card border-right pt-5 ">
+          <div class="show-card border-right border-top pt-5 ">
 
            <div class="each-spot-position pt-3 ">
 
                   <%= link_to new_event_spot_path(@event) do %>
 
                     <div class="create-spot">
-                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://image.freepik.com/free-icon/black-plus-outline_318-8371.jpg')">
+                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://image.flaticon.com/icons/svg/16/16909.svg')">
 
                       </div>
                         <h5 class="search-spot-button">Create Spot</h5>
@@ -164,7 +172,7 @@
 
           <% @event.spots.each do |spot|%>
 
-            <div class="show-card border-right">
+            <div class="show-card border-right border-top">
 
               <div class=" text-center make-circle">
                 <% if spot.requests.where(status: "confirmed").present? %>
