@@ -1,0 +1,75 @@
+.banner {
+  overflow: hidden;
+  position: relative;
+}
+
+.more-info-banner {
+  position: absolute;
+  top: -36px;
+  right: -30px;
+}
+.more-info-banner:hover {
+  position: absolute;
+  top: -36px;
+  right: -30px;
+  color: #ff4900;
+}
+
+.button-pull-out {
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  border-radius: 53px;
+  background: white;
+  top: 250px;
+  left: -16px;
+  opacity: 1;
+  background-color: #ff4900;
+  border: 5px solid #ff4900;
+}
+
+#event-info {
+  padding: 0px 20px;
+
+
+}
+
+  .fa-angle-left {
+  position: absolute;
+    top: 6px;
+    right: 14px;
+  }
+
+.pull-out-banner {
+    opacity: 0.7;
+    height: 500px;
+    transition: ease 1s all;
+    background: #212121;
+    position: absolute;
+    top: 0;
+    width: 45%;
+    right: -40%;
+    &.active {
+      right: 0;
+    }
+}
+
+.organizer-container {
+  overflow: hidden;
+}
+
+.edit-event {
+
+    position: relative;
+    top: -290px;
+    right: -375px;
+    color: white;
+}
+
+.fa-chevron-circle-left {
+    position: absolute;
+    opacity: 0.5;
+    top: 18px;
+    right: 19px;
+    font-size: xx-large;
+}
