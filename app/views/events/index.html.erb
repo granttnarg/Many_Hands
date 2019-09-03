@@ -1,29 +1,34 @@
 <%= render 'shared/navbar' %>
-<div class="container" style="padding-top: 100px">
+
+
+<div class="container m-t-md">
+  <!-- First row -->
   <div class="row">
-    <% @events.each do |event| %>
-      <div class="card">
-        <%= cl_image_tag event.photo, height: 300, crop: :fill %>
-        <p class="card-text">
-        <b>Name</b> <%= link_to event.name, event_path(event) %>
-        </p>
-        <p class="card-text">
-        <b>Venue</b> <%= event.venue_name%>
-        </p>
-        <p class="card-text">
-        <b>Address</b> <%= event.address%>
-        </p>
-        <p class="card-text">
-        <b>From</b> <%= event.start_date%>
-        </p>
-        <p class="card-text">
-        <b>Til</b> <%= event.end_date%>
-        </p>
-        <p class="card-text">
-        <b>Description</b> <%= event.about%>
-        </p>
-      </div>
-    <% end %>
+     <% @events.each do |event| %>
+    <div class="col-xs-12 col-md-6">
+      <!-- Card -->
+      <article class="card animated fadeInLeft">
+          <%= cl_image_tag event.photo, height: 300, crop: :fill %>
+        <div class="card-block">
+          <h3 class="card-title"><%= link_to event.name, event_path(event) %></h3>
+          <h6 class="text-muted">VENUE <%= event.venue_name%></h6>
+          <h6 class="text-muted"> START<%= event.start_date%></h6>
+          <h6 class="text-muted"> END <%= event.end_date%></h6>
+          <p class="card-text"><p><%= event.about%></p>
+
+        </div>
+      </article>
+    </div>
+  <% end %>
   </div>
-  <%= link_to "Create new event", new_event_path, class: "btn btn-primary" %>
 </div>
+
+
+
+
+
+
+
+
+
+

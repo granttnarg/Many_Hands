@@ -18,6 +18,7 @@
   text-align: center;
   border: solid 10px #f4f4f4;
 }
+
 .user-cover-photo {
   position: relative;
   border: solid 10px #f4f4f4;
@@ -81,10 +82,12 @@ text-align: left;
     right: 50px;
     text-align: center;
 }
+
 .page-container{
   display: flex;
   justify-content: center;
 }
+
 .selected-images {
   width: 655px;
   background-color: #f4f4f4;
@@ -107,8 +110,7 @@ text-align: left;
     height: 160px;
     padding: 15px;
 }
-.image-feed a img
-{
+.image-feed a img {
     width: 100%;
     height: 100%;
 }
