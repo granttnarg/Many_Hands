@@ -29,7 +29,7 @@
 
           <h1 class="main-event-name"><%= @event.name %></h1>
           <br>
-          <h3><%= @event.start_date.strftime("%b %d, %Y")%> // <%= @event.start_time.strftime("%l %p")%>  - <%= @event.end_time.strftime("%l %p") %></h3>
+          <h3><%= @event.start_date.strftime("%b %d, %Y")%> // <%= @event.start_time.strftime("%H:%M")%>  - <%= @event.end_time.strftime("%H:%M") %></h3>
           <h3 class="pt-1"><%= @event.venue_name%></h3>
           <p><%= @event.address%></p>
           </div>
