@@ -8,9 +8,12 @@ class PagesController < ApplicationController
     @users = policy_scope(User).where(is_creative: true)
   end
 
+
   def show
     @user = User.find(params[:id])
   end
+
+
 
   def dashboard
     @events = current_user.events
@@ -18,7 +21,6 @@ class PagesController < ApplicationController
     @user = current_user
     @requests = Request.where(user: current_user)
     @user = current_user
-
   end
 
 private

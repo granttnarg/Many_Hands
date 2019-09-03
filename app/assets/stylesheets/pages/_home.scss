@@ -37,7 +37,7 @@ body {
 }
 
 .heading-line {
-  color: #ff4900;
+  color: $orange;
   font-size: 120px;
   padding-left: 82px;
   padding-top: 299px;
@@ -81,23 +81,23 @@ h6 {
 }
 
 .main-cta {
-  border: 2px solid #ff4900;
-  background: transparent;
-  color: #ff4900;
-  width: 150px;
-  height: 50px;
   cursor: pointer;
-  font-size: 16px;
-  padding: 15px 35px;
+  font-size: 20px;
   position: absolute;
-  left: 200px;
-  bottom: 220px;
-  }
-
-.main-cta a :hover {
-   text-decoration: none;
-   color: #ffffff;
+  left: 195px;
+  bottom: 224px;
+  padding: 15px 35px;
+  border: solid 3px $orange;
+  background-color: transparent;
+  color: $orange;
 }
+.main-cta:hover {
+   text-decoration: none;
+   color: white;
+   background-color:$orange;
+}
+
+
 
 
 
