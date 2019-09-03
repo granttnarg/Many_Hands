@@ -41,12 +41,20 @@ body {
     padding-right: 25px;
 }
 
+
 .many-hands-main {
   font-size: 100px;
   font-family: 'Pano', sans-serif;
   color: #ff4900;
   padding-left: 0px;
   padding-top: 0px;
+
+.heading-line {
+  color: $orange;
+  font-size: 120px;
+  padding-left: 82px;
+  padding-top: 299px;
+
   display: flex;
   margin: 0 auto;
   position: realtive;
@@ -106,15 +114,10 @@ h6 {
 }
 
 .main-cta {
-  border: 2px solid #ff4900;
-  background: transparent;
-  color: #ff4900;
-  width: 150px;
-  height: 50px;
   cursor: pointer;
-  font-size: 16px;
-  padding: 15px 35px;
+  font-size: 20px;
   position: absolute;
+<<<<<<< HEAD
   left: 25px;
   top: 208px;
   }
@@ -126,8 +129,8 @@ h6 {
 
    background-color: white;
    opacity: 0.8;
-}
 
+}
 
 
 #arrow {
