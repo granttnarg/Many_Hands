@@ -84,6 +84,7 @@
                    <%= cl_image_tag request.user.profile_photo,crop: :fill, class: "avatar-message" %>
                    <div class="from-info">
                      <%= link_to "#{request.user.first_name}", spot_creative_path(request.spot, request.user)%>
+                    <%= request.status %>
                     <%#  request.status: :confirmed ? %>
                       <%#= request.status, class: 'status-purple' %>
 
