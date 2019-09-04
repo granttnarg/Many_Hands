@@ -21,6 +21,8 @@ class PagesController < ApplicationController
     @user = current_user
     @requests = Request.where(user: current_user)
     @user = current_user
+
+
   end
 
 private

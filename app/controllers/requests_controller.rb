@@ -36,7 +36,7 @@ class RequestsController < ApplicationController
     @spot = Spot.find(params[:spot_id])
     @event = @spot.event_id
     if @request.update(update_params)
-      redirect_to event_path(@event)
+      redirect_to dashboard_path
     end
 
   end
