@@ -1,0 +1,20 @@
+<%= render 'shared/navbar' %>
+<div class="container text-center">
+<h1 class="text-center" style="padding-top: 120px; color: black;">Review your experience with <%= (@request.spot.event.user.first_name) %></h1>
+
+<div class="container-review pt-4  d-flex justify-content-center">
+
+<div style="background-image: url(<%= @request.spot.event.user.profile_photo %>)" class="user-profile-photo-review"></div>
+</div>
+
+<div class="container pt-3" style="max-width: 600px">
+  <div class="text-center">
+  <%= simple_form_for [@request, @review] do |f| %>
+    <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+    <%= f.input :description, class: "text-left" %>
+    <div class=""><%= f.submit("Post Review", class: "btn boton text-center") %></div>
+  <% end %>
+  </div>
+</div>
+
+</div>
