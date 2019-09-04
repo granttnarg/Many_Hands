@@ -1,33 +1,6 @@
-<div class="navbar navbar-expand-md fixed-top navbar-dark">
-  <%= link_to root_path, class: "navbar-brand" do %>
-   <p class ="logo-text-landing"> MH</p>
-  <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link", style: "color: white", method: :delete %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Log In", new_user_session_path, class: "nav-link", style: "color: white" %>
-      </li>
-      <% end %>
-      <li class="nav-item dropdown ml-4">
-        <%= link_to dashboard_path do  %>
-        <% if user_signed_in? %>
-        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar" %>
-        <%else  %>
-        <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-        <% end  %>
-      </li>
-    </ul>
-  </div>
-</div>
+<%= content_for :navbar do %>
+  <%= render 'shared/navbar', light: true %>
+<% end %>
 
   <div class="landing-box-1">
       <section class="site-hero overlay mb-4" style="background-image: url(https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)">

@@ -5,13 +5,14 @@
 
 .more-info-banner {
   position: absolute;
-  top: -36px;
-  right: -30px;
+  top: -2px;
+  right: -51px;
+  transition: 2s;
 }
 .more-info-banner:hover {
   position: absolute;
-  top: -36px;
-  right: -30px;
+  top: -2px;
+  right: -52px;
   color: #ff4900;
 }
 
@@ -26,10 +27,19 @@
   opacity: 1;
   background-color: #ff4900;
   border: 5px solid #ff4900;
+  transition: 2s;
+}
+
+.button-pull-out:hover {
+  background-color: white;
+  border: 5px solid white;
+  opacity: .8;
+
 }
 
 #event-info {
   padding: 0px 20px;
+  padding-left: 50px;
 
 
 }
@@ -47,7 +57,7 @@
     background: #212121;
     position: absolute;
     top: 0;
-    width: 45%;
+    width: 47%;
     right: -40%;
     &.active {
       right: 0;

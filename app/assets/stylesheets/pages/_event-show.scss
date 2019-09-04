@@ -73,11 +73,15 @@ color: white;
 
 .each-spot-position {
   position: relative;
+  padding-bottom: 1rem;
 
 
 
 }
 
+.create-spot-icon {
+  padding-top: 4.5rem !important;
+}
 
 .each-spot-empty {
   position: relative;
@@ -104,17 +108,24 @@ color: white;
   padding-top: 30px;
 }
 
+.category-spot {
+  font-size: 2rem;
+}
+
 .edit-spot {
   position: absolute;
-  top: -13px;
-  right: 24px;
+  top: -63px;
+  right: -206px;
   color: #999999;
+
 }
 .delete-spot {
   position: absolute;
-  top: 7px;
-  right: 7px;
+  top: -70px;
+  right: -231px;
+  font-weight: bold;
   color: #999999;
+  font-size: 1.5rem;
 }
 
 .spot-name {
@@ -164,8 +175,10 @@ color: white;
   width: 50%;
   display: flex;
   padding-left: 50px;
-  height: 300px;
+  height: 330px;
   background-color: white;
+  border-right: 20px solid #F4F4F4;
+  border-top: 20px solid #F4F4F4;
 
 
 }
