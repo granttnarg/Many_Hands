@@ -36,7 +36,7 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     authorize @spot
 
-    if params["submit-type"] == "Find Creatives"
+    if params["submit-type"] == "Find Creatives" || params["commit"] == "Search"
       if @spot.update(spot_params)
         redirect_to spot_creatives_path(@spot.id)
       else
