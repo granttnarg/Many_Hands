@@ -1,13 +1,10 @@
-<div class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: tranpsarent">
+<div class="navbar navbar-expand-md fixed-top navbar-dark">
   <%= link_to root_path, class: "navbar-brand" do %>
-   <h5 class ="logo-text"> ManyHands</h5>
+   <p class ="logo-text-landing"> MH</p>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
      <% if user_signed_in? %>
@@ -18,9 +15,7 @@
       <li>
         <%= link_to "Log In", new_user_session_path, class: "nav-link", style: "color: white" %>
       </li>
-
       <% end %>
-
       <li class="nav-item dropdown ml-4">
         <%= link_to dashboard_path do  %>
         <% if user_signed_in? %>
@@ -29,72 +24,190 @@
         <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
         <% end  %>
-
       </li>
-
-
     </ul>
   </div>
 </div>
 
+  <div class="landing-box-1">
+      <section class="site-hero overlay mb-4" style="background-image: url(https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)">
 
+      <div class="container">
 
-<section class="site-hero overlay mb-4" style="background-image: url(https://images.unsplash.com/photo-1466584820433-9ad1cc6798f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)">
-      <div class="landing-container">
-        <div class="main-landing-row">
-          <div class="headings">
-            <h1 class="heading-line" data-aos="fade-up">MANY<br> HANDS<%#= link_to 'EXPLORE', events_path" %></h1>
-            <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
-            <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
-              <%= link_to 'EXPLORE', events_path, class: "main-cta" %>
+        <div class="row site-hero-inner justify-content-center align-items-center">
+
+          <div class="col-md-12 d-flex justify-content-center align-items-center">
+
+            <div class="main-text-landing"></div>
+            <h1 class="many-hands-main" data-aos="fade-up">MANY HANDS</h1>
+
+            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+            Make unique events by finding emerging creatives from your local community
             </p>
-          </div>
-          </div>
-        </div>
-    </section>
 
-    <div class="project-info">
 
-    <h2>How <br>we collaborate</h2>
+            <p class="pt-4" data-aos="fade-up" data-aos-delay="100">
+           <%= link_to 'EXPLORE', events_path, class: "main-cta" %>
+<!--  <button class="spin circle">Spin Circle</button> -->
 
-    <div class="process">
-      <div class="each-process">
-         <p class ="process-text">step 1 - Time to organize your event</p>
-        <picture class="cover"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo" ></picture>
-      </div>
-       <div class="each-2">
-      <p class ="process-text">step 2 - Create your event page</p>
+            </p>
 
-      <picture class="cover"><img src="https://images.unsplash.com/photo-1519111887837-a48ccf9edc00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
-      </div>
-      <div class="each-3">
-        <p class ="process-text">step 3 - You will advertise the spots you want to fill</p>
-      <picture class="cover"><img src="https://images.unsplash.com/photo-1561834029-b95a90eeb4dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
-       </div>
-      <div class="each-4">
-        <p class ="process-text">step 4 - You wait for request or search actively</p>
-      <picture class="cover"><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80" class ="process-photo"></picture>
-      </div>
-
-       <div class="each-5">
-        <div class="each-p">
-        <p class ="process-text">step 5 - Have a spectacular event</p>
-        <picture class="cover"><img src="https://images.unsplash.com/photo-1552819471-ab8763db1aad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=605&q=80" class ="process-photo"></picture>
-        </div>
-          <div class = "creative-cta">
-              <p>Are you &nbsp; musician or visual artist or performance artist? Or&nbsp;you just want to be part of &nbsp;cool events by helping out? Join&nbsp;and find out events &nbsp; in your local community. Follow the link below to&nbsp;discover &nbsp;&nbsp;opportunities! &nbsp;
-              </p>
-              <span style="display: flex;"> <%= link_to 'Apply', events_path, class: "apply" %>
-                <svg id="arrow" href="/events" viewBox="0 0 24 24">
-                    <polygon points="1,0 1,6 13.757,6 0.615,19.142 4.858,23.385 18,10.243 18,23 24,23 24,0"></polygon>
-                </svg>
-                </span>
             </div>
 
-       </div>
-       </div>
+          </div>
+
+        </div>
+
+        <div class="container">
+          <br>
+          <br>
+          <br>
+          <br>
+          <h1 class="">_______________________</h1>
+        </div>
+
+
+
+  </section>
+</div>
+
+
+    <div class="under-landing">
+      <div class="container">
+
+
+
+        <h2 class="how-does">How does it work?</h2>
+        <img class="event-image-one" src="https://res.cloudinary.com/dqnhjr33l/image/upload/v1567138280/mq6ghjowyicxudztjdmk.jpg" alt="">
+        <img class="event-image-two" src="https://res.cloudinary.com/dqnhjr33l/image/upload/v1567138277/fcd7qutqhsq9kr1w8yb1.jpg" alt="">
+        <img class="event-image-three" src="https://res.cloudinary.com/dqnhjr33l/image/upload/v1567106948/cr8o0nn2exqmlvhkr8ps.jpg" alt="">
+
+
+        <h6 class="CREATE">1. CREATE </h6>
+        <h1 class="your">Y</h1>
+        <h1 class="your">O</h1>
+        <h1 class="your">U</h1>
+        <h1 class="your">R</h1>
+        <h6 class="event">EVENT </h6>
+        <h6 class="listing">LISTING  .  .  .  </h6>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="text-right">_______________________</h1>
+        <br>
+        <br>
+
+          <div class="each-spot-position spot-landing-one">
+                      <div class="spot-btn-hovering">
+                        <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
+                        </div>
+                          <h5 class="search-spot-button">search</h5>
+                      </div>
+          </div>
+
+          <div class="each-spot-position spot-landing-two">
+                      <div class="spot-btn-hovering">
+                        <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dqnhjr33l/image/upload/v1567138281/epbullbmoavgzdrljkvv.jpg')">
+                        </div>
+                          <h5 class="search-spot-button">search</h5>
+                      </div>
+          </div>
+        <h6 class="CREATE">2. ADD </h6>
+        <h6 class="JOB">JOB </h6>
+        <h1 class="SPOTS">S</h1>
+        <h1 class="SPOTS">P</h1>
+        <h1 class="SPOTS">O</h1>
+        <h1 class="SPOTS">T</h1>
+        <h1 class="SPOTS">S</h1>
+
+        <h6 class="TO">TO </h6>
+        <h6 class="YOURR">YOUR </h6>
+        <h6 class="EVENT">EVENT </h6>
+        <br>
+        <br>
+
+
+        <h1 class="">_______________________</h1>
+      </div>
+
+    </div>
+
+    <div class="landing-box-2">
+      <div class="container">
+
+
+        <h6 class="search">3.  S E A R C H </h6>
+        <br>
+
+
+        <h1 class="four">F O U R </h1>
+        <h6 class="cat">C A T E G O R I E S </h6>
+        <h6 class="and">&</h6>
+        <h6 class="specific">S P E C I F I C </h6>
+        <h6 class="four">R O L E S</h6>
+        <br>
+
+        <div class="cat-btn-div">
+          <p class="cat-btn">Sound</p>
+          <p class="cat-btn ml-5">Visual</p>
+          <p class="cat-btn ml-5">Performance</p>
+          <p class="cat-btn">A Helping Hand</p>
+        </div>
+
+        <h1 class="text-right">_______________________</h1>
+        <br>
+        <br>
+        <h1 class="text-center">OR</h1>
+        <br>
+        <h1 class="">_______________________</h1>
+
+        <h1 class="four">WAIT</h1>
+        <h6 class="for">FOR</h6>
+        <h6 class="and">CREATIVES</h6>
+        <h6 class="specific">TO</h6>
+        <h6 class="four">APPLY </h6>
+        <h6 class="four">TO </h6>
+        <h6 class="four">YOUR </h6>
+        <h6 class="four">JOB SPOTS </h6>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h6 class="lets">LETS GET STARTED ... </h6>
+        <br>
+        <br>
+        <%= link_to 'CREATE A NEW EVENT', new_event_path, class: "create-new-landing" %>
+        <br>
+        <br>
+        <br>
+        <br>
 
 
 
 
-  </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+

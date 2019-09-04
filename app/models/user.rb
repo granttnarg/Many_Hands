@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :requests
   has_many :socials
+  has_many :reviews
   has_many :spots, dependent: :destroy, through: :invitations
   has_many :invitations
   has_many :spots, through: :events

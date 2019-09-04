@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_09_03_145003) do
+=======
+ActiveRecord::Schema.define(version: 2019_09_04_101300) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +66,16 @@ ActiveRecord::Schema.define(version: 2019_09_03_145003) do
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "description"
+    t.bigint "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["request_id"], name: "index_reviews_on_request_id"
+  end
+
   create_table "socials", force: :cascade do |t|
     t.string "type"
     t.string "url"
@@ -107,6 +121,10 @@ ActiveRecord::Schema.define(version: 2019_09_03_145003) do
   add_foreign_key "events", "users"
   add_foreign_key "invitations", "spots"
   add_foreign_key "invitations", "users"
+<<<<<<< HEAD
   add_foreign_key "photos", "users"
+=======
+  add_foreign_key "reviews", "requests"
+>>>>>>> master
   add_foreign_key "spots", "events"
 end

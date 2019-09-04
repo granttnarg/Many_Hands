@@ -13,8 +13,24 @@
   padding: 1px;
 }
 
+
 .bio-photo {
   position: relative;
+}
+
+
+.user-profile-photo-review {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  border-radius: 50%;
+  height: 220px;
+  width: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom: 0px;
+  z-index: 2;
+  border: 29px solid #ff4900;
+  padding: 1px;
 }
 
 .user-show-container {

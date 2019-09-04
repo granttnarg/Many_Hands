@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   devise_for :users
 
   root to: 'pages#home'
@@ -16,7 +18,14 @@ Rails.application.routes.draw do
     resources :requests, only: [:new, :create, :update]
   end
 
+
   resources :profiles, only: [:edit, :update]
+
+  resources :requests, only: [] do
+    resources :reviews, only: [:new, :create]
+
+  end
+
 
 
 end
