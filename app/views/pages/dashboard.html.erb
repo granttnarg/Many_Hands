@@ -3,7 +3,7 @@
     <br>
     <br>
     <br>
-<div class="box">
+<div class="container">
 
       <div class="first-row-box">
         <div class="upper-left-box">
@@ -42,7 +42,7 @@
     </div>
   </div>
 
-      <div class="row">
+  <div class="row">
         <div class="col-xl-3 col-lg-6">
         <%= link_to users_path do %>
           <div class="card">
@@ -92,7 +92,7 @@
         <% end %>
       </div>
       <div class="col-xl-3 col-lg-6">
-        <%= link_to users_path do %>
+        <%#= link_to users_path do %>
         <div class="card">
          <div class="card-bg" style ="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1557952138-db779780cd54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-size: cover;">
           <div class="p-t-20 d-flex justify-content-between">
@@ -104,8 +104,8 @@
           </div>
           <canvas id="cardChart4" height="80"></canvas>
         </div>
-      </div>
-      <% end %>
+     <!--  </div> -->
+      <%# end %>
     </div>
   </div>
 
@@ -116,24 +116,21 @@
   </div>
 
 
-<% @events.each do |event|  %>
+  <% @events.each do |event|  %>
+
   <div class="row">
-   <div id = "each-event" class="col-4">
-
+    <div id = "each-event" class="col-4">
       <%= link_to event_path(event) do %>
-
         <div id="dash-card" style="height: 65%; background-image: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('<%= image_path event.photo %>');" >
-          <div class="spot-status">
-            <% filled_spots = 0 %>
-            <% event.spots.each do |spot| %>
-              <% spot.requests.where(status: :confirmed) ? filled_spots += 1 : filled_spots %>
-             <% end %>
-            <%= filled_spots %> / <%= event.spots.count %> spots filled
-          </div>
-
-          </div>
-
-          <% end %>
+            <div class="spot-status">
+              <% filled_spots = 0 %>
+              <% event.spots.each do |spot| %>
+                <% spot.requests.where(status: :confirmed) ? filled_spots += 1 : filled_spots %>
+               <% end %>
+              <%= filled_spots %> / <%= event.spots.count %> spots filled
+            </div>
+        </div>
+      <% end %>
 
         <div class="event-description">
             <h5 class ="event-text"> <b>Event Name </b><%= event.name %></h5>
@@ -144,87 +141,74 @@
             <% end %>
         </div>
     </div>
+    <% if !event.spots.present? %>
+      <div id="request-box" class ="col-8">
+        You have not created spots.
+        Please create spots.
+      </div>
+    <% else %>
+        <div id="request-box" class ="col-8">
+          <% event.spots.each do |spot| %>
+            <div class ="inbox">
+                <h4 class ="title-inbox">Inbox</h4>
+                <div class="spot-title">
+                  <%= spot.category %>
+                </div>
 
-
-
-
-              <% if !event.spots.present? %>
-              <div id="request-box" class ="col-8">
-                You have not created spots
-              </div>
-                <% else %>
-
-                <% event.spots.each do |spot| %>
-
-                <div id="request-box" class ="col-8">
-                  <div class ="inbox-request">
-
-                    <h4 class ="title-inbox">Inbox</h4>
-                    <%# if !notifications.present? %>
-                    <!--   <h4>Your Job Spot Request is empty</h4> -->
-
-
+                <div class="request-content">
                     <% notifications = spot.requests.where(status: :pending) %>
-
                     <% notifications.each_with_index do |notification, index| %>
-
-
-                    <div class="request-content">
-                      <p class ="request-text"> <%= index + 1 %> <br>
-                        <span class="image-circle"></span>
-                        <%= cl_image_tag notification.user.profile_photo,crop: :fill, class: "avatar-message" %>
-                        <div class="from-info">
-                          <%= link_to "#{notification.user.first_name}", spot_creative_path(spot, notification.user)%>
-                        </div>
-
-                        <p class = "category"><%= spot.category %>
-                          <%= spot.role %>
-                        </p>
-                        <div class="contents">
-                          <p class ="request-text-note"> <%= notification.note %></p>
-                        </div>
-                        <div class="confirm">
-                          <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
-                          <div class="request-status-box">
-                            <a href="#" class="button" data-value="confirmed"><i class="fas fa-check"></i></a>
-                            <a href="#" class="button" data-value="rejected"><i class="fas fa-times"></i></a>
-                            <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
-                            <%= f.submit :submit, class: "submit d-none" %>
+                    <p class ="request-text"> <%= index + 1 %> <br>
+                      <span class="image-circle"></span>
+                          <%= cl_image_tag notification.user.profile_photo,crop: :fill, class: "avatar-message" %>
+                          <div class="from-info">
+                            <%= link_to "#{notification.user.first_name}", spot_creative_path(spot, notification.user)%>
                           </div>
-                          <% end %>
-                        </div>
-                      </div>
-
-
-                      <% end %>
-
-                    </div>
-
-        <div class ="invi-request">
-            <h4 class ="title-inbox">Invitation</h4>
-              <% spot.invitations.each do |invitation| %>
-                  <% if invitation.blank? %>
-                     <div class="invitations">
-                      <p>You have not made any invitation.</p>
-                      <% else %>
-                      <div class="alert-invitation">
-                        <div class="flash flash-success alert alert-dismissible fade show flash-inv" >
-                          <span><strong>Yay!</strong> 🎉 you successfully made an invitation to <b>
-                            <%= link_to "#{invitation.user.first_name}", user_path(invitation.user) %> </b>
-                            for the <%= invitation.spot.category %>
-                          <%= cl_image_tag invitation.user.profile_photo,crop: :fill, class: "avatar-invi-message" %>
-                          </span>
+                          <p class = "category"><%= spot.category %>
+                            <%= spot.role %>
+                          </p>
+                          <div class="contents">
+                            <p class ="request-text-note"> <%= notification.note %></p>
                           </div>
-                        </div>
-                      <% end %>
+                          <div class="confirm">
+                            <%= simple_form_for [@spot, notification], url: spot_request_path(spot, notification), html: { class: "status-form" } do |f| %>
+                                <div class="request-status-box">
+                                  <a href="#" class="button" data-value="confirmed"><i class="fas fa-check"></i></a>
+                                  <a href="#" class="button" data-value="rejected"><i class="fas fa-times"></i></a>
+                                  <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
+                                  <%= f.submit :submit, class: "submit d-none" %>
+                                </div>
+                              <% end %>
+                          </div>
+                        <% end %>
                     </div>
-                <% end %>
             </div>
-          <% end %>
+
+            <div class ="invi-request">
+              <h4 class ="title-inbox">Invitation</h4>
+                <div class="invitations">
+              <% spot.invitations.each do |invitation| %>
+                  <%# if invitation.blank? %>
+
+                  <%# else %>
+                    <div class="alert-invitation">
+                      <div class="flash-inv" >
+                        <span><strong>Yay!</strong> 🎉 you successfully made an invitation to <b>
+                          <%= link_to "#{invitation.user.first_name}", user_path(invitation.user) %> </b>
+                          for the <%= invitation.spot.category %>
+                        <%= cl_image_tag invitation.user.profile_photo,crop: :fill, class: "avatar-invi-message" %>
+                        </span>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
-    </div>
     <% end %>
   </div>
+
 
 

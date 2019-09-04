@@ -238,13 +238,16 @@ font-size: 15px;
   border-radius: 5px;
   background-color: white;
   padding-left: 30px;
-  height: 625px;
+  height: 545px;
   padding-top: 62px;
 }
 #request-box {
+
   background-color: white;
-padding-top: 25px;
-border-radius: 5px;
+  padding-top: 25px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  height: 545px;
 }
 
 
@@ -313,11 +316,12 @@ left: 200px;
 
 }
 
-.inbox-request {
+.inbox {
   overflow-y: scroll;
   height: 270px;
   padding-top: 32px;
   overflow-x: hidden;
+  position:relative;
 }
 
 #arrow-dash {
@@ -520,25 +524,17 @@ width: 509px;
 
 }
 
-// .flash {
-//   padding: 16px 24px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   background: transparent;
-//   border-radius: 4px;
-//   margin: 8px;
 
-// }
 .flash-inv {
   position: relative;
-    padding: 16px 24px;
+  padding: -1px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: transparent;
   border-radius: 4px;
   margin: 8px;
+ bottom: 15px;
 
 }
 a:hover {
@@ -581,3 +577,38 @@ background-color: transparent;
   top: 1px;
 }
 
+.spot-title {
+position: absolute;
+
+top: 2px;
+
+background-color: black;
+
+padding: 10px 15px;
+
+    padding-top: 10px;
+
+padding-top: 10px;
+
+padding-top: 10px;
+
+border-radius: 50%;
+
+border-style: solid;
+
+border-color: #ff3f00;
+
+color: #ff3f00;
+
+width: 109px;
+
+height: 69px;
+
+padding-top: 23px;
+
+z-index: 10000000;
+
+font-size: 12px;
+
+text-align: center;
+}
