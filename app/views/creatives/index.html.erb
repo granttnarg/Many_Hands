@@ -2,34 +2,16 @@
 
 
 <div class="container" style="padding-top: 120px; width:1600px;">
-  
-  <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize %> creatives in your area</h1>
   <br>
-  <%= link_to "< Back to your event", event_path(@spot.event), class: "btn boton" %>
-  
-  <%= simple_form_for(@spot) do |f| %>
-  <div>
-    <div style="max-width: 200px;">
-    <%= f.input :category, collection: Spot.categories.keys, class: "categoria" %>
-    </div>
-    <div>
-    <%= f.input :role, class: "rol" %>
-    </div>
-    <div>
-    <%= f.submit "Search", class: "btn boton" %>
-    </div>
-  <% end %>
-  </div>
-
-    
-
+  <h1 class="text-center"><%= @spot.category.capitalize %> creatives in your area</h1>
+  <br>
   <div class="text-center mb-4">
-    
+    <%= link_to "< Back to your event", event_path(@spot.event), class: "btn btn-primary" %>
     </div>
     <div><p>Showing <%= @users.count %> results</p></div>
   <div class="row" style="padding-top: 0px;">
     <% @users.each do |user| %>
-      <div class="notification position-relative" style=" background: #f9f9f9; margin: 15px 15px 15px 0; padding-bottom: 8px;">
+      <div class="notification position-relative" style=" background: #f9f9f9; margin: 15px; padding-bottom: 8px;">
         <div  class="mb-3">
           <%= link_to spot_creative_path(@spot, user) do %>
           <div><%= cl_image_tag user.coverphoto, height: 100, width:180, crop: :fill%></div>
