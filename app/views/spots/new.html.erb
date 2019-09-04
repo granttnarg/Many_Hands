@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 <div class="container" style="padding-top: 100px; max-width: 600px;">
-	<h1 style="margin-bottom: 20px;">Create a new spot</h1>
+	<h1 class="text-center" style="margin-bottom: 20px; color: black">Create a new spot</h1>
 <%= simple_form_for [@event, @spot] do |f| %>
 	
   <fieldset class="form-group radio_buttons required spot_category">
@@ -31,9 +31,9 @@
   <%= f.input :description %>
 
 
-  <%= f.submit "Save", class: "btn btn-primary", name: "submit-type", value: "Save" %>
+  <%= f.submit "Save Spot", class: "btn boton", name: "submit-type", value: "Save" %>
 
-  <%= f.submit "Save and Search", class: "btn btn-primary",  name: "submit-type", value: "Save & Search" %>
+  <%= f.submit "Find Creatives", class: "btn boton",  name: "submit-type", value: "Find Creatives" %>
 
 
 <% end %>
