@@ -124,18 +124,20 @@ h6 {
   position: absolute;
   left: 25px;
   top: 208px;
-  border: solid 1px orange;
+  border: solid 1px #ff4900;
   padding: 15px;
-  color: #ff4900;
+  color: white;
+  background-color: #ff4900;
+  transition: 2s;
+  opacity: 1;
   }
 
 .main-cta:hover {
    text-decoration: none;
    color: #ff4900;
-   transition: 2s;
-
+   opacity: 1;
    background-color: white;
-   opacity: 0.8;
+   border: solid 1px white ;
 
 }
 
@@ -332,7 +334,8 @@ a:-webkit-any-link {
 }
 
 .cat-btn {
-  background-color: orange;
+  background-color: #FF4900;
+  color: white;
   padding: 20px;
   border-radius: 5px;
   width: 500px;
@@ -575,6 +578,17 @@ margin: 0 auto;
 .apply {
   font-family: 'pano';
   font-size: 36px;
+}
+
+.logo-text-landing {
+  color: white;
+
+}
+
+.logo-text {
+  color: #ff4900;
+  opacity: 0.8;
+  font-weight: bold;
 }
 
 // @mixin BoxShadowHelper($level: 1){
