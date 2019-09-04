@@ -1,0 +1,21 @@
+ <div class="container" style="padding-top: 30px">
+  <%= simple_form_for current_user, url: profile_path(current_user) do |f| %>
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= f.input :username %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :bio %>
+        <%= f.input :location %>
+        <%= f.input :looking_for %>
+        <%= f.input :profile_photo, multiple: true %>
+        <%= f.input :profile_photo_cache, as: :hidden %>
+        <%= f.input :coverphoto %>
+        <%= f.input :coverphoto_cache, as: :hidden %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :skill %>
+        <%= f.input :category, collection: User.categories.keys %>
+        <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
+</div>

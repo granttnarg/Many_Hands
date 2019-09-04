@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_112455) do
+ActiveRecord::Schema.define(version: 2019_09_03_145003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2019_08_29_112455) do
     t.text "message"
     t.index ["spot_id"], name: "index_invitations_on_spot_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -99,5 +107,6 @@ ActiveRecord::Schema.define(version: 2019_08_29_112455) do
   add_foreign_key "events", "users"
   add_foreign_key "invitations", "spots"
   add_foreign_key "invitations", "users"
+  add_foreign_key "photos", "users"
   add_foreign_key "spots", "events"
 end

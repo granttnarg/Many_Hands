@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :spots, dependent: :destroy, through: :invitations
   has_many :invitations
   has_many :spots, through: :events
+  has_many :photos
   mount_uploader :profile_photo, PhotoUploader
   mount_uploader :coverphoto, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
   enum category: [:sound, :visual, :performance, :helping_hand]
 
   include PgSearch::Model
