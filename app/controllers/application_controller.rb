@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:is_creative])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :bio, :location, :looking_for, :profile_photo, :coverphoto, :category, :skill, :email, :style])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name, :bio, :location, :looking_for, :profile_photo, :coverphoto, :category, :skill, :email, :style, :photos =>[]])
   end
 
   def after_sign_in_path_for(resource)

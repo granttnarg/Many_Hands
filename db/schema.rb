@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2019_09_04_101300) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.integer "status"
     t.text "note"
@@ -109,6 +117,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_101300) do
   add_foreign_key "events", "users"
   add_foreign_key "invitations", "spots"
   add_foreign_key "invitations", "users"
+  add_foreign_key "photos", "users"
   add_foreign_key "reviews", "requests"
   add_foreign_key "spots", "events"
 end

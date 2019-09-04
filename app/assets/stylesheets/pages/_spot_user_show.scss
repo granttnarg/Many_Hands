@@ -6,12 +6,18 @@
   background-size: cover;
   background-position: center;
   position: absolute;
-  left: 300px;
-  bottom: 350px;
+  left: 33%;
+  bottom: -90px;
   z-index: 2;
   border: 29px solid #ff4900;
   padding: 1px;
 }
+
+
+.bio-photo {
+  position: relative;
+}
+
 
 .user-profile-photo-review {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
@@ -26,6 +32,7 @@
   border: 29px solid #ff4900;
   padding: 1px;
 }
+
 .user-show-container {
   width: 90%;
   margin: 0 auto;
@@ -60,9 +67,9 @@ text-align: left;
 
 .invite-button {
   position: absolute;
-  left: 454px;
-  top: 173px;
-  z-index: 2;
+  left: 374px;
+  top: 63px;
+  z-index: 3;
 }
 .spot-invite-button {
   background-color: black;
@@ -72,6 +79,8 @@ text-align: left;
   height: 104px;
   padding: 39px 32px;
   position: absolute;
+  top: 30px;
+  left: -4px;
   // bottom: 50px;
   // right: 50px;
 }
@@ -81,19 +90,19 @@ text-align: left;
   margin: 0 auto;
   text-align: center;
   justify-content: space-between;
-  top: 35px;
   position: absolute;
-  left: 50px;
+  // top: 35px;
+  // left: 50px;
   z-index: 2;
 }
 .go-back-event-button, .search-again-button{
     color: #ff4900;
     border-radius: 50%;
-    width: 106px;
-    height: 104px;
-    padding: 39px 32px;
-    bottom: 50px;
-    right: 50px;
+    // width: 106px;
+    // height: 104px;
+    // padding: 39px 32px;
+    // bottom: 50px;
+    // right: 50px;
     text-align: center;
 }
 
@@ -116,12 +125,11 @@ text-align: left;
   position: relative;
   opacity: 0.9;
 }
-.image-feed a
-{
+.image-feed a {
     display: inline-block;
     overflow-y: auto;
-    width: 160px;
-    height: 160px;
+    width: 30%;
+    height: 150px;
     padding: 15px;
 }
 .image-feed a img {
@@ -138,6 +146,9 @@ text-align: left;
 
 #image-padding {
   padding: 10px;
+  overflow: scroll;
+  max-height: 343px;
+  text-align: left;
 }
 
 #plus-icon {

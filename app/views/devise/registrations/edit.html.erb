@@ -27,23 +27,6 @@
 
   </div>
 
-  <div class="form-actions">
-    <%= f.input :username %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :bio %>
-    <%= f.input :location %>
-    <%= f.input :looking_for %>
-    <%= f.input :profile_photo %>
-    <%= f.input :profile_photo_cache, as: :hidden %>
-    <%= f.input :coverphoto %>
-    <%= f.input :coverphoto_cache, as: :hidden %>
-    <%= f.input :skill %>
-    <%= f.input :email %>
-    <%= f.input :category, collection: User.categories.keys %>
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
 
 <h3>Cancel my account</h3>
 
