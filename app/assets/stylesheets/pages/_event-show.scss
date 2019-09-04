@@ -11,6 +11,10 @@
 
 }
 
+.sub-heading-event-show {
+color: white;
+}
+
 .each-spot-full {
   border-radius: 100%;
   height: 100%;
@@ -31,9 +35,10 @@
 
 .search-spot-button {
   opacity: 0;
-  top: 75px;
-  left: 35px;
+  top: 78px;
+  left: 40px;
 }
+
 
 .spot-btn-hovering:hover .search-spot-button {
   transition: 1s;
@@ -43,6 +48,8 @@
   top: 75px;
   left: 35px;
 }
+
+
 
 .apply-spot-btn-hovering:hover .apply-spot-button {
   transition: 1s;

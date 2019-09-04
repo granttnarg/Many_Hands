@@ -9,6 +9,7 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
 h1 {
   font-family: 'Pano', sans-serif;
   color: #1C00FF;
@@ -19,6 +20,12 @@ h2, h3, h4, h5 {
   color: #39393b;
 }
 
+h6 {
+  font-family: 'Montserrat' !important;
+   color: #39393b;
+   font-size: 2.5rem;
+
+}
 
 p {
   font-family: 'Montserrat';
@@ -28,12 +35,23 @@ p {
 body {
   background-color: #F0F0F0;
 }
+
 .landing-container {
   width: 960px;
 }
+
 .project-info .action {
     grid-column: content-start / half;
     padding-right: 25px;
+}
+
+
+.many-hands-main {
+  font-size: 100px;
+  font-family: 'Pano', sans-serif;
+  color: #ff4900;
+  padding-left: 0px;
+  padding-top: 0px;
 }
 
 .heading-line {
@@ -41,9 +59,11 @@ body {
   font-size: 120px;
   padding-left: 82px;
   padding-top: 299px;
+
   display: flex;
   margin: 0 auto;
-  position: relative;
+  position: realtive;
+  width: 100vw;
 }
 
 .notification-box {
@@ -55,6 +75,24 @@ body {
 }
 
 
+.main-text-landing {
+  position: absolute;
+}
+
+.spot-landing-one {
+  position: absolute !important;
+  top: 2311px;
+  left: 683px;
+
+}
+
+
+.spot-landing-two {
+  position: absolute !important;
+  top: 2600px;
+  left: 890px;
+
+}
 
 h1, h2, h4, h5 {
   font-family: 'Pano', sans-serif;
@@ -84,21 +122,24 @@ h6 {
   cursor: pointer;
   font-size: 20px;
   position: absolute;
-  left: 195px;
-  bottom: 224px;
-  padding: 15px 35px;
-  border: solid 3px $orange;
-  background-color: transparent;
-  color: $orange;
-}
+  left: 25px;
+  top: 208px;
+  border: solid 1px #ff4900;
+  padding: 15px;
+  color: white;
+  background-color: #ff4900;
+  transition: 2s;
+  opacity: 1;
+  }
+
 .main-cta:hover {
    text-decoration: none;
-   color: white;
-   background-color:$orange;
+   color: #ff4900;
+   opacity: 1;
+   background-color: white;
+   border: solid 1px white ;
+
 }
-
-
-
 
 
 #arrow {
@@ -121,6 +162,9 @@ a {
 .sub-heading {
   color: white;
   font-size: 21px;
+  position: absolute;
+  top: 134px;
+  left: 22px;
 }
 
 svg:not(:root) {
@@ -172,6 +216,183 @@ a:-webkit-any-link {
 //     -webkit-tap-highlight-color: transparent;
 // }
 
+.landing-box-1 {
+  height:1000px;
+  background: #1B1B1B;
+}
+
+.landing-box-2 {
+  height:1010px;
+  background: #1B1B1B;
+}
+
+.under-landing {
+  background-color: #1B1B1B;
+  height: 2000px;
+  width: 100%;
+  display:flex;
+}
+
+.how-does {
+  padding-top: 0px;
+  text-decoration: underline;
+  padding-left: 0px;
+  color: white;
+
+}
+
+.CREATE {
+  padding-top: 100px;
+  padding-left: 0px;
+
+}
+
+.your {
+  padding-left: 200px;
+  padding-top: 10px;
+  color: #FF4900;
+}
+
+.event {
+  padding-left: 250px;
+  padding-top: 20px;
+}
+
+.listing {
+  padding-left: 250px;
+  padding-top: 20px;
+
+}
+.dotdotdot{
+  padding-left: 700px;
+  padding-top: 20px;
+
+}
+
+.JOB {
+  padding-left: 150px;
+  padding-top: 10px;
+}
+
+.SPOTS {
+  padding-left: 250px;
+  padding-top: 10px;
+  color: #FF4900;
+
+}
+
+.TO {
+  padding-left: 300px;
+  padding-top: 10px;
+
+}
+
+.YOURR {
+  padding-left: 300px;
+  padding-top: 10px;
+}
+
+.EVENT {
+  padding-left: 300px;
+  padding-top: 10px;
+
+}
+
+.search {
+  padding-left: 0px;
+  padding-top: 30px;
+
+}
+
+.by {
+
+}
+
+.four {
+  color: #FF4900;
+
+
+}
+
+.cat {
+
+}
+
+.and {
+  padding-top: 50px;
+
+}
+
+.specific {
+  padding-top: 20px;
+
+
+}
+
+.role {
+
+}
+
+.cat-btn {
+  background-color: #FF4900;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  font-weight: bold;
+
+}
+
+.cat-btn-div {
+    position: absolute;
+    padding-left: 500px;
+    top: 3080px;
+    left: 440px;
+
+}
+
+.event-image-one {
+    width: 500px;
+    position: absolute;
+    top: 900px;
+    left: 650px;
+    padding: 20px;
+    border: 1px white solid;
+}
+
+.event-image-two {
+    width: 300px;
+    position: absolute;
+    top: 1346px;
+    left: 816px;
+    padding: 20px;
+    border: 1px #ff4900 solid;
+}
+
+.event-image-three {
+    width: 250px;
+    position: absolute;
+    top: 1670px;
+    left: 670px;
+    padding: 20px;
+    border: 1px white solid;
+}
+
+.create-new-landing {
+
+  font-family: 'Pano', sans-serif;
+  color: #ff4900;
+  padding-left:600px;
+  font-size: 20px;
+  border: 1px #FF4900 solid;
+  padding: 10px;
+
+
+}
+
+.lets {
+  color: black;
+}
 
 :root {
     --grid-outer-margin: 50px;
@@ -245,6 +466,7 @@ ol, ul, dl {
   color: blue;
   background-color: white;
 }
+
 .card {
   background-color: #202020;
   border: 3px solid white;
@@ -356,6 +578,17 @@ margin: 0 auto;
 .apply {
   font-family: 'pano';
   font-size: 36px;
+}
+
+.logo-text-landing {
+  color: white;
+
+}
+
+.logo-text {
+  color: #ff4900;
+  opacity: 0.8;
+  font-weight: bold;
 }
 
 // @mixin BoxShadowHelper($level: 1){
