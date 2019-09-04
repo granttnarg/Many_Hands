@@ -1,28 +1,26 @@
 <%= render 'shared/navbar' %>
 
-
-<div class="container m-t-md">
-  <!-- First row -->
-  <div class="row">
-     <% @events.each do |event| %>
-    <div class="col-xs-12 col-md-6">
-      <!-- Card -->
-      <article class="card animated fadeInLeft">
-          <%= cl_image_tag event.photo, height: 300, crop: :fill %>
-        <div class="card-block">
-          <h3 class="card-title"><%= link_to event.name, event_path(event) %></h3>
-          <h6 class="text-muted">VENUE <%= event.venue_name%></h6>
-          <h6 class="text-muted"> START<%= event.start_date%></h6>
-          <h6 class="text-muted"> END <%= event.end_date%></h6>
-          <p class="card-text"><p><%= event.about%></p>
-
-        </div>
-      </article>
+<div class="container" style="padding-top: 120px; max-width: 1500px; display: flex;">
+<div class="col-6">
+  <% @events.each do |event| %>
+        <!-- Card -->
+    <div class="card-product">
+      <%= cl_image_tag event.photo, height: 300, crop: :fill %>
+      <div class="card-product-infos">
+        <h2><%= link_to event.name, event_path(event) %></h2>
+        <p>VENUE: <%= event.venue_name%></p>
+        <p>START: <%= event.start_date%></p>
+        <p>END: <%= event.end_date%></p>
+        <p><%= event.about%></p>
+      </div>
     </div>
-  <% end %>
-  </div>
+<% end %>
+</div>
+<div class="col-6">
+  Aqui va el puto mapa
 </div>
 
+</div>
 
 
 
