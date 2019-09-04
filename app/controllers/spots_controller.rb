@@ -12,13 +12,13 @@ class SpotsController < ApplicationController
     @event = Event.find(params[:event_id])
     @spot.event = @event
 
-    if params["submit-type"] == "Save & Search"
+    if params["submit-type"] == "Find Creatives"
       if @spot.save
         redirect_to spot_creatives_path(@spot.id)
       else
         render :new
       end
-    elsif params["submit-type"] == "Save"
+    elsif params["submit-type"] == "Save Spot"
       if @spot.save
         redirect_to event_path(@event)
       else
@@ -36,13 +36,13 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     authorize @spot
 
-    if params["submit-type"] == "Save & Search"
+    if params["submit-type"] == "Find Creatives"
       if @spot.update(spot_params)
         redirect_to spot_creatives_path(@spot.id)
       else
         render :new
       end
-    elsif params["submit-type"] == "Save"
+    elsif params["submit-type"] == "Save Spot"
       if @spot.update(spot_params)
         redirect_to event_path(@spot.event)
       else
