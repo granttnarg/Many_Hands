@@ -15,6 +15,7 @@
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :skill %>
         <%= f.input :category, collection: User.categories.keys %>
+        <%= f.input :embed %>
         <%= f.button :submit, "Update" %>
     </div>
   <% end %>
