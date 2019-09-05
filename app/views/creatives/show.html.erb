@@ -11,7 +11,7 @@
         <div class="bio-photo">
         <div class="go-back-buttons">
           <%= link_to spot_creatives_path(@spot.id), class: 'search-again-button' do %>
-          <i class="fas fa-arrow-alt-circle-left fa-4x"></i>
+          <i class="fas fa-chevron-circle-left fa-4x"></i>
           <% end %>
         </div>
           <div id="invite-position">
@@ -19,11 +19,33 @@
           </div>
           <div>
           <div class="invite-button">
+            <% request = @user.requests.find_by(spot: @spot) %>
+            <% if request.present? && request.pending? %>
+              <%= simple_form_for([@spot, request]) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: "confirmed" } %>
+                <%= f.submit "CONFIRM", class: 'spot-invite-button' %>
+              <% end %>
+            <% elsif request.nil? %>
             <%= link_to "INVITE", new_spot_invitation_path(creative_id: @user.id), class: 'spot-invite-button' %>
+            <% end %>
           </div>
             <div style="background-image: url(<%= cl_image_path @user.profile_photo %>)" class="user-profile-photo"></div>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="description mt-3">
           <br>
           <br>
@@ -33,26 +55,26 @@
             <div id="info-padding">
               <div id="info-alignment" class="d-flex justify-content-between">
                 <div id="info-titles" style="font-weight: bold;">
-                  <li style="list-style: none;" class= "title">Name: </li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title">Location </li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title">Looking for </li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title">Skill </li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title">Category </li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title">Style </li>
+                  <p style="list-style: none;" class= "title">NAME </p>
+                  <p style="list-style: none; padding-top: 10px;" class= "title">LOCATION </p>
+                  <p style="list-style: none; padding-top: 10px;" class= "title">LOOKING FOR </p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title">SKILL </p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title">CATEGORY </p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title">STYLE </p>
                 </div>
                 <div class="info-inputs pr-5">
-                 <li style="list-style: none;" class= "title"><%= @user.first_name %> <%= @user.last_name%></li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.location %></li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.looking_for  %></li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.skill %></li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.category  %></li>
-                  <li style="list-style: none; padding-top: 10px;" class= "title"><%= @user.style %></li>
+                 <p style="pst-style: none;" class= "title"><%= @user.first_name %> <%= @user.last_name%></p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title"><%= @user.location %></p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title"><%= @user.looking_for  %></p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title"><%= @user.skill %></p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title"><%= @user.category  %></p>
+                  <p style="pst-style: none; padding-top: 10px;" class= "title"><%= @user.style %></p>
                 </div>
               </div>
               <p></p>
-              <li style="list-style: none; padding-top: 10px; font-weight: bold;"> Bio: </li>
+              <p style="list-style: none; padding-top: 10px; font-weight: bold;"> BIO </p>
               <div id="bio-info-scroll">
-                <li style="list-style: none;" class="text-justify"> <%= @user.bio %></li>
+                <p style="list-style: none;" class="text-justify"> <%= @user.bio %></p>
               </div>
             </div>
           </ul>
@@ -84,7 +106,9 @@
       <div class="image-feed">
         <div id="image-padding">
           <!-- <a href=""><img src="" class="fas fa-plus" id="plus-icon" alt=""></a> -->
-          <a href=""><div class="d-flex justify-content-center align-items-center h-100"><span class="fas fa-plus" id="plus-icon"></span></div></a>
+          <!-- <a href=""><div class="d-flex justify-content-center align-items-center h-100"><span style="url(https://res.cloudinary.com/dqnhjr33l/image/upload/v1567611403/profile%20square/nrgxv9tx6mh6etgbxqvf.png)" id="plus-icon"></span></div></a> -->
+          <a href="#"><img class="d-flex justify-content-center align-items-center h-100" src="https://res.cloudinary.com/dqnhjr33l/image/upload/v1567611403/profile%20square/nrgxv9tx6mh6etgbxqvf.png" alt=""></a>
+
           <% @user.photos.each do |photo| %>
             <a href="#"><%= cl_image_tag photo.photo %></a>
           <% end %>
