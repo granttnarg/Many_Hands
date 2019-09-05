@@ -83,13 +83,14 @@
             <% event.spots.each{|spot| spot.requests.each {|r| @sorted_requests << r}} %>
             <div class="inbox">
             <% if @sorted_requests.blank? %>
-              <h2 class ="no-request">You have No Request</h2>
+              <h2 class ="no-request" style="text-align: center;">You have No Request</h2>
             <% else %>
 
               <% sorted = @sorted_requests.sort {|req1, req2| req2.created_at <=> req1.created_at} %>
               <% sorted.each_with_index do |request, index| %>
                  <div class="request-content">
-                    <h5 class ="received-time"><%= request.created_at %></h5>
+                    <h5 class ="received-time">
+                      <%= request.created_at.strftime("%b %d, %Y")%></h5>
                    <!-- <p class ="request-text"> <%#= index + 1 %></p> <br> -->
                    <span class="image-circle"></span>
 
@@ -101,7 +102,9 @@
                   <% end %>
 
                    <div class="from-info">
-                     <%= link_to "#{request.user.first_name}", spot_creative_path(request.spot, request.user)%>
+                    <b>
+                     <%= link_to "#{request.user.first_name}", spot_creative_path(request.spot, request.user) %>
+                    </b>
                     <%  if request.confirmed? %>
                      <p class="status-green"><b><%= request.status %></b></p>
 
@@ -113,7 +116,7 @@
                     <p class="status-yellow"><b><%= request.status %></b></p>
                     <% end %>
                    </div>
-                   <p class = "category"><%= request.spot.category.upcase %> //
+                   <p class = "category"><b><%= request.spot.category.upcase %></b> //
                      <%= request.spot.role %>
                    </p>
                    <div class="contents">
@@ -122,7 +125,7 @@
                    <div class="confirm">
                      <%= simple_form_for [request.spot, request], url: spot_request_path(request.spot, request), html: { class: "status-form" } do |f| %>
                        <div class="request-status-box">
-                         <a href="#" class="confirm-button-c" data-value="confirmed"><i class="fas fa-check"></i></a>
+                         <a href="#" class="confirm-button-c" data-value="confirmed"><i class="far fa-check-circle"></i></a>
                          <a href="#" class="confirm-button-r" data-value="rejected"><i class="fas fa-times"></i></a>
                          <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
                          <%= f.submit :submit, class: "submit d-none" %>
