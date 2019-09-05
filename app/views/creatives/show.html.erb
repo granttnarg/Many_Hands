@@ -110,7 +110,9 @@
           <a href="#"><img class="d-flex justify-content-center align-items-center h-100" src="https://res.cloudinary.com/dqnhjr33l/image/upload/v1567611403/profile%20square/nrgxv9tx6mh6etgbxqvf.png" alt=""></a>
 
           <% @user.photos.each do |photo| %>
-            <a href="#"><%= cl_image_tag photo.photo %></a>
+            <a href="#">
+              <div style="background-image: url(<%= cl_image_path photo.photo %>);height: 100%; background-size: cover; background-position: center"></div>
+            </a>
           <% end %>
         </div>
       </div>
