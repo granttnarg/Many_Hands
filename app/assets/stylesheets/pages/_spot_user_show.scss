@@ -1,17 +1,18 @@
 .user-profile-photo {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
   border-radius: 50%;
-  height: 220px;
-  width: 220px;
+  height: 200px;
+  width: 200px;
   background-size: cover;
   background-position: center;
   position: absolute;
   left: 33%;
   bottom: -90px;
   z-index: 2;
-  border: 29px solid #ff4900;
-  padding: 1px;
+  border: 10px solid #FF4900;
+  padding: 5px;
 }
+
 
 
 .bio-photo {
@@ -77,10 +78,12 @@ text-align: left;
   border-radius: 50%;
   width: 106px;
   height: 104px;
-  padding: 39px 32px;
+  padding: 42px 0px;
   position: absolute;
   top: 30px;
   left: -4px;
+  font-family: pano;
+  font-size: 13px;
   // bottom: 50px;
   // right: 50px;
 }
@@ -128,9 +131,11 @@ text-align: left;
 .image-feed a {
     display: inline-block;
     overflow-y: auto;
-    width: 30%;
-    height: 150px;
+    width: 32%;
+    height: 119px;
     padding: 15px;
+    background-size: 100%;
+
 }
 .image-feed a img {
     width: 100%;
@@ -187,7 +192,7 @@ text-align: left;
 
 #review-scroll {
   overflow-y: scroll;
-  height: 178px;
+  height: 350px;
 }
 
 
@@ -202,4 +207,11 @@ text-align: left;
   border-radius: 4px;
   margin: 8px;
 }
+
+.fa-chevron-circle-left {
+    position: absolute;
+    top: -10px;
+    right: 19px;
+    font-size: xx-large;
+    }
 

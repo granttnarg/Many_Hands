@@ -25,3 +25,4 @@ class User < ApplicationRecord
 
   scope :creatives, -> { where(is_creative: true )}
 end
+

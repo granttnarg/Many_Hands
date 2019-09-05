@@ -30,25 +30,18 @@ class RequestsController < ApplicationController
   end
 
   def update
-    # @spot = Spot.find(params[:id])
     @request = Request.find(params[:id])
     authorize @request
     @spot = Spot.find(params[:spot_id])
     @event = @spot.event_id
-    if @request.update(update_params)
+    if @request.update(request_params)
       redirect_to event_path(@event)
     end
-
   end
 
   private
 
   def request_params
     params.require(:request).permit(:status, :note)
-  end
-
-  def update_params
-    params.require(:request).permit(:note, :status)
-
   end
 end
