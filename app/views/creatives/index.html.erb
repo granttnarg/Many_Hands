@@ -1,55 +1,66 @@
 <%= render 'shared/navbar' %>
-
-
-<div class="container" style="padding-top: 120px; width:1600px;">
+<div class="container" style="padding-top: 120px;">
   
-  <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize %> creatives in your area</h1>
+  <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize.gsub(/_/, ' ') %> creatives in your area</h1>
   <br>
-  <%= link_to "< Back to your event", event_path(@spot.event), class: "btn boton" %>
-  
-  <%= simple_form_for(@spot) do |f| %>
-  <div>
-    <div style="max-width: 200px;">
-    <%= f.input :category, collection: Spot.categories.keys, class: "categoria" %>
-    </div>
-    <div>
-    <%= f.input :role, class: "rol" %>
-    </div>
-    <div>
-    <%= f.submit "Search", class: "btn boton" %>
-    </div>
-  <% end %>
-  </div>
+  <form class="simple_form edit_spot mt-5" id="edit_spot_65" novalidate="novalidate" action="/spots/65" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="lvizWn7m3xosoeg3eiJsFukmU8JnbPhE4Lron7zuH2tsc0AAQcQlyvpxMLdF8g5fHii6zBKL70Uao1gsM0QosA==">
+    <div class="d-flex">
+      <div class="justify-content-start" style="width: 280px;">
+      <div class="d-flex form-group select required spot_category form-group-valid">
+        <label class="d-flex form-control-label select required nombre mr-3" for="spot_category">Category
+        </label>
+        <select class="form-control is-valid select required" name="spot[category]" id="spot_category"><option value=""></option>
+          <option value="sound">Sound</option>
+          <option value="visual">Visual</option>
+          <option value="performance">Performance</option>
+          <option value="helping_hand">Helping hand</option>
+        </select>
+      </div>
+      </div>
+      <div class="justify-content-start" style="width: 600px;">
+      <div class="d-flex form-group string optional spot_role"><label class="d-flex form-control-label string optional nombre mr-3 ml-3" for="spot_role">Role</label><input class="form-control string optional" type="text" value="" name="spot[role]" id="spot_role"></div>
+      </div>
+      <div class= "ml-3" style="width: 235px; position: relative; top: 3px;"><p class="nombre">By Event Location</p></div>
+       <label class="field check-round slide">
 
-    
+          <input type="checkbox" name="check-slide" id="check-slide" />
+
+          <label for="check-slide"><span></span></label>
+        </label>
+      <div class="d-flex justify-content-start">
+      <input type="submit" name="commit" value="Search" class="btn boton ml-3" data-disable-with="Search" style="height: 40px;">
+      </div>
+    </div>
+  </form>
 
   <div class="text-center mb-4">
-    
+
     </div>
-    <div><p>Showing <%= @users.count %> results</p></div>
-  <div class="row" style="padding-top: 0px;">
+    <div class="text-center" style="font-size: 18px;"><p>Showing <%= @users.count %> results</p></div>
+    <%= link_to "< Back to event", event_path(@spot.event), class: "btn boton" %>
+  <div class="row" style="padding-top: 0px; width: 1142px;">
     <% @users.each do |user| %>
-      <div class="notification position-relative" style=" background: #f9f9f9; margin: 15px 15px 15px 0; padding-bottom: 8px;">
+      <div class="notification position-relative" style=" background: #f9f9f9; margin: 15px 15px 15px 0; padding-bottom: 8px; width: 500px">
         <div  class="mb-3">
           <%= link_to spot_creative_path(@spot, user) do %>
           <div><%= cl_image_tag user.coverphoto, height: 100, width:180, crop: :fill%></div>
           <div class="position-absolute profile-avatar" style="border-radius: 50%; border: 8px solid #ff4900;"><%= cl_image_tag user.profile_photo, height: 100, width:100, radius: 50, crop: :fill %></div>
         </div>
         <% end %>
-        <div class="notification-content">
-          <p><strong>Name: </strong><%= link_to user.first_name, spot_creative_path(@spot, user) %></p>
-          <p><strong>Category: </strong><%= user.category.capitalize %></p>
-          <p><strong>Skill: </strong><%= user.skill.capitalize %></p>
+        <div class="d-flex notification-content">
+          <div>
+            <p><strong>Name </strong></p>
+            <p><strong>Category </strong></p>
+            <p><strong>Skill </strong></p>
+          </div>
+          <div style="padding-left: 15px">
+            <p><%= link_to user.first_name.upcase, spot_creative_path(@spot, user) %></p>
+            <p><%= user.category.upcase %> //</p>
+            <p><%= user.skill.upcase %></p>
+          </div>
         </div>
 
-        <div class="notification-actions">
-          <%= link_to new_spot_invitation_path(@spot, user) do %>
-          <div class="button text-center">
-          <i class="far fa-comments text-center"></i>
-          <p class= text-center>Invite</p>
-          </div>
-          <% end %>
-        </div>
+        
       </div>
 
     <% end %>

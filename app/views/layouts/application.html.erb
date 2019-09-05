@@ -15,6 +15,11 @@
   <body>
 
     <%= render 'shared/flashes' %>
+    <% if content_for :navbar %>
+      <%= yield(:navbar) %>
+    <% else %>
+      <%= render 'shared/navbar', light: false %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

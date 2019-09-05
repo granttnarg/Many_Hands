@@ -1,6 +1,7 @@
+<% light = false unless local_assigns.has_key? :light %>
 <div class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: transparent" >
   <%= link_to root_path, class: "navbar-brand-pages", style: "margin-bottom: -30px;" do %>
-   <p class ="logo-text"> mh</p>
+   <p class ="<%= light ? "logo-text-landing" : "logo-text" %>"> mh</p>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,25 +17,43 @@
 
         </form>
      </div>
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Log Out", destroy_user_session_path, class: "nav-link", style: "color: white", method: :delete %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "Log In", new_user_session_path, class: "nav-link", style: "color: white" %>
-      </li>
+     <% if current_user != nil %>
+        <% if current_user.has_notifications? %>
 
-      <% end %>
+          <%= link_to dashboard_path do %>
 
-      <li class="nav-item dropdown ml-4">
-      <%= link_to dashboard_path do %>
+            <div>
+              <i class="far fa-envelope blink"></i>
+            </div>
+
+          <% end  %>
+
+        <% else   %>
+      <% end  %>
+    <% end %>
+
+
+
+
+
+
+      <li class="nav-item dropdown ml-4" >
         <% if user_signed_in? %>
-        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar"%>
+        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false" %>
         <%else  %>
         <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        <% end  %>
+
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+             <%= link_to "Log Out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+           <% else %>
+             <%= link_to "Log In", new_user_session_path, class: "dropdown-item" %>
+
+           <% end %>
+        </div>
 
       </li>
 

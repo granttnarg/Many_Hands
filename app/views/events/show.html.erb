@@ -7,10 +7,7 @@
             <div class="button-pull-out">
               <i class="fas fa-angle-left"></i>
               <div class="more-info-banner">
-              <h6>I</h6>
-              <h6>n</h6>
-              <h6>f</h6>
-              <h6>o</h6>
+              <p><b>info</b></p>
               </div>
 
 
@@ -47,7 +44,7 @@
      <div class="wrapper">
           <% @event.spots.each do |spot|%>
 
-            <div class="show-card border-right border-top">
+            <div class="show-card">
 
               <div class=" text-center make-circle">
                 <% if spot.requests.where(status: "confirmed").present? %>
@@ -67,7 +64,7 @@
 
 
                     <%= link_to edit_spot_path(spot), class: "btn edit-spot" do  %>
-                      <i class="fa fa-edit"></i>
+                      <i class="fas fa-pen"></i>
                     <% end %>
 
                    <%= link_to "x", spot, class: "btn delete-spot", method: :delete, data: { confirm: "you sure?" } %>
@@ -92,13 +89,13 @@
                       <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg')">
 
                       </div>
-                        <h5 class="search-spot-button">search</h5>
+                        <h5 class="search-spot-button">Search</h5>
                     </div>
 
                     <% end %>
 
                     <%= link_to edit_spot_path(spot), class: "btn edit-spot" do  %>
-                      <i class="fa fa-edit"></i>
+                      <i class="fas fa-pen"></i>
                     <% end %>
 
                    <%= link_to "x", spot, class: "btn delete-spot", method: :delete, data: { confirm: "you sure?" } %>
@@ -118,12 +115,12 @@
               <div class="py-5">
                 <div class="spot-info">
                   <% if spot.requests.where(status: "confirmed").present? %>
-                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
-                    <p><strong><%= spot.requests.first.user.skill %></strong></p>
+                    <p class="category-spot"><strong><%= spot.category.upcase %> //</strong></p>
+                    <p><strong><%= spot.requests.first.user.skill.upcase %></strong></p>
                     <i><%= spot.description %></i>
 
                   <% else  %>
-                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p class="category-spot"><strong><%= spot.category.upcase.gsub(/_/, ' ') %> //</strong></p>
                     <p><strong><%= spot.role %></strong></p>
                     <i><%= spot.description %></i>
 
@@ -135,14 +132,14 @@
 
           <% end %>
 
-          <div class="show-card border-right border-top pt-5 ">
+          <div class="show-card">
 
-           <div class="each-spot-position pt-3 ">
+           <div class="each-spot-position pt-5 create-spot-icon">
 
                   <%= link_to new_event_spot_path(@event) do %>
 
                     <div class="create-spot">
-                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://image.flaticon.com/icons/svg/16/16909.svg')">
+                      <div class="each-spot text-left" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dqnhjr33l/image/upload/v1567611403/profile%20square/nrgxv9tx6mh6etgbxqvf.png')">
 
                       </div>
                         <h5 class="search-spot-button">Create</h5>
@@ -226,7 +223,7 @@
               <div class="py-5">
                 <div class="spot-info">
                   <% if spot.requests.where(status: "confirmed").present? %>
-                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p class=""><strong>// <%= spot.category.upcase %> //</strong></p>
                     <p><strong><%= spot.requests.first.user.skill %></strong></p>
                     <i><%= spot.description %></i>
 

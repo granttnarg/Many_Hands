@@ -24,5 +24,9 @@ class User < ApplicationRecord
   } # <-- now `superman batm` will return something!
 
   scope :creatives, -> { where(is_creative: true )}
+
+  def has_notifications?
+    events.includes(spots: :requests).where(spots: { requests: { status: 0 }}).present?
+  end
 end
 
