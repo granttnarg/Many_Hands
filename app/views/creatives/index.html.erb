@@ -2,11 +2,12 @@
 
 
 <div class="container" style="padding-top: 120px; width:1600px;">
-  
-  <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize %> creatives in your area</h1>
+
+  <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize.gsub(/_/, ' ') %> creatives in your area</h1>
+
   <br>
   <%= link_to "< Back to your event", event_path(@spot.event), class: "btn boton" %>
-  
+
   <%= simple_form_for(@spot) do |f| %>
   <div>
     <div  class="d-flex justify-content-start" style="max-width: 200px;">
@@ -21,10 +22,10 @@
   <% end %>
   </div>
 
-    
+
 
   <div class="text-center mb-4">
-    
+
     </div>
     <div><p>Showing <%= @users.count %> results</p></div>
   <div class="row" style="padding-top: 0px;">

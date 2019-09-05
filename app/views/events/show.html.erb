@@ -120,7 +120,7 @@
                     <i><%= spot.description %></i>
 
                   <% else  %>
-                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p class="category-spot"><strong><%= spot.category.upcase.gsub(/_/, ' ') %> //</strong></p>
                     <p><strong><%= spot.role %></strong></p>
                     <i><%= spot.description %></i>
 
@@ -223,7 +223,7 @@
               <div class="py-5">
                 <div class="spot-info">
                   <% if spot.requests.where(status: "confirmed").present? %>
-                    <p><strong>// <%= spot.category.upcase %> //</strong></p>
+                    <p class=""><strong>// <%= spot.category.upcase %> //</strong></p>
                     <p><strong><%= spot.requests.first.user.skill %></strong></p>
                     <i><%= spot.description %></i>
 

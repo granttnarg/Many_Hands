@@ -17,7 +17,24 @@
 
         </form>
      </div>
-     <i class="far fa-envelope"></i>
+     <% if current_user != nil %>
+        <% if current_user.has_notifications? %>
+
+          <%= link_to dashboard_path do %>
+
+            <div>
+              <i class="far fa-envelope blink"></i>
+            </div>
+
+          <% end  %>
+
+        <% else   %>
+      <% end  %>
+    <% end %>
+
+
+
+
 
 
       <li class="nav-item dropdown ml-4" >
