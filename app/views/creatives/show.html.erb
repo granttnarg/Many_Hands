@@ -100,7 +100,21 @@
 
     <div class="selected-images">
       <div class="sound-cloud">
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/72199688&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+        <% if @user.category == "performance" %>
+
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/wm98afryPf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+        <% elsif @user.category == "sound" %>
+
+          <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/323988661&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+        <% else %>
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/8t3XYNxnUBs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+        <% end %>
+
       </div>
 
       <div class="image-feed">
@@ -121,8 +135,8 @@
 
           <div class="flash" role="alert">
             <div class="d-flex">
-              <span><strong>THE BEST</strong> 🎉</span>
-              <span class="text-justify mr-3 ml-3">Never seen a visual artiist like it!</span>
+              <span><strong>Excellent</strong></span>
+              <span class="text-justify mr-3 ml-3">Great energy!!</span>
             </div>
 
             <div class="d-flex">
@@ -130,14 +144,14 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
             </div>
           </div>
 
           <div class="flash" role="alert">
             <div class="d-flex">
-              <span><strong>AVERAGE</strong> 🤔</span>
-              <span class="text-justify mr-3 ml-3">Don't get the hype..</span>
+              <span><strong>Good</strong></span>
+              <span class="text-justify mr-3 ml-3">Decent performance</span>
             </div>
 
               <div class="d-flex">
@@ -151,8 +165,8 @@
 
           <div class="flash" role="alert">
             <!-- <div class="d-flex"> -->
-              <span><strong>WOW</strong> 😱</span>
-              <span class="text-justify mr-3 ml-3">There's good, then there's Bill..</span>
+              <span><strong>Perfect</strong></span>
+              <span class="text-justify mr-3 ml-3">A pleasure.</span>
           <!--   </div> -->
               <div class="d-flex">
                 <i class="fas fa-star"></i>
