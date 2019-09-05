@@ -27,3 +27,20 @@
 // text-decoration: none;
 // background-color: transparent;
 // }
+
+
+// form .is-valid {
+// 	display: none;
+// }
+
+.form-control.is-valid.select.required {
+	background-image: none;
+	border: 1px solid #ced4da;
+	border-color: none;
+}
+
+.form-control.string.optional {
+	background-image: none;
+	border: 1px solid #ced4da;
+	
+}
