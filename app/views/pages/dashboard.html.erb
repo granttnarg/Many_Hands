@@ -13,8 +13,8 @@
           </div>
           <div class="your-self">
             <div class="profile-text">
-              <p class ="profile-text"><b>Name</b></p>      <span class ="user-info-1"><%= @user.first_name %><p class ="user-info-1-l"><%= @user.last_name  %></p></span>
-              <p class ="profile-text"><b>Location</b></p>  <p class ="user-info-2">  <%= @user.location %></p>
+              <p class ="profile-text"><b>Name</b></p>      <span class ="user-info-1"><%= @user.first_name.upcase %><p class ="user-info-1-l"><%= @user.last_name.upcase  %></p></span>
+              <p class ="profile-text"><b>Location</b></p>  <p class ="user-info-2">  <%= @user.location.upcase %></p>
 
             </div>
             <div class="social-media">
@@ -45,7 +45,7 @@
     <div class="row">
       <div id = "each-event" class="col-4">
         <%= link_to event_path(event) do %>
-        <div id="dash-card" style="height: 100%; background-image: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('<%= image_path event.photo %>');" >
+        <div id="dash-card" style="height: 93%; background-image: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('<%= image_path event.photo %>');" >
           <div class="spot-status">
             <% filled_spots = 0 %>
             <% event.spots.each do |spot| %>
@@ -53,6 +53,12 @@
           <% end %>
             <%= filled_spots %> / <%= event.spots.count %> spots filled
           </div>
+            <% if filled_spots == event.spots.count %>
+             <div id="trapezoid">
+              <span>Confirmed!</span>
+            </div>
+
+             <% end %>
         </div>
         <% end %>
 
@@ -66,33 +72,48 @@
       </div>
       <% if !event.spots.present? %>
         <div id="request-box" class ="col-8">
-          You have not created spots.
-          Please create spots.
+
+        <h4 class = "request-title">You have not created spots.
+          Please create spots.</h4>
         </div>
       <% else %>
-        <div id="request-box" class ="col-8">
-          <% @sorted_requests = [] %>
-          <% event.spots.each{|spot| spot.requests.each {|r| @sorted_requests << r}} %>
-          <% sorted = @sorted_requests.sort {|req1, req2| req2.created_at <=> req1.created_at} %>
-          <% sorted.each_with_index do |request, index| %>
+          <div id="request-box" class ="col-8">
+            <h4 class ="request-title">REQUESTS</h4>
+            <% @sorted_requests = [] %>
+            <% event.spots.each{|spot| spot.requests.each {|r| @sorted_requests << r}} %>
+            <div class="inbox">
+            <% if @sorted_requests.blank? %>
+              <h2 class ="no-request">You have No Request</h2>
+            <% else %>
 
+              <% sorted = @sorted_requests.sort {|req1, req2| req2.created_at <=> req1.created_at} %>
+              <% sorted.each_with_index do |request, index| %>
                  <div class="request-content">
                     <h5 class ="received-time"><%= request.created_at %></h5>
                    <!-- <p class ="request-text"> <%#= index + 1 %></p> <br> -->
                    <span class="image-circle"></span>
+
+                    <% if request.user.profile_photo? %>
+
                    <%= cl_image_tag request.user.profile_photo,crop: :fill, class: "avatar-message" %>
+                  <% else %>
+                    <%= image_tag"http://morrisinsurancegroup.com/wp-content/uploads/2018/01/blank-avatar.png", class: 'avatar-message' %>
+                  <% end %>
+
                    <div class="from-info">
                      <%= link_to "#{request.user.first_name}", spot_creative_path(request.spot, request.user)%>
-                    <%= request.status %>
-                    <%#  request.status: :confirmed ? %>
-                      <%#= request.status, class: 'status-purple' %>
+                    <%  if request.confirmed? %>
+                     <p class="status-green"><b><%= request.status %></b></p>
 
-                    <%# else %>
+                     <% elsif request.rejected? %>
+                     <p class ="status-red"><b><%= request.status %></b></p>
 
-                    <%#= request.status, class: 'status-yellow' %>
-                    <%# end %>
+                    <% else %>
+
+                    <p class="status-yellow"><b><%= request.status %></b></p>
+                    <% end %>
                    </div>
-                   <p class = "category"><%= request.spot.category %>
+                   <p class = "category"><%= request.spot.category.upcase %> //
                      <%= request.spot.role %>
                    </p>
                    <div class="contents">
@@ -101,16 +122,17 @@
                    <div class="confirm">
                      <%= simple_form_for [request.spot, request], url: spot_request_path(request.spot, request), html: { class: "status-form" } do |f| %>
                        <div class="request-status-box">
-                         <a href="#" class="button" data-value="confirmed"><i class="fas fa-check"></i></a>
-                         <a href="#" class="button" data-value="rejected"><i class="fas fa-times"></i></a>
+                         <a href="#" class="confirm-button-c" data-value="confirmed"><i class="fas fa-check"></i></a>
+                         <a href="#" class="confirm-button-r" data-value="rejected"><i class="fas fa-times"></i></a>
                          <%= f.input :status, as: :hidden, input_html: { class: 'status-input' } %>
                          <%= f.submit :submit, class: "submit d-none" %>
                        </div>
                      <% end %>
                    </div>
                  </div>
-
-          <% end %>
+                <% end %>
+              <% end %>
+          </div>
         </div>
       <% end %>
     </div>
