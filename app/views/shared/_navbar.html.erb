@@ -1,7 +1,8 @@
 <% light = false unless local_assigns.has_key? :light %>
 <div class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: transparent" >
   <%= link_to root_path, class: "navbar-brand-pages", style: "margin-bottom: -30px;" do %>
-   <p class ="<%= light ? "logo-text-landing" : "logo-text" %>"> mh</p>
+<img src="<%= asset_path('logo.png') %>" alt="logo" class = "logo-mh">
+<!--    <p class ="<%#= light ? "logo-text-landing" : "logo-text" %>"> mh</p> -->
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
