@@ -14,6 +14,7 @@
 .field:first-child {
   border-top: none;
 }
+
 input[type="checkbox"] {
   display: none;
 }
@@ -39,7 +40,7 @@ input[type="checkbox"] {
   display: block;
   float: right;
 }
- 
+
 .check-round label span {
   border-radius: 16px;
   height: 32px;
@@ -77,8 +78,8 @@ input[type="checkbox"] {
 .check-round.slide-inverse input:checked + label span:before {
   background: #2ecc71;
 }
- 
- 
+
+
 .check-square label span {
   height: 32px;
   width: 64px;
@@ -94,8 +95,8 @@ input[type="checkbox"] {
   width: 50%;
   left: 0px;
 }
- 
- 
+
+
 .check-square.slide-top label span {
   background: #e74c3c;
   transition: background 0.4s ease-in;
@@ -114,8 +115,8 @@ input[type="checkbox"] {
 .check-square.slide-top input:checked + label span {
   background: #2ecc71;
 }
- 
- 
+
+
 .check-square.flip-top label {
   perspective: 250px;
 }

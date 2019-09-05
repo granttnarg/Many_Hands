@@ -336,14 +336,14 @@ height: 330px;
   height: 120px;
 }
 .category {
-  color: #ff3f00;
-  width: 17%;
+  color: black;
+  width: 120px;
   position: absolute;
-  left: 236px;
+  left: 207px;
   text-align: center;
   font-size: 13px;
   position: absolute;
-  top: 36px;
+  top: 32px;
 }
 .spot-pending, .spot-confirmed {
   display: flex;
@@ -361,11 +361,8 @@ height: 330px;
 
 .request-content {
   display: flex;
-
   align-items: center;
-
-  background-color: lightgrey;
-
+  background-color: #f8f8f8;
   width: 698px;
 
   padding-left: 15px;
@@ -486,7 +483,7 @@ text-align: center;
   border-radius: 50%;
   width: 55px;
   height: 55px;
-  border: solid 3px white;
+  border: solid 3px black;
 }
 
 .inner-circle {
@@ -516,12 +513,16 @@ text-align: center;
   text-align: center;
   font-size: 14px;
   position: absolute;
-  bottom: -29px;
-  left: 86px;
+  left: 76px;
+  top: -19px;
+  color: black;
 }
 .request-status-box {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: -44px;
+  right: -1px;
 }
 
 hr {
@@ -700,7 +701,7 @@ text-align: center;
 }
 
 .received-time {
-  color: white;
+  color: grey;
 
   font-size: 8px;
 
@@ -708,17 +709,17 @@ text-align: center;
 
   position: absolute;
 
-  top: 86px;
+  top: 9px;
 
-  left: 20px;
+  left: 14px;
 }
 
 .status-green {
-  color: #4cb963;
+  color: #006A39;
 }
 
 .status-yellow {
-  color: yellow;
+  color: #FDC70F;
 
 }
 
@@ -735,7 +736,7 @@ text-align: center;
 }
 
 .confirm-button-c:hover {
-  color: #4cb963 !important;
+  color: #006A39 !important;
 }
 
 .request-title {
@@ -781,10 +782,15 @@ text-align: center;
   }
 
   &::after{
+
     bottom: 25px;
     right: 0;
   }
 
 }
 
+.request-user-link {
+  text-decoration: bold;
+  color: $charcoal;
+}
 
