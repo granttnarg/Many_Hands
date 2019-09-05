@@ -29,3 +29,4 @@ class User < ApplicationRecord
     events.includes(spots: :requests).where(spots: { requests: { status: 0 }}).present?
   end
 end
+

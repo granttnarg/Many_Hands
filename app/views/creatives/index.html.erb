@@ -1,26 +1,24 @@
 <%= render 'shared/navbar' %>
 
-
 <div class="container" style="padding-top: 120px;">
   
   <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize.gsub(/_/, ' ') %> creatives results</h1>
   <br>
+
   
     <%= simple_form_for(@spot) do |f| %>
   <div class="d-flex">
-      <%= f.input :category, wrapper_html: { class: "d-flex nombre", style: "width: 330px;" }, abbr_html: { class: "d-flex" } , label_html: { class: "d-flex mr-3"}, collection: Spot.categories.keys %>
-      <%= f.input :role, wrapper_html: { class: " d-flex nombre mr-3 ml-3", style: "width: 580px" }, label_html: { class: "mr-3 "}%>
-      <div class= "ml-1 mr-1" style="width: 235px; position: relative; top: 3px; color:black"><p class="nombre">By Event Location</p></div>
-       <label class="field check-round slide mr-3">
+    <%= f.input :category, wrapper_html: { class: "d-flex nombre", style: "width: 330px;" }, abbr_html: { class: "d-flex" } , label_html: { class: "d-flex mr-3"}, collection: Spot.categories.keys %>
+    <%= f.input :role, wrapper_html: { class: " d-flex nombre mr-3 ml-3", style: "width: 580px" }, label_html: { class: "mr-3 "}%>
+    <div class= "ml-1 mr-1" style="width: 235px; position: relative; top: 3px; color:black"><p class="nombre">By Event Location</p></div>
+     <label class="field check-round slide mr-3">
+        <input type="checkbox" name="check-slide" id="check-slide" />
+        <label for="check-slide"><span></span></label>
+      </label>
+    <%= f.submit "Search", class: "d-flex btn boton", style: "height: 40px;" %>
+  <% end %>
+  </div>
 
-          <input type="checkbox" name="check-slide" id="check-slide" />
-
-          <label for="check-slide"><span></span></label>
-        </label>
-      <%= f.submit "Search", class: "d-flex btn boton", style: "height: 40px;" %>
-    <% end %>
-    </div>
-  
 
   <div class="text-center mb-4">
     

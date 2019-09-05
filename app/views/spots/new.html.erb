@@ -22,12 +22,14 @@
 			<input class="form-check-input radio_buttons required" type="radio" value="performance" name="spot[category]" id="spot_category_performance" style="display:none;">
 			<label class="collection_radio_buttons category-choice" for="spot_category_performance">Performance</label>
 		</div>
-		<div class="form-check form-check-inline">
-			<input class="form-check-input radio_buttons required" type="radio" value="helping_hand" name="spot[category]" id="spot_category_helping_hand" style="display:none;">
-			<label class="collection_radio_buttons category-choice" for="spot_category_helping_hand">A Helping Hand</label>
-		</div>
-	</div>
+      <div class="form-check form-check-inline">
+			 <input class="form-check-input radio_buttons required" type="radio" value="helping_hand" name="spot[category]" id="spot_category_helping_hand" style="display:none;">
+			 <label class="collection_radio_buttons category-choice" for="spot_category_helping_hand">A Helping Hand*</label>
+
+		  </div>
+  </div>
   	</fieldset>
+      <p> *A Helping Hand is someone without a creative skill who would like to be involved in your event in some other way.</p>
 
   <%= f.input :role, label_html: { class: "nombre"}, input_html: { value: params[:role] } %>
 
