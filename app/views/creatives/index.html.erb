@@ -1,6 +1,5 @@
 <%= render 'shared/navbar' %>
 
-
 <div class="container" style="padding-top: 120px;">
   
   <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize.gsub(/_/, ' ') %> creatives results</h1>
@@ -38,7 +37,7 @@
   </form>
 
   <div class="text-center mb-4">
-    
+
     </div>
     <div class="text-center" style="font-size: 18px;"><p>Showing <%= @users.count %> results</p></div>
     <%= link_to "< Back to event", event_path(@spot.event), class: "btn boton" %>

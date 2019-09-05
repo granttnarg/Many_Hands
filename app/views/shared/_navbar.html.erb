@@ -17,6 +17,24 @@
 
         </form>
      </div>
+     <% if current_user != nil %>
+        <% if current_user.has_notifications? %>
+
+          <%= link_to dashboard_path do %>
+
+            <div>
+              <i class="far fa-envelope blink"></i>
+            </div>
+
+          <% end  %>
+
+        <% else   %>
+      <% end  %>
+    <% end %>
+
+
+
+
 
 
       <li class="nav-item dropdown ml-4" >
@@ -25,6 +43,7 @@
         <%else  %>
         <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
+
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>

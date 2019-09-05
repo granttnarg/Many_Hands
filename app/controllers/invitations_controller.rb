@@ -3,6 +3,7 @@ class InvitationsController < ApplicationController
   def new
     @invitation = Invitation.new
     @spot = Spot.find(params[:spot_id])
+    @creative = User.find(params[:creative_id])
     authorize @invitation
   end
 
