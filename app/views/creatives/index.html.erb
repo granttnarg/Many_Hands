@@ -1,12 +1,8 @@
 <%= render 'shared/navbar' %>
-
-
 <div class="container" style="padding-top: 120px;">
   
   <h1 class="text-center" style="color: black;"><%= @spot.category.capitalize.gsub(/_/, ' ') %> creatives in your area</h1>
   <br>
-  
-
   <form class="simple_form edit_spot mt-5" id="edit_spot_65" novalidate="novalidate" action="/spots/65" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="lvizWn7m3xosoeg3eiJsFukmU8JnbPhE4Lron7zuH2tsc0AAQcQlyvpxMLdF8g5fHii6zBKL70Uao1gsM0QosA==">
     <div class="d-flex">
       <div class="justify-content-start" style="width: 280px;">
@@ -38,7 +34,7 @@
   </form>
 
   <div class="text-center mb-4">
-    
+
     </div>
     <div class="text-center" style="font-size: 18px;"><p>Showing <%= @users.count %> results</p></div>
     <%= link_to "< Back to event", event_path(@spot.event), class: "btn boton" %>
