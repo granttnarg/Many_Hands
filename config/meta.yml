@@ -1,0 +1,5 @@
+meta_product_name: "Many Hands"
+meta_title: "Many Hands - Discovering Creatives"
+meta_description: "Make your events unique by discovering creatives from within your local community"
+meta_image: "many_hands_page.png" # should exist in `app/assets/images/`
+twitter_account: "@many_hands_live"   # required for Twitter Cards
