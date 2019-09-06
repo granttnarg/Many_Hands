@@ -16,6 +16,7 @@
     position:relative;
     display:flex;
     background-color: white;
+    background-size: cover;
   }
 
 .circle-avatar {
@@ -23,7 +24,6 @@
   border-radius: 50%;
   height: 130px;
   width: 130px;
-  background-size: cover;
   background-position: center;
   position: absolute;
   left: 300px;
@@ -33,6 +33,7 @@
   z-index: 1000;
   top: 12px;
   left: 25px;
+  object-fit: cover;
 }
 
 
@@ -484,6 +485,7 @@ text-align: center;
   width: 55px;
   height: 55px;
   border: solid 3px black;
+  object-fit: cover;
 }
 
 .inner-circle {
