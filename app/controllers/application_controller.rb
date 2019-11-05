@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       events_path
     else
 # later change the path for organizer to see the user index.
-      events_path
+      dashboard_path
     end
   end
 

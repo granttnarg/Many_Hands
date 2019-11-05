@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require "date"
 puts "deleting db"
 Spot.delete_all if Rails.env.development?
 
@@ -21,7 +21,7 @@ user_one = User.new(username: "petey123", first_name: "Pete", last_name: "Peters
 user_one.remote_coverphoto_url = cover_photo_one
 user_one.remote_profile_photo_url = profile_photo_one
 
-event_one = Event.new(name: "Big Fun")
+event_one = Event.new(name: "Big Fun", start_date: Date.today, end_date: Date.today + 1, start_time: Time.now, end_time: Time.now + 1)
 event_one.user = user_one
 event_one.remote_photo_url = event_photo_one
 user_one.save!
@@ -45,7 +45,7 @@ user_two.remote_coverphoto_url = cover_photo_two
 user_two.remote_profile_photo_url = profile_photo_two
 
 
-event_two = Event.new(name: "The Big Band Night")
+event_two = Event.new(name: "The Big Band Night", start_date: Date.today, end_date: Date.today + 1, start_time: Time.now, end_time: Time.now + 1)
 event_two.user = user_two
 event_two.remote_photo_url = event_photo_two
 
@@ -95,7 +95,7 @@ puts "created Tommy"
 user_five = User.new(username: "billy123", first_name: "Bill", last_name: "Billy-Bob", bio: "Digital and CGI artist who specialising in projections and installations at events", location: "East Berlin", looking_for: "Musicians and musical events to collaborate with", email: "bill@example.com", password: "123456", is_creative: true, skill: "digital artist", style: "installation/projection", category: 1)
 
 
-profile_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567069636/pqpaeze6hjel2nhtgh9f.jpg"
+profile_photo_five = "https://res.cloudinary.com/dpxibu6l4/image/upload/v1566569539/v6zbif3dgjnwpxozha8t.png"
 cover_photo_five = "https://res.cloudinary.com/dqnhjr33l/image/upload/v1567057906/680w_x395h_c-reduced_JLS_jsegvb.jpg"
 
 
