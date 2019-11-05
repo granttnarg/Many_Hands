@@ -6,15 +6,31 @@
       <div class="first-row-box">
         <div class="upper-left-box">
           <div class ="cover-avatar">
-            <%= cl_image_tag @user.profile_photo, crop: :fill, class: "circle-avatar" %>
+            <% if current_user.profile_photo.file != nil %>
+              <%= cl_image_tag @user.profile_photo, crop: :fill, class: "circle-avatar" %>
+            <% else %>
+              <%= cl_image_tag 'https://res.cloudinary.com/dpxibu6l4/image/upload/v1566571982/lsgt92afseyw4kszbh1f.png', crop: :fill, class: "circle-avatar" %>
+            <% end %>
+
             <div class="cover-photo">
-              <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill, class: "cover-photo" %>
+              <div id="edit-profile">
+                <%= link_to edit_profile_path(current_user), class: "btn edit-spot" do  %>
+                <p>edit profile info</p>
+              </div>
+              <% end %>
+              <% if current_user.coverphoto.file != nil %>
+                <%= cl_image_tag @user.coverphoto, height: 150, width: 500, crop: :fill, class: "cover-photo" %>
+              <% else %>
+                <%= cl_image_tag "https://res.cloudinary.com/dpxibu6l4/image/upload/v1572974880/oscar-keys-ojVMh1QTVGY-unsplash_lqsop5.jpg", height: 150, width: 500, crop: :fill, class: "cover-photo" %>
+              <% end %>
             </div>
+
           </div>
           <div class="your-self">
             <div class="profile-text">
-              <p class ="profile-text"><b>Name</b></p>      <span class ="user-info-1"><%= @user.first_name.upcase %><p class ="user-info-1-l"><%= @user.last_name.upcase  %></p></span>
-              <p class ="profile-text"><b>Location</b></p>  <p class ="user-info-2">  <%= @user.location.upcase %></p>
+              <p class ="profile-text"><b>Name</b></p>      <span class ="user-info-1"><%= @user.first_name %><p class ="user-info-1-l">
+                <%= @user.last_name  %></p></span>
+              <p class ="profile-text"><b>Location</b></p>  <p class ="user-info-2">  <%= @user.location %></p>
 
             </div>
             <div class="social-media">
@@ -40,6 +56,11 @@
     </div>
 
 
+<% if !@events.exists?  %>
+  <div class="each-event-empty" >
+    <p>You have no current events...</p>
+    </div>
+<% end %>
     <% @events.each do |event|  %>
 
     <div class="row">
@@ -140,6 +161,7 @@
     </div>
   <% end %>
 </div>
+
 
 
 
