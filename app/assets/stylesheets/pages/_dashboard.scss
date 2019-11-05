@@ -44,6 +44,7 @@
   position: absolute;
   left: 47px;
   top: 7px;
+  object-fit: cover;
 }
 .notification-text {
   color: grey;
@@ -103,6 +104,13 @@
   top: 4px;
   width: 18px;
 }
+
+#edit-profile {
+    position: absolute;
+    top: 193px;
+    right: 194px;
+  }
+
 .round label:after {
   border: 2px solid #c0c0be;
   border-top: none;
@@ -289,6 +297,20 @@ background-color: white;
 padding-left: 30px;
 
 height: 400px;
+
+padding-top: 22px;
+}
+
+.each-event-empty {
+position: relative;
+
+text-align: center;
+
+background-color: white;
+
+padding-left: 30px;
+
+height: 150px;
 
 padding-top: 22px;
 }

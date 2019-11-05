@@ -40,9 +40,15 @@
 
       <li class="nav-item dropdown ml-4" >
         <% if user_signed_in? %>
-        <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false" %>
+
+          <% if current_user.profile_photo.file == nil %>
+            <%= image_tag "https://res.cloudinary.com/dpxibu6l4/image/upload/v1566571982/lsgt92afseyw4kszbh1f.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+            <%= cl_image_tag current_user.profile_photo, height: 45, crop: :fill, class: "avatar", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false" %>
+
+          <% end %>
         <%else  %>
-        <%= image_tag "http://indiedeveloper.com/wp-content/themes/sweetdate-child/avatar-blank.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://res.cloudinary.com/dpxibu6l4/image/upload/v1566571982/lsgt92afseyw4kszbh1f.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
 
 
